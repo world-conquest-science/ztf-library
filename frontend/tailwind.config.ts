@@ -1,0 +1,71 @@
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: {
+          base: 'var(--background)',
+          50: '#f9f8f5',
+          100: '#fef4e6',
+          200: '#fddeb5',
+          300: '#fbc883',
+          400: '#fab252',
+          500: '#f89c21',
+          600: '#de8307',
+          700: '#ad6605',
+          800: '#7c4904',
+          900: '#4a2c02',
+          dark: '#190f01',
+        },
+        foreground: 'var(--foreground)',
+        primary: {
+          base: 'var(--primary)',
+          100: '#e8f3fd',
+          200: '#b9daf8',
+          300: '#8bc1f4',
+          400: '#5ca8ef',
+          500: '#2e8feb',
+          600: '#1475d1',
+          700: '#105ba3',
+          800: '#0b4174',
+          900: '#072746',
+          dark: '#020d17',
+        },
+        secondary: {
+          base: 'var(--secondary)',
+          100: '#eafaf5',
+          200: '#c0f1e1',
+          300: '#97e8cd',
+          400: '#6ddeb9',
+          500: '#43d5a5',
+          600: '#2abc8c',
+          700: '#21926d',
+          800: '#17684e',
+          900: '#0e3f2f',
+          dark: '#051510',
+        },
+        accent: {
+          base: 'var(--accent)',
+          100: '#fef4e6',
+          200: '#fddeb5',
+          300: '#fbc883',
+          400: '#fab252',
+          500: '#f89c21',
+          600: '#de8307',
+          700: '#ad6605',
+          800: '#7c4904',
+          900: '#4a2c02',
+          dark: '#190f01',
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+export default config

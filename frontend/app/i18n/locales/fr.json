@@ -1,0 +1,241 @@
+{
+  "Global": {
+    "order-now": "Order this book",
+    "by": "by",
+    "from": "from",
+    "show-all": "Show all",
+    "quote-from": "Quote from",
+    "popular-series": "Popular series",
+    "browse-all": "Browse all",
+    "from-the-same-serie": "From the same serie",
+    "format": "format",
+    "available": "available",
+    "add-to-cart": "Add to cart",
+    "add-to-wishlist": "Add to wishlist",
+    "listen-to-this-book": "Listen to this book",
+    "get-the-ebook-version": "Get the ebook version",
+    "description": "Description",
+    "details": "Details",
+    "price": "Price:",
+    "books-count": "{count} books",
+    "publisher": "Publisher:",
+    "publish-date": "Publish date:",
+    "cover": "Cover:",
+    "pages": "Pages:",
+    "language": "Language:",
+    "dimensions": "Dimensions:",
+    "types": "Types:",
+    "isbn": "ISBN:",
+    "about-the-author": "About the author",
+    "last-orders": "Your last orders",
+    "ordered-at": "Order placed",
+    "dispatch-to": "Dispatch to",
+    "order": "Order",
+    "view-order-details": "View order details",
+    "download-invoice": "Download invoice",
+    "buy-again": "Buy it again",
+    "view-book": "View book",
+    "track-order": "Track order",
+    "total": "Total",
+    "remove": "Remove",
+    "userForm": {
+      "fullName": {
+        "label": "Full name",
+        "update-caution": ""
+      },
+      "email": {
+        "label": "Email address",
+        "update-caution": ""
+      },
+      "phone-number": {
+        "label": "Phone number",
+        "update-caution": ""
+      },
+      "password": {
+        "label": "Password",
+        "update-caution": ""
+      },
+      "address": {
+        "name": {
+          "placeholder": "Name your address"
+        },
+        "street": {
+          "label": "Street name and house number",
+          "placeholder": ""
+        },
+        "city": {
+          "label": "City",
+          "placeholder": ""
+        },
+        "postal-code": {
+          "label": "Postal code",
+          "placeholder": ""
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select country"
+        },
+        "create": {
+          "label": "Add a new address"
+        }
+      }
+    },
+    "credit-card": {
+      "create": "Add a new credit card",
+      "number": "Card number",
+      "name": "Name on card",
+      "date": "Expiration date (MM/YY)",
+      "cvv": "CVV",
+      "set-as-default": "Set as default",
+      "default": "Default credit card",
+      "delete": "Delete",
+      "ending-with": "{type} ending with {last4}"
+    },
+    "selected": "Selected",
+    "switch-language": "Switch language"
+  },
+
+  "Header": {
+    "UserNavigation": {
+      "orders": "Orders",
+      "wishlist": "Wishlist",
+      "cart": "Cart",
+      "account-settings": "Account settings",
+      "addresses": "Addresses",
+      "payment-methods": "Payment methods",
+      "sign-out": "Sign out"
+    },
+    "SearchBar": {
+      "placeholder": "Search books, categories or topics"
+    },
+    "AppNavigation": {
+      "best-sellers": "Best sellers",
+      "the-christian-way": "The christian way",
+      "god-loves-you": "God loves you",
+      "god-sex-and-you": "God, sex and you",
+      "to-overcame": "To overcame",
+      "from-his-lips": "From His Lips",
+      "categories": "All categories",
+      "special-offers": "Special offers"
+    }
+  },
+
+  "Footer": {
+    "best-sellers": "Best sellers",
+    "special-offers": "Special offers",
+    "all-categories": "All categories",
+    "the-author": "About the author",
+    "contact-us": "Contact us",
+    "privacy-policy": "Privacy policy",
+    "terms-and-conditions": "Terms and conditions",
+    "cookies": "Cookies",
+    "back-to-top": "Back to top",
+    "switch-language": "Passer à la version en Français",
+    "copyright-suffix": "{year} ZTF Library, a CMFI company",
+    "all-right-reserved": "All right reserved"
+  },
+
+  "AccountSettings": {
+    "title": "Account settings",
+    "breadcrumb": "Account",
+    "wishlist": {
+      "title": "Wishlist",
+      "breadcrumb": "Wishlist",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore facere in dolor esse ipsam possimus amet tempore consequatur, nam voluptatum nisi animi molestiae nulla."
+    },
+    "orders": {
+      "title": "Orders",
+      "breadcrumb": "Your orders",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore facere in dolor esse ipsam possimus amet tempore consequatur, nam voluptatum nisi animi molestiae nulla."
+    },
+    "login-and-security": {
+      "title": "Login and security",
+      "breadcrumb": "Login and security",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore facere in dolor esse ipsam possimus amet tempore consequatur, nam voluptatum nisi animi molestiae nulla."
+    },
+    "addresses": {
+      "title": "Addresses",
+      "breadcrumb": "Addresses",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore facere in dolor esse ipsam possimus amet tempore consequatur, nam voluptatum nisi animi molestiae nulla."
+    },
+    "payment-methods": {
+      "title": "Payment methods",
+      "breadcrumb": "Payment methods",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore facere in dolor esse ipsam possimus amet tempore consequatur, nam voluptatum nisi animi molestiae nulla."
+    }
+  },
+
+  "Authentication": {
+    "back-to-homepage": "Back to shopping",
+    "headline": "Find here the right christian book for your spiritual growth.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima expedita ex delectus.",
+    "ResetPassword": {
+      "title": "Set new password",
+      "description": "Create a strong new password to protect your account.",
+      "cta": "Reset password",
+      "form": {
+        "new-password": {
+          "label": "New password"
+        },
+        "new-password-confirmation": {
+          "label": "New password confirmation"
+        }
+      }
+    },
+    "VerifyCode": {
+      "title": "Fill in the reset code",
+      "description": "Enter the code you just received by email or SMS.",
+      "back": "Change reset method",
+      "resend-code-prefix": "Did'nt get the code ? ",
+      "resend-code": "Resend code",
+      "cta": "Verify account",
+      "cancel": "Cancel"
+    },
+    "ForgotPassword": {
+      "title": "Forgot your password?",
+      "description": "Pick a method to reset your password!",
+      "cta": "Send code",
+      "cancel": "Cancel",
+      "reset-via": {
+        "email": {
+          "label": "Reset via email",
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident consequatur."
+        },
+        "sms": {
+          "label": "Reset via SMS",
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident consequatur."
+        }
+      }
+    },
+    "SignIn": {
+      "title": "Welcome back",
+      "description": "Sign in to your account to get some amazing books!",
+      "forgot-password": "Forgot password?",
+      "continue-with-email-password": "or continue with email and password",
+      "cta": "Sign In",
+      "create-account-prefix": "Need to create an account?",
+      "create-account": "Need to create an account?"
+    },
+    "SignUp": {
+      "title": "Create your account",
+      "description": "Sign up now and get some amazing books!",
+      "register-using": "Register using",
+      "continue-using-email-password": "or continue with email and password",
+      "terms-conditions-acceptance": "By clicking on &quot;Create account&quot; I aggree to the <a href='' className='text-primary-600 underline'>terms and conditions</a> that I read.",
+      "cta": "Create account",
+      "existing-account-prefix": "Already have an account?",
+      "existing-account-signin": "Sign In here"
+    }
+  },
+
+  "Routes": {
+    "Breadcrumb": {
+      "account": "Account",
+      "your-orders": "Orders",
+      "wishlist": "Wishlist",
+      "security": "Login and security",
+      "addresses": "Addreses",
+      "payment-methods": "Payment methods"
+    }
+  }
+}

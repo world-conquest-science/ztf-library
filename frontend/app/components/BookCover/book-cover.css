@@ -1,0 +1,109 @@
+.book-wrapper {
+  --width: 350px;
+  --height: 525px;
+  --pages-width: 50px;
+}
+.book-wrapper.normal {
+  --width: 265px;
+  --height: 375px;
+}
+.book-wrapper.small {
+  --width: 190px;
+  --height: 265px;
+}
+
+/* Book shadow agains bookshelf wall */
+.book-wrapper {
+  box-shadow:
+    calc(var(--height) / 6) 20px 120px -100px rgba(0, 0, 0, 0.1),
+    calc(var(--height) / 4) 80px 100px -80px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  position: relative;
+  transform: translateY(calc(-1 * 30px / 2));
+  z-index: 2;
+}
+
+/* Book shadow on the shelf at bottom */
+.book-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border: 30px solid rgba(0, 0, 0, 0.15);
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  right: -30px;
+  bottom: 15px;
+  transform: rotate(-45deg);
+  filter: blur(1px);
+  z-index: 0;
+}
+
+/* Front view - the cover picture is setup in the component */
+.cover {
+  width: var(--width);
+  height: var(--height);
+
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  border-radius: 8px;
+  position: relative;
+  perspective: 750px;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+/* Side view should look like pages on the right of a book */
+.cover::before {
+  cursor: pointer;
+  position: absolute;
+  content: ' ';
+  background: repeating-linear-gradient(
+    to right,
+    #fff 0 10px,
+    #ededed 10px 15px
+  );
+  height: var(--height);
+  width: var(--pages-width);
+  transform: translateX(calc(var(--width) - 20px)) rotateY(65deg) scaleY(0.94);
+  border-radius: 0 3px 3px 0;
+}
+/* Back view of the cover */
+.cover::after {
+  cursor: pointer;
+  content: ' ';
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: var(--height);
+  background: linear-gradient(to bottom, transparent 0 30%, #686868);
+  transform: translateX(calc(var(--width) + 10px)) scaleY(0.91);
+  border-radius: 0 3px 3px 0;
+}
+
+/* Customization for small views */
+.book-wrapper.normal .cover::before {
+  transform: translateX(calc(var(--width) - 20px)) rotateY(70deg) scaleY(0.93);
+}
+.book-wrapper.small .cover::before {
+  transform: translateX(calc(var(--width) - 20px)) rotateY(70deg) scaleY(0.93);
+}
+.book-wrapper.normal .cover::after {
+  transform: translateX(calc(var(--width) + 9px)) scaleY(0.905);
+}
+.book-wrapper.small .cover::after {
+  background: linear-gradient(to bottom, #cfcfcf 0 20%, #686868);
+  transform: translateX(calc(var(--width) + 9px)) scaleY(0.905);
+}
+.book-wrapper.normal {
+  box-shadow:
+    calc(var(--height) / 6) 20px 120px -100px rgba(0, 0, 0, 0.1),
+    calc(var(--height) / 4) 70px 110px -90px rgba(0, 0, 0, 0.7);
+}
+.book-wrapper.small {
+  box-shadow: calc(var(--height) / 6) 0 50px -30px rgba(0, 0, 0, 0.35);
+}

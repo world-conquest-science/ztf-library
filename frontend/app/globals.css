@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f0ede2;
+  --foreground: #171717;
+
+  --primary: #0d4c88;
+  --secondary: #29b889;
+  --accent: #f89d22;
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+body {
+  color: var(--foreground);
+  background: #fff;
+  font-family: var(--font-primary);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.1cap;
+}
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+@layer utilities {
+}
