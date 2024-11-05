@@ -1,0 +1,14 @@
+delete from product_category;
+delete from product_option;
+delete from product_product_bookmodule_book;
+delete from product_variant;
+delete from book;
+delete from bookmodule_book_authormodule_author;
+delete from bookmodule_book_languagemodule_language;
+delete from product_product_bookmodule_book;
+delete from product_sales_channel;
+delete from product_variant_inventory_item;
+delete from product_variant_price_set;
+delete from product;
+delete from inventory_item;
+delete from inventory_level;
