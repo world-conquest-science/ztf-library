@@ -1,0 +1,17 @@
+{
+  "name": "@ztf-library/code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --recursive run dev",
+    "build": "pnpm --recursive run build",
+    "start": "pnpm --recursive run start",
+    "pretty": "pnpm --recursive run pretty",
+    "db:migrate": "pnpm --filter @ztf-library/backend run db:migrate",
+    "db:sync-links": "pnpm --filter @ztf-library/backend run db:sync-links"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
