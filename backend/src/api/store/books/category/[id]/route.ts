@@ -22,7 +22,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       'categories.handle',
       'categories.id',
       'categories.name',
-      'categories.rank',
       'description',
       'handle',
       'id',
@@ -34,8 +33,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       'variants.title',
     ],
     filters: {
-      id: req.query.productId as string,
       deleted_at: null,
+      categories: { id: req.params.id as string },
     },
     pagination: {
       skip: offset,
