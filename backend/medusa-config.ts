@@ -17,5 +17,6 @@ module.exports = defineConfig({
     { resolve: './src/modules/book' },
     { resolve: './src/modules/author' },
     { resolve: './src/modules/language' },
+    { resolve: './src/modules/quote' },
   ],
 })

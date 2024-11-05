@@ -149,31 +149,30 @@ const AuthorsPage = () => {
         {!isLoading && authors.length === 0 && <EmptyState />}
 
         <div className="flex h-full flex-col overflow-hidden !border-t-0 divide-y">
-          {authors.length > 0 &&
-            authors.map(author => (
-              <div key={author.id} className="py-2 px-5 flex items-center justify-between">
-                <div className="inline-flex items-center">
-                  <span className="py-1 inline-flex mr-3">
-                    <img
-                      src={author.photoUrl}
-                      className="inline-flex h-12 w-12 object-cover rounded-full overflow-hidden"
-                    />
-                  </span>
-                  <div>
-                    <span className="font-medium">{author.name}</span>
-                    <p className="text-gray-500 text-sm">{author.about}</p>
-                  </div>
-                </div>
-                <div className="inline-flex gap-5">
-                  <IconButton onClick={() => onRemoveClick(author)}>
-                    <Trash />
-                  </IconButton>
-                  <IconButton onClick={() => onEditClick(author)}>
-                    <Pencil />
-                  </IconButton>
+          {authors.map(author => (
+            <div key={author.id} className="py-2 px-5 flex items-center justify-between">
+              <div className="inline-flex items-center">
+                <span className="py-1 inline-flex mr-3">
+                  <img
+                    src={author.photoUrl}
+                    className="inline-flex h-12 w-12 object-cover rounded-full overflow-hidden"
+                  />
+                </span>
+                <div>
+                  <span className="font-medium">{author.name}</span>
+                  <p className="text-gray-500 text-sm">{author.about}</p>
                 </div>
               </div>
-            ))}
+              <div className="inline-flex gap-5">
+                <IconButton onClick={() => onRemoveClick(author)}>
+                  <Trash />
+                </IconButton>
+                <IconButton onClick={() => onEditClick(author)}>
+                  <Pencil />
+                </IconButton>
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </div>

@@ -116,22 +116,21 @@ const LanguagesPage = () => {
         {!isLoading && languages.length === 0 && <EmptyState />}
 
         <div className="flex h-full flex-col overflow-hidden !border-t-0 divide-y">
-          {languages.length > 0 &&
-            languages.map(language => (
-              <div key={language.id} className="py-2 px-5 flex items-center justify-between">
-                <div className="inline-flex items-center">
-                  <span className="font-medium">{language.code}</span>
-                </div>
-                <div className="inline-flex gap-5">
-                  <IconButton onClick={() => onRemoveClick(language)}>
-                    <Trash />
-                  </IconButton>
-                  <IconButton onClick={() => onEditClick(language)}>
-                    <Pencil />
-                  </IconButton>
-                </div>
+          {languages.map(language => (
+            <div key={language.id} className="py-2 px-5 flex items-center justify-between">
+              <div className="inline-flex items-center">
+                <span className="font-medium">{language.code}</span>
               </div>
-            ))}
+              <div className="inline-flex gap-5">
+                <IconButton onClick={() => onRemoveClick(language)}>
+                  <Trash />
+                </IconButton>
+                <IconButton onClick={() => onEditClick(language)}>
+                  <Pencil />
+                </IconButton>
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </div>

@@ -24,6 +24,15 @@ export const getBookByProductId = async (productId: string) => {
   >
 }
 
+export const getAllBooks = async () => {
+  return (await fetch(BOOK.GET_ALL_BOOKS, {
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(res => res.json())) as TApiDataReponse<Partial<TBook & { title: string }>>
+}
+
 export const createBook = async (data: TBookInput, additionnal_data: TBookAdditionnalData) => {
   return (await fetch(BOOK.CREATE_BOOK, {
     credentials: 'include',
