@@ -1,9 +1,9 @@
 'use client'
 
+import React from 'react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { useTranslations } from 'use-intl'
 
 const BookItem = () => {
   return (
