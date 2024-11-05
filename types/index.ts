@@ -23,6 +23,8 @@ export type TCategory = {
   slug: string;
   title: string;
   description: string;
+  rank: number;
+  books?: TBook[];
 };
 
 export type TCurrency = "eur" | "usd" | "xof";
