@@ -62,3 +62,10 @@ export type TBook = {
   imageUrl: string;
   preface: string;
 };
+
+export type TQuote = {
+  id: string;
+  content: string;
+  book: Pick<TBook, "slug" | "title">;
+  author: Pick<TAuthor, "name" | "photoUrl" | "about" | "slug">;
+};
