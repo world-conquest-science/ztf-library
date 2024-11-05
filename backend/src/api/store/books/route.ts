@@ -1,6 +1,6 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import productToBook from 'src/library/converters/product-to-book'
+import { convertProductToBook } from 'src/library/converters/product'
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
@@ -43,7 +43,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   })
 
   res.json({
-    data: products.map(productToBook),
+    data: products.map(convertProductToBook),
     count: products.length,
     limit,
     offset,

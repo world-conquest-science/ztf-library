@@ -1,5 +1,6 @@
 import { Product } from '.medusa/types/remote-query-entry-points'
 import { TBook, TCurrency } from '@ztf-library/types'
+import { convertCategory } from './category'
 
 const toCurrency = (code: string): TCurrency => {
   if (code === 'eur') return 'eur'
@@ -7,7 +8,7 @@ const toCurrency = (code: string): TCurrency => {
   if (code === 'xo') return 'xof'
 }
 
-export default function (product: Product): TBook {
+export function convertProductToBook(product: Product): TBook {
   return {
     id: product.id,
     title: product.title,
@@ -26,12 +27,7 @@ export default function (product: Product): TBook {
       about: product.book?.author?.about,
       photoUrl: product.book?.author?.photoUrl,
     },
-    categories: product.categories?.map(category => ({
-      id: category?.id,
-      slug: category?.handle,
-      title: category?.name,
-      description: category?.description,
-    })),
+    categories: product.categories?.map(convertCategory),
     language: {
       id: product.book?.language?.id,
       code: product.book?.language?.code,
