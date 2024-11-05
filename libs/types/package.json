@@ -2,9 +2,14 @@
   "name": "@ztf-library/types",
   "version": "1.0.0",
   "main": "index.ts",
-  "scripts": {},
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  }
 }

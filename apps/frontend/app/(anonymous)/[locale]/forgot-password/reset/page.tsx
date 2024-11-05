@@ -1,6 +1,6 @@
 import { Input } from '@headlessui/react'
+import { useTranslations } from 'next-intl'
 import React from 'react'
-import { useTranslations } from 'use-intl'
 
 const ResetPasswordPage = () => {
   const t = useTranslations('Authentication.ResetPassword')
