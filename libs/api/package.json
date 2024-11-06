@@ -1,0 +1,20 @@
+{
+  "name": "@ztf-library/api",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "openapi-ts": "openapi-ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hey-api/client-fetch": "^0.4.2",
+    "@ztf-library/types": "workspace:^"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "^0.54.3"
+  }
+}
