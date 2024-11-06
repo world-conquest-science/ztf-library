@@ -1,9 +1,9 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework/http'
 import { createQuoteWorkflow } from '../../../workflows/create-quote'
 import { TQuoteAdditionnalData, TQuoteInput } from 'src/library/types'
-import { updateQuoteWorkflow } from 'src/workflows/update-quote'
-import { QUOTE_MODULE } from 'src/modules/quote'
-import QuoteModuleService from 'src/modules/quote/service'
+import { updateQuoteWorkflow } from '../../../workflows/update-quote'
+import { QUOTE_MODULE } from '../../../modules/quote'
+import QuoteModuleService from '../../../modules/quote/service'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
 
 export const POST = async (

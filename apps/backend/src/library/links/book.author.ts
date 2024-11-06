@@ -1,7 +1,7 @@
 import { MedusaContainer } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { AUTHOR_MODULE } from 'src/modules/author'
-import { BOOK_MODULE } from 'src/modules/book'
+import { AUTHOR_MODULE } from '../../modules/author'
+import { BOOK_MODULE } from '../../modules/book'
 
 export const removeBookAllAuthors = async (container: MedusaContainer, bookId: any) => {
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)

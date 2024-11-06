@@ -1,7 +1,7 @@
 import { Book } from '.medusa/types/remote-query-entry-points'
 import { MedusaContainer } from '@medusajs/framework'
 import { ContainerRegistrationKeys, Modules } from '@medusajs/framework/utils'
-import { BOOK_MODULE } from 'src/modules/book'
+import { BOOK_MODULE } from '../../modules/book'
 
 export const removeProductAllBooks = async (container: MedusaContainer, productId: any) => {
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)

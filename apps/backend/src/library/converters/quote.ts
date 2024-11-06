@@ -11,7 +11,7 @@ export function convertQuote(quote: any): TQuote {
     author: {
       slug: quote?.author?.handle,
       name: quote?.author?.name,
-      photoUrl: quote?.author?.photoUrl,
+      photo_url: quote?.author?.photoUrl,
       about: quote?.author?.about,
     },
   }

@@ -1,9 +1,9 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework/http'
 import { createAuthorWorkflow } from '../../../workflows/create-author'
-import { TAuthorInput } from 'src/library/types'
-import { updateAuthorWorkflow } from 'src/workflows/update-author'
-import { AUTHOR_MODULE } from 'src/modules/author'
-import AuthorModuleService from 'src/modules/author/service'
+import { TAuthorInput } from '../../../library/types'
+import { updateAuthorWorkflow } from '../../../workflows/update-author'
+import { AUTHOR_MODULE } from '../../../modules/author'
+import AuthorModuleService from '../../../modules/author/service'
 
 export const POST = async (req: MedusaRequest<TAuthorInput>, res: MedusaResponse) => {
   const { result } = await createAuthorWorkflow(req.scope).run({

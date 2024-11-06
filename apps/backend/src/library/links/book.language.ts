@@ -1,7 +1,7 @@
 import { MedusaContainer } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { BOOK_MODULE } from 'src/modules/book'
-import { LANGUAGE_MODULE } from 'src/modules/language'
+import { BOOK_MODULE } from '../../modules/book'
+import { LANGUAGE_MODULE } from '../../modules/language'
 
 export const removeBookAllLanguages = async (container: MedusaContainer, bookId: any) => {
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)

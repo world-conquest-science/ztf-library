@@ -1,10 +1,10 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework/http'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { TBookAdditionnalData, TBookInput } from 'src/library/types'
-import { BOOK_MODULE } from 'src/modules/book'
-import BookModuleService from 'src/modules/book/service'
-import { createBookWorkflow } from 'src/workflows/create-book'
-import { updateBookWorkflow } from 'src/workflows/update-book'
+import { TBookAdditionnalData, TBookInput } from '../../../library/types'
+import { BOOK_MODULE } from '../../../modules/book'
+import BookModuleService from '../../../modules/book/service'
+import { createBookWorkflow } from '../../../workflows/create-book'
+import { updateBookWorkflow } from '../../../workflows/update-book'
 
 export const POST = async (
   req: MedusaRequest<{

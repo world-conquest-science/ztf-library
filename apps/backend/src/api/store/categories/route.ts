@@ -1,6 +1,6 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertCategory } from 'src/library/converters/category'
+import { convertCategory } from '../../../library/converters/category'
 
 const productFields = [
   'products.book.*',

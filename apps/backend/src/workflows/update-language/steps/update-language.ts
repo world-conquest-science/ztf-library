@@ -1,7 +1,7 @@
 import { createStep, StepResponse } from '@medusajs/framework/workflows-sdk'
-import { TLanguageInput } from 'src/library/types'
-import { LANGUAGE_MODULE } from 'src/modules/language'
-import LanguageModuleService from 'src/modules/language/service'
+import { TLanguageInput } from '../../../library/types'
+import { LANGUAGE_MODULE } from '../../../modules/language'
+import LanguageModuleService from '../../../modules/language/service'
 
 export const updateLanguageStep = createStep(
   'update-language-step',

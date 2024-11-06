@@ -1,9 +1,9 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework/http'
 import { createLanguageWorkflow } from '../../../workflows/create-language'
-import { TLanguageInput } from 'src/library/types'
-import { updateLanguageWorkflow } from 'src/workflows/update-language'
-import { LANGUAGE_MODULE } from 'src/modules/language'
-import LanguageModuleService from 'src/modules/language/service'
+import { TLanguageInput } from '../../../library/types'
+import { updateLanguageWorkflow } from '../../../workflows/update-language'
+import { LANGUAGE_MODULE } from '../../../modules/language'
+import LanguageModuleService from '../../../modules/language/service'
 
 export const POST = async (req: MedusaRequest<TLanguageInput>, res: MedusaResponse) => {
   const { result } = await createLanguageWorkflow(req.scope).run({

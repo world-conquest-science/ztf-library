@@ -1,14 +1,14 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework/http'
 import { ContainerRegistrationKeys, Modules } from '@medusajs/framework/utils'
 import { IProductModuleService, ProductDTO } from '@medusajs/framework/types'
-import LanguageModuleService from 'src/modules/language/service'
-import { LANGUAGE_MODULE } from 'src/modules/language'
+import LanguageModuleService from '../../../modules/language/service'
+import { LANGUAGE_MODULE } from '../../../modules/language'
 
 import en_categories from '../../../library/raw-books/en.json'
 import fr_categories from '../../../library/raw-books/fr.json'
-import { BOOK_MODULE } from 'src/modules/book'
-import BookModuleService from 'src/modules/book/service'
-import { AUTHOR_MODULE } from 'src/modules/author'
+import { BOOK_MODULE } from '../../../modules/book'
+import BookModuleService from '../../../modules/book/service'
+import { AUTHOR_MODULE } from '../../../modules/author'
 import { RemoteLink } from '@medusajs/framework/modules-sdk'
 
 const ZTF_AUTHOR_ID = '01JBVMR2MGMDGT7KGRNX0XHCYF'
@@ -58,9 +58,7 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
             category_ids: [categoryId],
             status: 'published',
             options: [{ title: 'Format', values: ['Paperback'] }],
-            variants: [
-              { title: 'Paperback', manage_inventory: true, options: { Format: 'Paperback' } },
-            ],
+            variants: [{ title: 'Paperback', manage_inventory: true, options: { Format: 'Paperback' } }],
           })
 
           // Create empty book

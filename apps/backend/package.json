@@ -55,7 +55,6 @@
     "vite": "^5.2.11"
   },
   "peerDependencies": {
-    "@tsconfig/node-lts-strictest": "^18.12.1",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18",
