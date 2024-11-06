@@ -153,7 +153,7 @@ export const client = createClient(createConfig());
  *
  */
 export const postActorTypeAuthProvider = <ThrowOnError extends boolean = false>(
-  options: Options<PostActorTypeAuthProviderData, ThrowOnError>,
+  options: Options<PostActorTypeAuthProviderData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostActorTypeAuthProviderResponse,
@@ -177,7 +177,7 @@ export const postActorTypeAuthProvider = <ThrowOnError extends boolean = false>(
 export const postActorTypeAuthProviderCallback = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostActorTypeAuthProviderCallbackData, ThrowOnError>,
+  options: Options<PostActorTypeAuthProviderCallbackData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostActorTypeAuthProviderCallbackResponse,
@@ -196,7 +196,7 @@ export const postActorTypeAuthProviderCallback = <
 export const postActorTypeAuthProviderRegister = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostActorTypeAuthProviderRegisterData, ThrowOnError>,
+  options: Options<PostActorTypeAuthProviderRegisterData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostActorTypeAuthProviderRegisterResponse,
@@ -219,7 +219,7 @@ export const postActorTypeAuthProviderRegister = <
 export const postActorTypeAuthProviderResetPassword = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostActorTypeAuthProviderResetPasswordData, ThrowOnError>,
+  options: Options<PostActorTypeAuthProviderResetPasswordData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostActorTypeAuthProviderResetPasswordResponse,
@@ -238,7 +238,7 @@ export const postActorTypeAuthProviderResetPassword = <
 export const postActorTypeAuthProviderUpdate = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostActorTypeAuthProviderUpdateData, ThrowOnError>,
+  options: Options<PostActorTypeAuthProviderUpdateData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostActorTypeAuthProviderUpdateResponse,
@@ -255,7 +255,7 @@ export const postActorTypeAuthProviderUpdate = <
  * Set the cookie session ID of a customer. The customer must be previously authenticated with the `/auth/customer/{provider}` API route first, as the JWT token is required in the header of the request.
  */
 export const postSession = <ThrowOnError extends boolean = false>(
-  options?: Options<unknown, ThrowOnError>,
+  options?: Options<unknown, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostSessionResponse,
@@ -272,7 +272,7 @@ export const postSession = <ThrowOnError extends boolean = false>(
  * Deletes the cookie session ID previously set for authentication.
  */
 export const deleteSession = <ThrowOnError extends boolean = false>(
-  options?: Options<unknown, ThrowOnError>,
+  options?: Options<unknown, ThrowOnError>
 ) => {
   return (options?.client ?? client).delete<
     DeleteSessionResponse,
@@ -289,7 +289,7 @@ export const deleteSession = <ThrowOnError extends boolean = false>(
  * Refresh the authentication token of a customer. This is useful after authenticating a customer with a third-party service to ensure the token holds the new user's details, or when you don't want customers to re-login every day.
  */
 export const postAdminAuthTokenRefresh = <ThrowOnError extends boolean = false>(
-  options?: Options<unknown, ThrowOnError>,
+  options?: Options<unknown, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostAdminAuthTokenRefreshResponse,
@@ -306,7 +306,7 @@ export const postAdminAuthTokenRefresh = <ThrowOnError extends boolean = false>(
  * Create a cart.
  */
 export const postCarts = <ThrowOnError extends boolean = false>(
-  options?: Options<PostCartsData, ThrowOnError>,
+  options?: Options<PostCartsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsResponse,
@@ -323,7 +323,7 @@ export const postCarts = <ThrowOnError extends boolean = false>(
  * Retrieve a cart by its ID. You can expand the cart's relations or select the fields that should be returned.
  */
 export const getCartsId = <ThrowOnError extends boolean = false>(
-  options: Options<GetCartsIdData, ThrowOnError>,
+  options: Options<GetCartsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCartsIdResponse,
@@ -340,7 +340,7 @@ export const getCartsId = <ThrowOnError extends boolean = false>(
  * Update a cart's details. This unsets the shipping an payment methods chosen before, and the customer would have to choose them again.
  */
 export const postCartsId = <ThrowOnError extends boolean = false>(
-  options: Options<PostCartsIdData, ThrowOnError>,
+  options: Options<PostCartsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdResponse,
@@ -357,7 +357,7 @@ export const postCartsId = <ThrowOnError extends boolean = false>(
  * Complete a cart and place an order.
  */
 export const postCartsIdComplete = <ThrowOnError extends boolean = false>(
-  options: Options<PostCartsIdCompleteData, ThrowOnError>,
+  options: Options<PostCartsIdCompleteData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdCompleteResponse,
@@ -374,7 +374,7 @@ export const postCartsIdComplete = <ThrowOnError extends boolean = false>(
  * Add a product variant as a line item in the cart.
  */
 export const postCartsIdLineItems = <ThrowOnError extends boolean = false>(
-  options: Options<PostCartsIdLineItemsData, ThrowOnError>,
+  options: Options<PostCartsIdLineItemsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdLineItemsResponse,
@@ -393,7 +393,7 @@ export const postCartsIdLineItems = <ThrowOnError extends boolean = false>(
 export const postCartsIdLineItemsLineId = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostCartsIdLineItemsLineIdData, ThrowOnError>,
+  options: Options<PostCartsIdLineItemsLineIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdLineItemsLineIdResponse,
@@ -412,7 +412,7 @@ export const postCartsIdLineItemsLineId = <
 export const deleteCartsIdLineItemsLineId = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<DeleteCartsIdLineItemsLineIdData, ThrowOnError>,
+  options: Options<DeleteCartsIdLineItemsLineIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).delete<
     DeleteCartsIdLineItemsLineIdResponse,
@@ -429,7 +429,7 @@ export const deleteCartsIdLineItemsLineId = <
  * Add a list of promotions to a cart.
  */
 export const postCartsIdPromotions = <ThrowOnError extends boolean = false>(
-  options: Options<PostCartsIdPromotionsData, ThrowOnError>,
+  options: Options<PostCartsIdPromotionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdPromotionsResponse,
@@ -446,7 +446,7 @@ export const postCartsIdPromotions = <ThrowOnError extends boolean = false>(
  * Remove a list of promotions from a cart.
  */
 export const deleteCartsIdPromotions = <ThrowOnError extends boolean = false>(
-  options: Options<DeleteCartsIdPromotionsData, ThrowOnError>,
+  options: Options<DeleteCartsIdPromotionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).delete<
     DeleteCartsIdPromotionsResponse,
@@ -465,7 +465,7 @@ export const deleteCartsIdPromotions = <ThrowOnError extends boolean = false>(
 export const postCartsIdShippingMethods = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostCartsIdShippingMethodsData, ThrowOnError>,
+  options: Options<PostCartsIdShippingMethodsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdShippingMethodsResponse,
@@ -482,7 +482,7 @@ export const postCartsIdShippingMethods = <
  * Calculate the cart's tax lines and amounts.
  */
 export const postCartsIdTaxes = <ThrowOnError extends boolean = false>(
-  options: Options<PostCartsIdTaxesData, ThrowOnError>,
+  options: Options<PostCartsIdTaxesData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCartsIdTaxesResponse,
@@ -499,7 +499,7 @@ export const postCartsIdTaxes = <ThrowOnError extends boolean = false>(
  * Retrieve a list of collections. The collections can be filtered by fields such as `handle`. The collections can also be sorted or paginated.
  */
 export const getCollections = <ThrowOnError extends boolean = false>(
-  options?: Options<GetCollectionsData, ThrowOnError>,
+  options?: Options<GetCollectionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCollectionsResponse,
@@ -516,7 +516,7 @@ export const getCollections = <ThrowOnError extends boolean = false>(
  * Retrieve a collection by its ID. You can expand the collection's relations or select the fields that should be returned.
  */
 export const getCollectionsId = <ThrowOnError extends boolean = false>(
-  options: Options<GetCollectionsIdData, ThrowOnError>,
+  options: Options<GetCollectionsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCollectionsIdResponse,
@@ -533,7 +533,7 @@ export const getCollectionsId = <ThrowOnError extends boolean = false>(
  * Retrieve a list of currencies. The currencies can be filtered by fields such as `code`. The currencies can also be sorted or paginated.
  */
 export const getCurrencies = <ThrowOnError extends boolean = false>(
-  options?: Options<GetCurrenciesData, ThrowOnError>,
+  options?: Options<GetCurrenciesData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCurrenciesResponse,
@@ -550,7 +550,7 @@ export const getCurrencies = <ThrowOnError extends boolean = false>(
  * Retrieve a currency by its code. You can expand the currency's relations or select the fields that should be returned.
  */
 export const getCurrenciesCode = <ThrowOnError extends boolean = false>(
-  options: Options<GetCurrenciesCodeData, ThrowOnError>,
+  options: Options<GetCurrenciesCodeData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCurrenciesCodeResponse,
@@ -567,7 +567,7 @@ export const getCurrenciesCode = <ThrowOnError extends boolean = false>(
  * Register a customer. Use the `/auth/customer/emailpass/register` API route first to retrieve the registration token and pass it in the header of the request.
  */
 export const postCustomers = <ThrowOnError extends boolean = false>(
-  options?: Options<PostCustomersData, ThrowOnError>,
+  options?: Options<PostCustomersData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCustomersResponse,
@@ -584,7 +584,7 @@ export const postCustomers = <ThrowOnError extends boolean = false>(
  * Retrieve the logged-in customer. You can expand the customer's relations or select the fields that should be returned.
  */
 export const getCustomersMe = <ThrowOnError extends boolean = false>(
-  options?: Options<GetCustomersMeData, ThrowOnError>,
+  options?: Options<GetCustomersMeData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCustomersMeResponse,
@@ -601,7 +601,7 @@ export const getCustomersMe = <ThrowOnError extends boolean = false>(
  * Update the logged-in customer's details.
  */
 export const postCustomersMe = <ThrowOnError extends boolean = false>(
-  options?: Options<PostCustomersMeData, ThrowOnError>,
+  options?: Options<PostCustomersMeData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCustomersMeResponse,
@@ -618,7 +618,7 @@ export const postCustomersMe = <ThrowOnError extends boolean = false>(
  * Retrieve the addresses of the logged-in customer. The addresses can be filtered by fields such as `country_code`. The addresses can also be sorted or paginated.
  */
 export const getCustomersMeAddresses = <ThrowOnError extends boolean = false>(
-  options?: Options<GetCustomersMeAddressesData, ThrowOnError>,
+  options?: Options<GetCustomersMeAddressesData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCustomersMeAddressesResponse,
@@ -635,7 +635,7 @@ export const getCustomersMeAddresses = <ThrowOnError extends boolean = false>(
  * Create an address for the logged-in customer.
  */
 export const postCustomersMeAddresses = <ThrowOnError extends boolean = false>(
-  options?: Options<PostCustomersMeAddressesData, ThrowOnError>,
+  options?: Options<PostCustomersMeAddressesData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCustomersMeAddressesResponse,
@@ -654,7 +654,7 @@ export const postCustomersMeAddresses = <ThrowOnError extends boolean = false>(
 export const getCustomersMeAddressesAddressId = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<GetCustomersMeAddressesAddressIdData, ThrowOnError>,
+  options: Options<GetCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetCustomersMeAddressesAddressIdResponse,
@@ -673,7 +673,7 @@ export const getCustomersMeAddressesAddressId = <
 export const postCustomersMeAddressesAddressId = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostCustomersMeAddressesAddressIdData, ThrowOnError>,
+  options: Options<PostCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostCustomersMeAddressesAddressIdResponse,
@@ -692,7 +692,7 @@ export const postCustomersMeAddressesAddressId = <
 export const deleteCustomersMeAddressesAddressId = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<DeleteCustomersMeAddressesAddressIdData, ThrowOnError>,
+  options: Options<DeleteCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).delete<
     DeleteCustomersMeAddressesAddressIdResponse,
@@ -709,7 +709,7 @@ export const deleteCustomersMeAddressesAddressId = <
  * Retrieve the orders of the logged-in customer. The orders can be filtered by fields such as `id`. The orders can also be sorted or paginated.
  */
 export const getOrders = <ThrowOnError extends boolean = false>(
-  options?: Options<GetOrdersData, ThrowOnError>,
+  options?: Options<GetOrdersData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetOrdersResponse,
@@ -726,7 +726,7 @@ export const getOrders = <ThrowOnError extends boolean = false>(
  * Retrieve an order by its ID. You can expand the order's relations or select the fields that should be returned.
  */
 export const getOrdersId = <ThrowOnError extends boolean = false>(
-  options: Options<GetOrdersIdData, ThrowOnError>,
+  options: Options<GetOrdersIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetOrdersIdResponse,
@@ -743,7 +743,7 @@ export const getOrdersId = <ThrowOnError extends boolean = false>(
  * Create a payment collection for a cart. This is used during checkout, where the payment collection holds the cart's payment sessions.
  */
 export const postPaymentCollections = <ThrowOnError extends boolean = false>(
-  options?: Options<PostPaymentCollectionsData, ThrowOnError>,
+  options?: Options<PostPaymentCollectionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostPaymentCollectionsResponse,
@@ -762,7 +762,7 @@ export const postPaymentCollections = <ThrowOnError extends boolean = false>(
 export const postPaymentCollectionsIdPaymentSessions = <
   ThrowOnError extends boolean = false,
 >(
-  options: Options<PostPaymentCollectionsIdPaymentSessionsData, ThrowOnError>,
+  options: Options<PostPaymentCollectionsIdPaymentSessionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostPaymentCollectionsIdPaymentSessionsResponse,
@@ -779,7 +779,7 @@ export const postPaymentCollectionsIdPaymentSessions = <
  * Retrieve a list of payment providers. You must provide the `region_id` query parameter to retrieve the payment providers enabled in that region.
  */
 export const getPaymentProviders = <ThrowOnError extends boolean = false>(
-  options: Options<GetPaymentProvidersData, ThrowOnError>,
+  options: Options<GetPaymentProvidersData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetPaymentProvidersResponse,
@@ -796,7 +796,7 @@ export const getPaymentProviders = <ThrowOnError extends boolean = false>(
  * Retrieve a list of product categories. The product categories can be filtered by fields such as `id`. The product categories can also be sorted or paginated.
  */
 export const getProductCategories = <ThrowOnError extends boolean = false>(
-  options?: Options<GetProductCategoriesData, ThrowOnError>,
+  options?: Options<GetProductCategoriesData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetProductCategoriesResponse,
@@ -813,7 +813,7 @@ export const getProductCategories = <ThrowOnError extends boolean = false>(
  * Retrieve a product category by its ID. You can expand the product category's relations or select the fields that should be returned.
  */
 export const getProductCategoriesId = <ThrowOnError extends boolean = false>(
-  options: Options<GetProductCategoriesIdData, ThrowOnError>,
+  options: Options<GetProductCategoriesIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetProductCategoriesIdResponse,
@@ -830,7 +830,7 @@ export const getProductCategoriesId = <ThrowOnError extends boolean = false>(
  * Retrieve a list of products. The products can be filtered by fields such as `id`. The products can also be sorted or paginated.
  */
 export const getProducts = <ThrowOnError extends boolean = false>(
-  options?: Options<GetProductsData, ThrowOnError>,
+  options?: Options<GetProductsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetProductsResponse,
@@ -847,7 +847,7 @@ export const getProducts = <ThrowOnError extends boolean = false>(
  * Retrieve a product by its ID. You can expand the product's relations or select the fields that should be returned.
  */
 export const getProductsId = <ThrowOnError extends boolean = false>(
-  options: Options<GetProductsIdData, ThrowOnError>,
+  options: Options<GetProductsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetProductsIdResponse,
@@ -864,7 +864,7 @@ export const getProductsId = <ThrowOnError extends boolean = false>(
  * Retrieve a list of regions. The regions can be filtered by fields such as `id`. The regions can also be sorted or paginated.
  */
 export const getRegions = <ThrowOnError extends boolean = false>(
-  options?: Options<GetRegionsData, ThrowOnError>,
+  options?: Options<GetRegionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetRegionsResponse,
@@ -881,7 +881,7 @@ export const getRegions = <ThrowOnError extends boolean = false>(
  * Retrieve a region by its ID. You can expand the region's relations or select the fields that should be returned.
  */
 export const getRegionsId = <ThrowOnError extends boolean = false>(
-  options: Options<GetRegionsIdData, ThrowOnError>,
+  options: Options<GetRegionsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetRegionsIdResponse,
@@ -898,7 +898,7 @@ export const getRegionsId = <ThrowOnError extends boolean = false>(
  * Create a return for an order's items. The admin receives the return and process it from their side.
  */
 export const postReturn = <ThrowOnError extends boolean = false>(
-  options?: Options<PostReturnData, ThrowOnError>,
+  options?: Options<PostReturnData, ThrowOnError>
 ) => {
   return (options?.client ?? client).post<
     PostReturnResponse,
@@ -915,7 +915,7 @@ export const postReturn = <ThrowOnError extends boolean = false>(
  * Retrieve a list of return reasons. The return reasons can be sorted or paginated.
  */
 export const getReturnReasons = <ThrowOnError extends boolean = false>(
-  options?: Options<GetReturnReasonsData, ThrowOnError>,
+  options?: Options<GetReturnReasonsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetReturnReasonsResponse,
@@ -932,7 +932,7 @@ export const getReturnReasons = <ThrowOnError extends boolean = false>(
  * Retrieve a return reason by its ID. You can expand the return reason's relations or select the fields that should be returned.
  */
 export const getReturnReasonsId = <ThrowOnError extends boolean = false>(
-  options: Options<GetReturnReasonsIdData, ThrowOnError>,
+  options: Options<GetReturnReasonsIdData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetReturnReasonsIdResponse,
@@ -952,7 +952,7 @@ export const getReturnReasonsId = <ThrowOnError extends boolean = false>(
  *
  */
 export const getShippingOptions = <ThrowOnError extends boolean = false>(
-  options: Options<GetShippingOptionsData, ThrowOnError>,
+  options: Options<GetShippingOptionsData, ThrowOnError>
 ) => {
   return (options?.client ?? client).get<
     GetShippingOptionsResponse,
