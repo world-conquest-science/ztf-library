@@ -1,4 +1,4 @@
-import client from "./medusa-client-instance";
+import client from "./clients/medusa/instance";
 import {
   postActorTypeAuthProvider,
   postActorTypeAuthProviderRegister,

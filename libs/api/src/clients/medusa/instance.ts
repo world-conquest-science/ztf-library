@@ -1,4 +1,4 @@
-import { client } from "./clients/medusa/services.gen";
+import { client } from "./services.gen";
 
 client.setConfig({
   baseUrl: "http://localhost:9000",

@@ -1,4 +1,4 @@
-import client from "./medusa-client-instance";
+import client from "./clients/medusa/instance";
 import { getCustomersMe, postCustomers } from "./clients/medusa";
 import { TCustomerCreationInput } from "@ztf-library/types";
 
