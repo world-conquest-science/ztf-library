@@ -143,7 +143,7 @@ import type {
   GetShippingOptionsResponse,
 } from "./types.gen";
 
-export const client = createClient(createConfig());
+// export const client = createClient(createConfig());
 
 /**
  * Authenticate Customer
@@ -155,7 +155,7 @@ export const client = createClient(createConfig());
 export const postActorTypeAuthProvider = <ThrowOnError extends boolean = false>(
   options: Options<PostActorTypeAuthProviderData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostActorTypeAuthProviderResponse,
     PostActorTypeAuthProviderError,
     ThrowOnError
@@ -179,7 +179,7 @@ export const postActorTypeAuthProviderCallback = <
 >(
   options: Options<PostActorTypeAuthProviderCallbackData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostActorTypeAuthProviderCallbackResponse,
     PostActorTypeAuthProviderCallbackError,
     ThrowOnError
@@ -198,7 +198,7 @@ export const postActorTypeAuthProviderRegister = <
 >(
   options: Options<PostActorTypeAuthProviderRegisterData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostActorTypeAuthProviderRegisterResponse,
     PostActorTypeAuthProviderRegisterError,
     ThrowOnError
@@ -221,7 +221,7 @@ export const postActorTypeAuthProviderResetPassword = <
 >(
   options: Options<PostActorTypeAuthProviderResetPasswordData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostActorTypeAuthProviderResetPasswordResponse,
     PostActorTypeAuthProviderResetPasswordError,
     ThrowOnError
@@ -240,7 +240,7 @@ export const postActorTypeAuthProviderUpdate = <
 >(
   options: Options<PostActorTypeAuthProviderUpdateData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostActorTypeAuthProviderUpdateResponse,
     PostActorTypeAuthProviderUpdateError,
     ThrowOnError
@@ -257,7 +257,7 @@ export const postActorTypeAuthProviderUpdate = <
 export const postSession = <ThrowOnError extends boolean = false>(
   options?: Options<unknown, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostSessionResponse,
     PostSessionError,
     ThrowOnError
@@ -274,7 +274,7 @@ export const postSession = <ThrowOnError extends boolean = false>(
 export const deleteSession = <ThrowOnError extends boolean = false>(
   options?: Options<unknown, ThrowOnError>
 ) => {
-  return (options?.client ?? client).delete<
+  return options?.client!.delete<
     DeleteSessionResponse,
     DeleteSessionError,
     ThrowOnError
@@ -291,7 +291,7 @@ export const deleteSession = <ThrowOnError extends boolean = false>(
 export const postAdminAuthTokenRefresh = <ThrowOnError extends boolean = false>(
   options?: Options<unknown, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostAdminAuthTokenRefreshResponse,
     PostAdminAuthTokenRefreshError,
     ThrowOnError
@@ -308,14 +308,12 @@ export const postAdminAuthTokenRefresh = <ThrowOnError extends boolean = false>(
 export const postCarts = <ThrowOnError extends boolean = false>(
   options?: Options<PostCartsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
-    PostCartsResponse,
-    PostCartsError,
-    ThrowOnError
-  >({
-    ...options,
-    url: "/store/carts",
-  });
+  return options?.client!.post<PostCartsResponse, PostCartsError, ThrowOnError>(
+    {
+      ...options,
+      url: "/store/carts",
+    }
+  );
 };
 
 /**
@@ -325,7 +323,7 @@ export const postCarts = <ThrowOnError extends boolean = false>(
 export const getCartsId = <ThrowOnError extends boolean = false>(
   options: Options<GetCartsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCartsIdResponse,
     GetCartsIdError,
     ThrowOnError
@@ -342,7 +340,7 @@ export const getCartsId = <ThrowOnError extends boolean = false>(
 export const postCartsId = <ThrowOnError extends boolean = false>(
   options: Options<PostCartsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdResponse,
     PostCartsIdError,
     ThrowOnError
@@ -359,7 +357,7 @@ export const postCartsId = <ThrowOnError extends boolean = false>(
 export const postCartsIdComplete = <ThrowOnError extends boolean = false>(
   options: Options<PostCartsIdCompleteData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdCompleteResponse,
     PostCartsIdCompleteError,
     ThrowOnError
@@ -376,7 +374,7 @@ export const postCartsIdComplete = <ThrowOnError extends boolean = false>(
 export const postCartsIdLineItems = <ThrowOnError extends boolean = false>(
   options: Options<PostCartsIdLineItemsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdLineItemsResponse,
     PostCartsIdLineItemsError,
     ThrowOnError
@@ -395,7 +393,7 @@ export const postCartsIdLineItemsLineId = <
 >(
   options: Options<PostCartsIdLineItemsLineIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdLineItemsLineIdResponse,
     PostCartsIdLineItemsLineIdError,
     ThrowOnError
@@ -414,7 +412,7 @@ export const deleteCartsIdLineItemsLineId = <
 >(
   options: Options<DeleteCartsIdLineItemsLineIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).delete<
+  return options?.client!.delete<
     DeleteCartsIdLineItemsLineIdResponse,
     DeleteCartsIdLineItemsLineIdError,
     ThrowOnError
@@ -431,7 +429,7 @@ export const deleteCartsIdLineItemsLineId = <
 export const postCartsIdPromotions = <ThrowOnError extends boolean = false>(
   options: Options<PostCartsIdPromotionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdPromotionsResponse,
     PostCartsIdPromotionsError,
     ThrowOnError
@@ -448,7 +446,7 @@ export const postCartsIdPromotions = <ThrowOnError extends boolean = false>(
 export const deleteCartsIdPromotions = <ThrowOnError extends boolean = false>(
   options: Options<DeleteCartsIdPromotionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).delete<
+  return options?.client!.delete<
     DeleteCartsIdPromotionsResponse,
     DeleteCartsIdPromotionsError,
     ThrowOnError
@@ -467,7 +465,7 @@ export const postCartsIdShippingMethods = <
 >(
   options: Options<PostCartsIdShippingMethodsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdShippingMethodsResponse,
     PostCartsIdShippingMethodsError,
     ThrowOnError
@@ -484,7 +482,7 @@ export const postCartsIdShippingMethods = <
 export const postCartsIdTaxes = <ThrowOnError extends boolean = false>(
   options: Options<PostCartsIdTaxesData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCartsIdTaxesResponse,
     PostCartsIdTaxesError,
     ThrowOnError
@@ -501,7 +499,7 @@ export const postCartsIdTaxes = <ThrowOnError extends boolean = false>(
 export const getCollections = <ThrowOnError extends boolean = false>(
   options?: Options<GetCollectionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCollectionsResponse,
     GetCollectionsError,
     ThrowOnError
@@ -518,7 +516,7 @@ export const getCollections = <ThrowOnError extends boolean = false>(
 export const getCollectionsId = <ThrowOnError extends boolean = false>(
   options: Options<GetCollectionsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCollectionsIdResponse,
     GetCollectionsIdError,
     ThrowOnError
@@ -535,7 +533,7 @@ export const getCollectionsId = <ThrowOnError extends boolean = false>(
 export const getCurrencies = <ThrowOnError extends boolean = false>(
   options?: Options<GetCurrenciesData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCurrenciesResponse,
     GetCurrenciesError,
     ThrowOnError
@@ -552,7 +550,7 @@ export const getCurrencies = <ThrowOnError extends boolean = false>(
 export const getCurrenciesCode = <ThrowOnError extends boolean = false>(
   options: Options<GetCurrenciesCodeData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCurrenciesCodeResponse,
     GetCurrenciesCodeError,
     ThrowOnError
@@ -569,7 +567,7 @@ export const getCurrenciesCode = <ThrowOnError extends boolean = false>(
 export const postCustomers = <ThrowOnError extends boolean = false>(
   options?: Options<PostCustomersData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCustomersResponse,
     PostCustomersError,
     ThrowOnError
@@ -586,7 +584,7 @@ export const postCustomers = <ThrowOnError extends boolean = false>(
 export const getCustomersMe = <ThrowOnError extends boolean = false>(
   options?: Options<GetCustomersMeData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCustomersMeResponse,
     GetCustomersMeError,
     ThrowOnError
@@ -603,7 +601,7 @@ export const getCustomersMe = <ThrowOnError extends boolean = false>(
 export const postCustomersMe = <ThrowOnError extends boolean = false>(
   options?: Options<PostCustomersMeData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCustomersMeResponse,
     PostCustomersMeError,
     ThrowOnError
@@ -620,7 +618,7 @@ export const postCustomersMe = <ThrowOnError extends boolean = false>(
 export const getCustomersMeAddresses = <ThrowOnError extends boolean = false>(
   options?: Options<GetCustomersMeAddressesData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCustomersMeAddressesResponse,
     GetCustomersMeAddressesError,
     ThrowOnError
@@ -637,7 +635,7 @@ export const getCustomersMeAddresses = <ThrowOnError extends boolean = false>(
 export const postCustomersMeAddresses = <ThrowOnError extends boolean = false>(
   options?: Options<PostCustomersMeAddressesData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCustomersMeAddressesResponse,
     PostCustomersMeAddressesError,
     ThrowOnError
@@ -656,7 +654,7 @@ export const getCustomersMeAddressesAddressId = <
 >(
   options: Options<GetCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetCustomersMeAddressesAddressIdResponse,
     GetCustomersMeAddressesAddressIdError,
     ThrowOnError
@@ -675,7 +673,7 @@ export const postCustomersMeAddressesAddressId = <
 >(
   options: Options<PostCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostCustomersMeAddressesAddressIdResponse,
     PostCustomersMeAddressesAddressIdError,
     ThrowOnError
@@ -694,7 +692,7 @@ export const deleteCustomersMeAddressesAddressId = <
 >(
   options: Options<DeleteCustomersMeAddressesAddressIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).delete<
+  return options?.client!.delete<
     DeleteCustomersMeAddressesAddressIdResponse,
     DeleteCustomersMeAddressesAddressIdError,
     ThrowOnError
@@ -711,11 +709,7 @@ export const deleteCustomersMeAddressesAddressId = <
 export const getOrders = <ThrowOnError extends boolean = false>(
   options?: Options<GetOrdersData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
-    GetOrdersResponse,
-    GetOrdersError,
-    ThrowOnError
-  >({
+  return options?.client!.get<GetOrdersResponse, GetOrdersError, ThrowOnError>({
     ...options,
     url: "/store/orders",
   });
@@ -728,7 +722,7 @@ export const getOrders = <ThrowOnError extends boolean = false>(
 export const getOrdersId = <ThrowOnError extends boolean = false>(
   options: Options<GetOrdersIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetOrdersIdResponse,
     GetOrdersIdError,
     ThrowOnError
@@ -745,7 +739,7 @@ export const getOrdersId = <ThrowOnError extends boolean = false>(
 export const postPaymentCollections = <ThrowOnError extends boolean = false>(
   options?: Options<PostPaymentCollectionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostPaymentCollectionsResponse,
     PostPaymentCollectionsError,
     ThrowOnError
@@ -764,7 +758,7 @@ export const postPaymentCollectionsIdPaymentSessions = <
 >(
   options: Options<PostPaymentCollectionsIdPaymentSessionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostPaymentCollectionsIdPaymentSessionsResponse,
     PostPaymentCollectionsIdPaymentSessionsError,
     ThrowOnError
@@ -781,7 +775,7 @@ export const postPaymentCollectionsIdPaymentSessions = <
 export const getPaymentProviders = <ThrowOnError extends boolean = false>(
   options: Options<GetPaymentProvidersData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetPaymentProvidersResponse,
     GetPaymentProvidersError,
     ThrowOnError
@@ -798,7 +792,7 @@ export const getPaymentProviders = <ThrowOnError extends boolean = false>(
 export const getProductCategories = <ThrowOnError extends boolean = false>(
   options?: Options<GetProductCategoriesData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetProductCategoriesResponse,
     GetProductCategoriesError,
     ThrowOnError
@@ -815,7 +809,7 @@ export const getProductCategories = <ThrowOnError extends boolean = false>(
 export const getProductCategoriesId = <ThrowOnError extends boolean = false>(
   options: Options<GetProductCategoriesIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetProductCategoriesIdResponse,
     GetProductCategoriesIdError,
     ThrowOnError
@@ -832,7 +826,7 @@ export const getProductCategoriesId = <ThrowOnError extends boolean = false>(
 export const getProducts = <ThrowOnError extends boolean = false>(
   options?: Options<GetProductsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetProductsResponse,
     GetProductsError,
     ThrowOnError
@@ -849,7 +843,7 @@ export const getProducts = <ThrowOnError extends boolean = false>(
 export const getProductsId = <ThrowOnError extends boolean = false>(
   options: Options<GetProductsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetProductsIdResponse,
     GetProductsIdError,
     ThrowOnError
@@ -866,7 +860,7 @@ export const getProductsId = <ThrowOnError extends boolean = false>(
 export const getRegions = <ThrowOnError extends boolean = false>(
   options?: Options<GetRegionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetRegionsResponse,
     GetRegionsError,
     ThrowOnError
@@ -883,7 +877,7 @@ export const getRegions = <ThrowOnError extends boolean = false>(
 export const getRegionsId = <ThrowOnError extends boolean = false>(
   options: Options<GetRegionsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetRegionsIdResponse,
     GetRegionsIdError,
     ThrowOnError
@@ -900,7 +894,7 @@ export const getRegionsId = <ThrowOnError extends boolean = false>(
 export const postReturn = <ThrowOnError extends boolean = false>(
   options?: Options<PostReturnData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).post<
+  return options?.client!.post<
     PostReturnResponse,
     PostReturnError,
     ThrowOnError
@@ -917,7 +911,7 @@ export const postReturn = <ThrowOnError extends boolean = false>(
 export const getReturnReasons = <ThrowOnError extends boolean = false>(
   options?: Options<GetReturnReasonsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetReturnReasonsResponse,
     GetReturnReasonsError,
     ThrowOnError
@@ -934,7 +928,7 @@ export const getReturnReasons = <ThrowOnError extends boolean = false>(
 export const getReturnReasonsId = <ThrowOnError extends boolean = false>(
   options: Options<GetReturnReasonsIdData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetReturnReasonsIdResponse,
     GetReturnReasonsIdError,
     ThrowOnError
@@ -954,7 +948,7 @@ export const getReturnReasonsId = <ThrowOnError extends boolean = false>(
 export const getShippingOptions = <ThrowOnError extends boolean = false>(
   options: Options<GetShippingOptionsData, ThrowOnError>
 ) => {
-  return (options?.client ?? client).get<
+  return options?.client!.get<
     GetShippingOptionsResponse,
     GetShippingOptionsError,
     ThrowOnError

@@ -1,8 +1,8 @@
-import client from "./clients/medusa/instance";
+import client from "./clients";
 import {
   postActorTypeAuthProvider,
   postActorTypeAuthProviderRegister,
-} from "./clients/medusa";
+} from "./clients";
 import { TCustomerSigninInput, TCustomerSignupInput } from "@ztf-library/types";
 
 export const signin = ({ email, password }: TCustomerSigninInput) => {

@@ -1,5 +1,5 @@
-import client from "./clients/medusa/instance";
-import { getCustomersMe, postCustomers } from "./clients/medusa";
+import client from "./clients";
+import { getCustomersMe, postCustomers } from "./clients";
 import { TCustomerCreationInput } from "@ztf-library/types";
 
 export const create = ({
