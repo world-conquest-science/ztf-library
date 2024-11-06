@@ -1,9 +1,38 @@
+'use client'
+
 import { Input } from '@headlessui/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useFormik } from 'formik'
+import { SignupFormSchema, TSignupFormSchema } from './forms/signup.schema'
+import { withZodSchema } from 'formik-validator-zod'
+import { authentication, customer, setAuthorizationToken } from '@ztf-library/api'
+import { useRouter } from 'next/navigation'
+import { Routes } from '@/app/config/routes'
 
 const SignUpPage = () => {
+  const router = useRouter()
+
+  const formik = useFormik<TSignupFormSchema>({
+    validateOnBlur: true,
+    initialValues: {
+      full_name: '',
+      email: '',
+      password: '',
+    },
+    onSubmit: ({ email, password, full_name }, { setSubmitting }) => {
+      setSubmitting(true)
+      authentication
+        .signup({ email, password })
+        .then(({ data }) => setAuthorizationToken(data?.token!, process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY!))
+        .then(() => customer.create({ first_name: '', email, last_name: full_name }))
+        .then(() => router.replace(Routes.Home))
+        .catch(console.error)
+    },
+    validate: withZodSchema(SignupFormSchema),
+  })
+
   return (
     <>
       <header>
@@ -16,19 +45,13 @@ const SignUpPage = () => {
         <p className="text-sm text-gray-600 sm:text-xl">Register using</p>
         <div className="mt-3 flex gap-5 sm:gap-7">
           <div className="w-full">
-            <Link
-              href=""
-              className="flex items-center gap-2 rounded-lg px-4 py-3 text-gray-800 ring-1 ring-gray-200 sm:gap-3 sm:p-4"
-            >
+            <Link href="" className="flex items-center gap-2 rounded-lg px-4 py-3 text-gray-800 ring-1 ring-gray-200 sm:gap-3 sm:p-4">
               <Image src="/images/google-logo.png" width={30} height={30} alt="" />
               <span className="relative top-[2px] text-base font-bold sm:text-lg">Google</span>
             </Link>
           </div>
           <div className="w-full">
-            <Link
-              href=""
-              className="flex items-center gap-2 rounded-lg px-4 py-3 text-gray-800 ring-1 ring-gray-200 sm:gap-3 sm:p-4"
-            >
+            <Link href="" className="flex items-center gap-2 rounded-lg px-4 py-3 text-gray-800 ring-1 ring-gray-200 sm:gap-3 sm:p-4">
               <Image src="/images/facebook-logo.svg" width={30} height={30} alt="" />
               <span className="relative top-[2px] text-base font-bold sm:text-lg">Facebook</span>
             </Link>
@@ -37,14 +60,17 @@ const SignUpPage = () => {
       </div>
 
       {/* Email and password */}
-      <div className="my-3 flex flex-col gap-5 sm:gap-7">
+      <form className="my-3 flex flex-col gap-5 sm:gap-7" onSubmit={formik.handleSubmit}>
         <p className="text-sm text-gray-600 sm:text-xl">or continue with email and password</p>
         <div className="w-full">
           <div className="relative flex w-full flex-col">
             <label className="text-sm sm:text-xl">Full name</label>
             <Input
+              placeholder=""
+              id="full_name"
+              type="text"
+              {...formik.getFieldProps('full_name')}
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
-              placeholder="John Doe"
             />
           </div>
         </div>
@@ -53,7 +79,10 @@ const SignUpPage = () => {
             <label className="text-sm sm:text-xl">Email</label>
             <Input
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
-              placeholder="john.doe@example.net"
+              placeholder=""
+              id="email"
+              type="email"
+              {...formik.getFieldProps('email')}
             />
           </div>
         </div>
@@ -62,8 +91,10 @@ const SignUpPage = () => {
             <label className="text-sm sm:text-xl">Password</label>
             <Input
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
-              placeholder="********"
+              placeholder=""
               type="password"
+              id="password"
+              {...formik.getFieldProps('password')}
             />
           </div>
         </div>
@@ -76,10 +107,10 @@ const SignUpPage = () => {
             that I read.
           </p>
         </div>
-        <button className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg">
+        <button type="submit" className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg">
           Create account
         </button>
-      </div>
+      </form>
 
       {/* Sign in */}
       <div className="inline-flex flex-col items-center sm:items-start">
