@@ -2,9 +2,9 @@ import { defineConfig } from "@hey-api/openapi-ts";
 
 export default defineConfig({
   client: "@hey-api/client-fetch",
-  input: "./medusa.json",
+  input: "./openapi/custom.json",
   output: {
-    path: "./src/clients/medusa",
+    path: "./libs/api/src/clients/custom",
     format: "prettier",
     lint: "eslint",
   },

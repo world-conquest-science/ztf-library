@@ -1,0 +1,8 @@
+{
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["./apps/backend/src/api/store/**/route.ts"],
+  "spec": {
+    "outputDirectory": "./openapi",
+    "specVersion": 3
+  }
+}

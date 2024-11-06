@@ -4,17 +4,12 @@
   "description": "",
   "private": true,
   "main": "src/index.ts",
-  "scripts": {
-    "openapi-ts": "openapi-ts"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hey-api/client-fetch": "^0.4.2",
     "@ztf-library/types": "workspace:^"
-  },
-  "devDependencies": {
-    "@hey-api/openapi-ts": "^0.54.3"
   }
 }
