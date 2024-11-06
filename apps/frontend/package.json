@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.8",
+    "@ztf-library/api": "workspace:^",
+    "@ztf-library/types": "workspace:^",
     "hugeicons-react": "^0.3.0",
     "next": "14.2.12",
     "next-intl": "^3.20.0",
@@ -25,9 +27,6 @@
     "tailwindcss": "^3.4.1"
   },
   "peerDependencies": {
-    "@tsconfig/node-lts-strictest": "^18.12.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18",
@@ -35,6 +34,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.6.3"
   },
   "engines": {
