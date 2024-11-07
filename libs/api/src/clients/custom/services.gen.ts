@@ -5,15 +5,82 @@ import {
   createConfig,
   type Options,
 } from "@hey-api/client-fetch";
-import type { GetData, GetError, GetResponse } from "./types.gen";
+import type {
+  GetQuotesError,
+  GetQuotesResponse,
+  GetCategoriesData,
+  GetCategoriesError,
+  GetCategoriesResponse,
+  GetBooksData,
+  GetBooksError,
+  GetBooksResponse,
+  GetBooksByCategoryData,
+  GetBooksByCategoryError,
+  GetBooksByCategoryResponse,
+} from "./types.gen";
 
 export const client = createClient(createConfig());
 
-export const get = <ThrowOnError extends boolean = false>(
-  options: Options<GetData, ThrowOnError>,
+/**
+ * Get all the quotes
+ */
+export const getQuotes = <ThrowOnError extends boolean = false>(
+  options?: Options<unknown, ThrowOnError>,
 ) => {
-  return (options?.client ?? client).get<GetResponse, GetError, ThrowOnError>({
+  return (options?.client ?? client).get<
+    GetQuotesResponse,
+    GetQuotesError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/quotes",
+  });
+};
+
+/**
+ * Get all the categories
+ */
+export const getCategories = <ThrowOnError extends boolean = false>(
+  options?: Options<GetCategoriesData, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetCategoriesResponse,
+    GetCategoriesError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/categories",
+  });
+};
+
+/**
+ * Get books, paginated using optional limit and offset
+ */
+export const getBooks = <ThrowOnError extends boolean = false>(
+  options?: Options<GetBooksData, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetBooksResponse,
+    GetBooksError,
+    ThrowOnError
+  >({
     ...options,
     url: "/books",
+  });
+};
+
+/**
+ * Get books from a category, paginated using optional limit and offset
+ */
+export const getBooksByCategory = <ThrowOnError extends boolean = false>(
+  options: Options<GetBooksByCategoryData, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetBooksByCategoryResponse,
+    GetBooksByCategoryError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/books/category/{category_id}",
   });
 };

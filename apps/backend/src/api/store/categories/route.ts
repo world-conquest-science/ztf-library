@@ -1,6 +1,9 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
 import { convertCategory } from '../../../library/converters/category'
+import { Get, Query, Response, Route } from 'tsoa'
+import { TApiDataReponse } from '../../../library/types'
+import { TCategory } from '@ztf-library/types'
 
 const productFields = [
   'products.book.*',
@@ -19,6 +22,16 @@ const productFields = [
   'products.variants.title',
 ]
 const baseFields = ['description', 'handle', 'id', 'name', 'rank']
+
+@Route('/categories')
+class OpenApiSchema {
+  /**
+   * Get all the categories
+   */
+  @Get('/')
+  @Response<TApiDataReponse<TCategory[]>>('200')
+  getCategories(@Query() includeProducts?: boolean) {}
+}
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
@@ -41,6 +54,5 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
   res.json({
     data: categories.map(convertCategory),
-    // data: categories,
   })
 }

@@ -1,6 +1,19 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
 import { convertProductToBook } from '../../../../../library/converters/product'
+import { Get, Path, Query, Response, Route } from 'tsoa'
+import { TBook } from '@ztf-library/types'
+import { TApiPaginatedReponse } from '../../../../../library/types'
+
+@Route('/books')
+class OpenApiSchema {
+  /**
+   * Get books from a category, paginated using optional limit and offset
+   */
+  @Get('/category/{category_id}')
+  @Response<TApiPaginatedReponse<TBook[]>>('200')
+  getBooksByCategory(@Path() category_id: string, @Query() limit?: number, @Query() offset?: number) {}
+}
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
