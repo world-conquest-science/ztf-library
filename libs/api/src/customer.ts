@@ -1,4 +1,4 @@
-import client from "./clients";
+import client, { postSession } from "./clients";
 import { getCustomersMe, postCustomers } from "./clients";
 import { TAddress, TCustomerCreationInput } from "@ztf-library/types";
 
@@ -27,3 +27,9 @@ export function remove_address(address: TAddress): void {}
 export function set_address_as_billing_default(address: TAddress): void {}
 
 export function set_address_as_shipping_default(address: TAddress): void {}
+
+export function setSessionId({}) {
+  return postSession({
+    client,
+  });
+}
