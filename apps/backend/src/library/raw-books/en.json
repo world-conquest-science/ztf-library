@@ -1,5 +1,25 @@
 [
   {
+    "title": "Best Sellers",
+    "books": [
+      { "description": "", "title": "The Way Of Life" },
+      { "description": "", "title": "Discipleship at any cost" },
+      { "description": "", "title": "The Use Of Time" },
+      { "description": "", "title": "Retreats For Spiritual Progress" },
+      { "description": "", "title": "Personal Spiritual Revival" },
+      { "description": "", "title": "Daily Dynamic Encounters With God" },
+      { "description": "", "title": "The School Of Truth" },
+      { "description": "", "title": "Goals! How to Set Them and Accomplish Them!!" },
+      { "description": "", "title": "The Christian And Money" },
+      { "description": "", "title": "Deliverance From The Sin Of Laziness" },
+      { "description": "", "title": "The Art Of Working Hard" },
+      { "description": "", "title": "True Repentance" },
+      { "description": "", "title": "Restitution - An Important Message For The Overcomers" },
+      { "description": "", "title": "You Can Receive A Pure Heart Today" },
+      { "description": "", "title": "You Can Lead Someone To The Lord Jesus Today" }
+    ]
+  },
+  {
     "title": "The Christian Way",
     "books": [
       { "description": "", "title": "The Way Of Life" },
@@ -78,7 +98,7 @@
       { "description": "", "title": "Church Planting Strategies" },
       { "description": "", "title": "Leading a Local Church (Vol. 2)" },
       { "description": "", "title": "Knowing God And Walking With Him" },
-      { "description": "", "title": "The Power of a Man’s All" },
+      { "description": "", "title": "The Power of a Man's All" },
       { "description": "", "title": "Becoming an Under-Shepherd" },
       { "description": "", "title": "The Inner Life" },
       { "description": "", "title": "How to Succeed as a Missionary" },
@@ -99,10 +119,10 @@
       { "description": "", "title": "The Christian And Money" },
       { "description": "", "title": "Deliverance From The Sin Of Laziness" },
       { "description": "", "title": "The Art Of Working Hard" },
-      { "description": "", "title": "Knowing God – The Greatest Need Of The Hour" },
+      { "description": "", "title": "Knowing God - The Greatest Need Of The Hour" },
       { "description": "", "title": "Revelation: A Must" },
       { "description": "", "title": "True Repentance" },
-      { "description": "", "title": "Restitution – An Important Message For The Overcomers" },
+      { "description": "", "title": "Restitution - An Important Message For The Overcomers" },
       { "description": "", "title": "You Can Receive A Pure Heart Today" },
       { "description": "", "title": "You Can Lead Someone To The Lord Jesus Today" },
       { "description": "", "title": "You Can Receive The Baptism Into The Holy Spirit Now" },
@@ -124,7 +144,10 @@
       { "description": "", "title": "Sanctified And Consecrated For Spiritual Ministry" },
       { "description": "", "title": "The Sower, The Seed, And The Hearts Of Men" },
       { "description": "", "title": "Freedom From The Sin Of Adultery And Fornication" },
-      { "description": "", "title": "The Sin Before You May Lead To Immediate Death: Do Not Commit It!" },
+      {
+        "description": "",
+        "title": "The Sin Before You May Lead To Immediate Death: Do Not Commit It!"
+      },
       { "description": "", "title": "Be Filled With The Holy Spirit" },
       { "description": "", "title": "The Power Of The Holy Spirit In The Winning Of The Lost" },
       { "description": "", "title": "Deliverance from the Sin of Gluttony" },
@@ -161,10 +184,10 @@
     ]
   },
   {
-    "title": "God, Money, and You",
+    "title": "God, Money and You",
     "books": [
       { "description": "", "title": "The Christian And Money" },
-      { "description": "", "title": "God, Money, And You" },
+      { "description": "", "title": "God, Money And You" },
       { "description": "", "title": "Giving to God" },
       { "description": "", "title": "Treasures in Heaven" }
     ]
@@ -230,7 +253,10 @@
     "books": [
       { "description": "", "title": "TMBM01—Deliverance from all sin (Part 1)" },
       { "description": "", "title": "TMBM02—Deliverance from all sin (Part 2)" },
-      { "description": "", "title": "TMBM03—Becoming and being a disciple of the Lord Jesus Christ" },
+      {
+        "description": "",
+        "title": "TMBM03—Becoming and being a disciple of the Lord Jesus Christ"
+      },
       { "description": "", "title": "TMBM04—Daily Dynamic Encounters with God" },
       { "description": "", "title": "TMBM05—The Making of Disciples" }
     ]
@@ -324,7 +350,10 @@
     "title": "Special Series",
     "books": [
       { "description": "", "title": "A Broken Vessel" },
-      { "description": "", "title": "The Joy of Begging to Belong to the Lord Jesus Christ: A Testimony" },
+      {
+        "description": "",
+        "title": "The Joy of Begging to Belong to the Lord Jesus Christ: A Testimony"
+      },
       { "description": "", "title": "Separation from the Common" },
       { "description": "", "title": "My Separation from the Common unto God and World Conquest" }
     ]
@@ -347,9 +376,18 @@
     "title": "The Overthrow of Principalities",
     "books": [
       { "description": "", "title": "Deliverance From Demons" },
-      { "description": "", "title": "The Prophecy Of The Overthrow Of The Satanic Prince Of Cameroon" },
-      { "description": "", "title": "The Prophecy of the Overthrow of The Satanic Prince of Yaounde" },
-      { "description": "", "title": "The Prophecy of the Overthrow of The Satanic Prince of Douala" },
+      {
+        "description": "",
+        "title": "The Prophecy Of The Overthrow Of The Satanic Prince Of Cameroon"
+      },
+      {
+        "description": "",
+        "title": "The Prophecy of the Overthrow of The Satanic Prince of Yaounde"
+      },
+      {
+        "description": "",
+        "title": "The Prophecy of the Overthrow of The Satanic Prince of Douala"
+      },
       { "description": "", "title": "The overthrow of principalities and powers" },
       { "description": "", "title": "From His Lips: The Battles He Fought" }
     ]
@@ -360,7 +398,10 @@
       { "description": "", "title": "The Missionary as a Son" },
       { "description": "", "title": "What Our Ministry is" },
       { "description": "", "title": "Conserver la Moisson" },
-      { "description": "", "title": "Disciples of Jesus Christ to Make Disciples For Jesus Christ" },
+      {
+        "description": "",
+        "title": "Disciples of Jesus Christ to Make Disciples For Jesus Christ"
+      },
       { "description": "", "title": "The House Church in God’s Eternal Purposes" },
       { "description": "", "title": "Christian Maturation" },
       { "description": "", "title": "Heroes of the Kingdom" },
@@ -388,11 +429,17 @@
     "books": [
       { "description": "", "title": "Expansions, Extentions, Explosions [PFC2016]" },
       { "description": "", "title": "The Chronicles of Our Ministry [PFC2017]" },
-      { "description": "", "title": "Establishing New Believers and New Churches in Christ [PFC2018]" },
+      {
+        "description": "",
+        "title": "Establishing New Believers and New Churches in Christ [PFC2018]"
+      },
       { "description": "", "title": "Preparing to Encounter God [PFC2019]" },
       { "description": "", "title": "The Making of Disciples: The Master’s Way [PFC2020]" },
       { "description": "", "title": "Removing Obstacles Through Prayer and Fasting [2021]" },
-      { "description": "", "title": "Building a Spiritual Nation: Learning From Biblical Models [PFC2022]" },
+      {
+        "description": "",
+        "title": "Building a Spiritual Nation: Learning From Biblical Models [PFC2022]"
+      },
       { "description": "", "title": "The Person of the Holy Spirit [PFC2023]" }
     ]
   }

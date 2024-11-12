@@ -1,5 +1,25 @@
 [
   {
+    "title": "Best Sellers",
+    "books": [
+      { "description": "", "title": "The Way Of Life" },
+      { "description": "", "title": "Discipleship at any cost" },
+      { "description": "", "title": "The Use Of Time" },
+      { "description": "", "title": "Retreats For Spiritual Progress" },
+      { "description": "", "title": "Personal Spiritual Revival" },
+      { "description": "", "title": "Daily Dynamic Encounters With God" },
+      { "description": "", "title": "The School Of Truth" },
+      { "description": "", "title": "Goals! How to Set Them and Accomplish Them!!" },
+      { "description": "", "title": "The Christian And Money" },
+      { "description": "", "title": "Deliverance From The Sin Of Laziness" },
+      { "description": "", "title": "The Art Of Working Hard" },
+      { "description": "", "title": "True Repentance" },
+      { "description": "", "title": "Restitution - An Important Message For The Overcomers" },
+      { "description": "", "title": "You Can Receive A Pure Heart Today" },
+      { "description": "", "title": "You Can Lead Someone To The Lord Jesus Today" }
+    ]
+  },
+  {
     "title": "The Christian Way",
     "books": [
       { "description": "", "title": "Le Chemin de la Vie" },
@@ -95,7 +115,7 @@
     ]
   },
   {
-    "title": "God, Money, and You",
+    "title": "God, Money and You",
     "books": [
       { "description": "", "title": "Jésus T'Aime et Veut te Gérir" },
       { "description": "", "title": "Viens et vois Jésus n'a pas Changé" },
@@ -123,7 +143,10 @@
       { "description": "", "title": "Un Coeur de Missionnaire et Une Vie de Missionnaire" },
       { "description": "", "title": "La Noblesse spirtuel" },
       { "description": "", "title": "Le leadership spirituel – Modèle de David" },
-      { "description": "", "title": "La chirurgie du cœur pour le ministre potentiel de l'Évangile" },
+      {
+        "description": "",
+        "title": "La chirurgie du cœur pour le ministre potentiel de l'Évangile"
+      },
       { "description": "", "title": "Les Prérequis Pour un Ministère Spirituel" },
       { "description": "", "title": "Puissance pour le service" },
       { "description": "", "title": "Dans le creuset en vue du service" },
@@ -156,9 +179,15 @@
     "books": [
       { "description": "", "title": "L'école des gagneurs d'âmes et gagnement des âmes" },
       { "description": "", "title": "Les œuvres complètes de Z.T. F sur la sainteté (Vol 1)" },
-      { "description": "", "title": "L'Œuvre complète de ZTF sur la Doctrine chrétienne fondamentale" },
+      {
+        "description": "",
+        "title": "L'Œuvre complète de ZTF sur la Doctrine chrétienne fondamentale"
+      },
       { "description": "", "title": "L'Oeuvre Compléte de ZTF Sur le Mariage (Vol. 1)" },
-      { "description": "", "title": "Les œuvres complètes de Z.T. F sur le Message de l'Evangile (Vol 1)" },
+      {
+        "description": "",
+        "title": "Les œuvres complètes de Z.T. F sur le Message de l'Evangile (Vol 1)"
+      },
       { "description": "", "title": "L'Oeuvre Compléte de ZTF Sur la Priere (Vol. 1)" },
       { "description": "", "title": "L'Oeuvre Compléte de ZTF Sur la Priere (Vol. 2)" },
       { "description": "", "title": "L'Oeuvre Compléte de ZTF Sur la Priere (Vol. 3)" },
@@ -241,7 +270,10 @@
       { "description": "", "title": "Délivrance du péché de la gloutonnerie" },
       { "description": "", "title": "Un vase d'honneur" },
       { "description": "", "title": "La conscience du croyant" },
-      { "description": "", "title": "Mourir au Moi De Façon Pratique et la Vie Remplie de L'Esprit" },
+      {
+        "description": "",
+        "title": "Mourir au Moi De Façon Pratique et la Vie Remplie de L'Esprit"
+      },
       { "description": "", "title": "Traiter la vie du moi" },
       { "description": "", "title": "Les Affaires du Cœur" },
       { "description": "", "title": "La rébellion" },
@@ -297,7 +329,10 @@
     "title": "Special Series",
     "books": [
       { "description": "", "title": "Délivrance de l'Emprise des Démons" },
-      { "description": "", "title": "La Prophétie du Renversement du prince satanique du Cameroun" },
+      {
+        "description": "",
+        "title": "La Prophétie du Renversement du prince satanique du Cameroun"
+      },
       { "description": "", "title": "La Prophétie du Renversement du Prince Satanique de Douala" },
       { "description": "", "title": "La Prophétie du Renversement du Prince Satanique de Yaounde" },
       { "description": "", "title": "Renversement des principautés et puissance" },
@@ -319,7 +354,10 @@
       { "description": "", "title": "Le missionnaire en tant que fils" },
       { "description": "", "title": "Ce Qu'est Notre Ministére" },
       { "description": "", "title": "Conserver la Moisson" },
-      { "description": "", "title": "Des Disciples de Jésus-Christ Pour Faire des Disciples Pour Jésus-Christ" },
+      {
+        "description": "",
+        "title": "Des Disciples de Jésus-Christ Pour Faire des Disciples Pour Jésus-Christ"
+      },
       { "description": "", "title": "L'Église de maison dans les desseins éternels de Dieu" },
       { "description": "", "title": "La maturation chrétienne" },
       { "description": "", "title": "Les Héros du Royaume" },
@@ -373,7 +411,10 @@
       { "description": "", "title": "Se préparer à rencontrer Dieu [CPJ2019]" },
       { "description": "", "title": "La formation des disciples : Le chemin du Maître [CPJ2020]" },
       { "description": "", "title": "Enlever les obstacles par la prière et le jeûne [CPJ2021]" },
-      { "description": "", "title": "Bâtir une nation spirituelle : Apprendre des modèles bibliques [CPJ2022]" }
+      {
+        "description": "",
+        "title": "Bâtir une nation spirituelle : Apprendre des modèles bibliques [CPJ2022]"
+      }
     ]
   }
 ]

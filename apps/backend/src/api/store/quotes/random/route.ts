@@ -1,18 +1,18 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertQuote } from '../../../library/converters/quote'
+import { convertQuote } from '../../../../library/converters/quote'
 import { Get, Response, Route } from 'tsoa'
-import { TApiDataReponse } from '../../../library/types'
+import { TApiDataReponse } from '../../../../library/types'
 import { TQuote } from '@ztf-library/types'
 
 @Route('/quotes')
 class OpenApiSchema {
   /**
-   * Get all the quotes
+   * Get a random quote
    */
-  @Get('/')
-  @Response<TApiDataReponse<TQuote[]>>('200')
-  getQuotes() {}
+  @Get('/random')
+  @Response<TApiDataReponse<TQuote>>('200')
+  getRandomQuote() {}
 }
 
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
@@ -37,7 +37,9 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+
   res.json({
-    data: quotes.map(convertQuote),
+    data: convertQuote(randomQuote),
   })
 }

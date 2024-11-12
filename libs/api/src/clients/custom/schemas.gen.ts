@@ -66,6 +66,16 @@ export const TApiDataReponse_TQuote_Array_Schema = {
   type: "object",
 } as const;
 
+export const TApiDataReponse_TQuote_Schema = {
+  properties: {
+    data: {
+      $ref: "#/components/schemas/TQuote",
+    },
+  },
+  required: ["data"],
+  type: "object",
+} as const;
+
 export const TAuthorSchema = {
   properties: {
     photo_url: {
@@ -298,5 +308,15 @@ export const TApiPaginatedReponse_TBook_Array_Schema = {
     },
   },
   required: ["offset", "limit", "count", "data"],
+  type: "object",
+} as const;
+
+export const TApiDataReponse_TBook_Schema = {
+  properties: {
+    data: {
+      $ref: "#/components/schemas/TBook",
+    },
+  },
+  required: ["data"],
   type: "object",
 } as const;

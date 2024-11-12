@@ -27,6 +27,10 @@ export type TCategory = {
   books?: TBook[];
 };
 
+export type TGetCategoriesInput = {
+  includeProducts: boolean;
+};
+
 export type TCurrency = "eur" | "usd" | "xof";
 
 export type TPrice = {
@@ -63,6 +67,25 @@ export type TBook = {
   thumbnail: string;
   image_url: string;
   preface: string;
+};
+
+export type TGetAllBooksInput = {
+  limit: number;
+  offset: number;
+};
+
+export type TGetBooksByCategoryInput = {
+  category_id: string;
+  limit: number;
+  offset: number;
+};
+
+export type TGetBookBySlugInput = {
+  slug: string;
+};
+
+export type TGetRelatedBooksInput = {
+  category_id: string;
 };
 
 export type TQuote = {

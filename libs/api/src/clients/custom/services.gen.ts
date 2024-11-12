@@ -8,6 +8,8 @@ import {
 import type {
   GetQuotesError,
   GetQuotesResponse,
+  GetRandomQuoteError,
+  GetRandomQuoteResponse,
   GetCategoriesData,
   GetCategoriesError,
   GetCategoriesResponse,
@@ -17,6 +19,9 @@ import type {
   GetBooksByCategoryData,
   GetBooksByCategoryError,
   GetBooksByCategoryResponse,
+  GetBookBySlugData,
+  GetBookBySlugError,
+  GetBookBySlugResponse,
 } from "./types.gen";
 
 export const client = createClient(createConfig());
@@ -34,6 +39,22 @@ export const getQuotes = <ThrowOnError extends boolean = false>(
   >({
     ...options,
     url: "/quotes",
+  });
+};
+
+/**
+ * Get a random quote
+ */
+export const getRandomQuote = <ThrowOnError extends boolean = false>(
+  options?: Options<unknown, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetRandomQuoteResponse,
+    GetRandomQuoteError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/quotes/random",
   });
 };
 
@@ -82,5 +103,21 @@ export const getBooksByCategory = <ThrowOnError extends boolean = false>(
   >({
     ...options,
     url: "/books/category/{category_id}",
+  });
+};
+
+/**
+ * Get a book by its slug
+ */
+export const getBookBySlug = <ThrowOnError extends boolean = false>(
+  options: Options<GetBookBySlugData, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetBookBySlugResponse,
+    GetBookBySlugError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/books/{slug}",
   });
 };

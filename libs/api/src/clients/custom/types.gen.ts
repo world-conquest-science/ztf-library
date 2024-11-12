@@ -18,8 +18,16 @@ export type Pick_TBook_slug_or_title_ = {
   title: string;
 };
 
+export type TApiDataReponse_TBook_ = {
+  data: TBook;
+};
+
 export type TApiDataReponse_TCategory_Array_ = {
   data: Array<TCategory>;
+};
+
+export type TApiDataReponse_TQuote_ = {
+  data: TQuote;
 };
 
 export type TApiDataReponse_TQuote_Array_ = {
@@ -102,6 +110,10 @@ export type GetQuotesResponse = TApiDataReponse_TQuote_Array_ | void;
 
 export type GetQuotesError = unknown;
 
+export type GetRandomQuoteResponse = TApiDataReponse_TQuote_ | void;
+
+export type GetRandomQuoteError = unknown;
+
 export type GetCategoriesData = {
   query?: {
     includeProducts?: boolean;
@@ -137,3 +149,13 @@ export type GetBooksByCategoryResponse =
   TApiPaginatedReponse_TBook_Array_ | void;
 
 export type GetBooksByCategoryError = unknown;
+
+export type GetBookBySlugData = {
+  path: {
+    slug: string;
+  };
+};
+
+export type GetBookBySlugResponse = TApiDataReponse_TBook_ | void;
+
+export type GetBookBySlugError = unknown;

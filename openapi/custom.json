@@ -84,6 +84,17 @@
 				],
 				"type": "object"
 			},
+			"TApiDataReponse_TQuote_": {
+				"properties": {
+					"data": {
+						"$ref": "#/components/schemas/TQuote"
+					}
+				},
+				"required": [
+					"data"
+				],
+				"type": "object"
+			},
 			"TAuthor": {
 				"properties": {
 					"photo_url": {
@@ -343,6 +354,17 @@
 					"data"
 				],
 				"type": "object"
+			},
+			"TApiDataReponse_TBook_": {
+				"properties": {
+					"data": {
+						"$ref": "#/components/schemas/TBook"
+					}
+				},
+				"required": [
+					"data"
+				],
+				"type": "object"
 			}
 		},
 		"securitySchemes": {}
@@ -375,6 +397,29 @@
 					}
 				},
 				"description": "Get all the quotes",
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/quotes/random": {
+			"get": {
+				"operationId": "GetRandomQuote",
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TApiDataReponse_TQuote_"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get a random quote",
 				"security": [],
 				"parameters": []
 			}
@@ -498,6 +543,38 @@
 						"schema": {
 							"format": "double",
 							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/books/{slug}": {
+			"get": {
+				"operationId": "GetBookBySlug",
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TApiDataReponse_TBook_"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get a book by its slug",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "slug",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]
