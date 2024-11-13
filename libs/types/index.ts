@@ -41,6 +41,8 @@ export type TFormat = {
   label: string;
   is_available: boolean;
   prices: TPrice[];
+  book_id: string;
+  book?: Omit<TBook, "formats">;
 };
 
 export type TBook = {
@@ -104,3 +106,16 @@ export type TCustomerCreationInput = Pick<
   TCustomer,
   "first_name" | "last_name" | "email"
 >;
+
+export type TCartItem = {
+  item: TFormat;
+  quantity: number;
+  total_price: number;
+};
+
+export type TCart = {
+  items: Array<TCartItem>;
+  sub_total: number;
+  discount_amount: number;
+  grand_total: number;
+};

@@ -1,6 +1,6 @@
 import client from "./clients";
 import { getCustomersMe, postCustomers } from "./clients";
-import { TCustomerCreationInput } from "@ztf-library/types";
+import { TAddress, TCustomerCreationInput } from "@ztf-library/types";
 
 export const create = ({
   first_name,
@@ -13,9 +13,17 @@ export const create = ({
   });
 };
 
-export const getMe = () => {
+export const get_me = () => {
   return getCustomersMe({
     client,
     body: {},
   });
 };
+
+export function add_address(address: TAddress): void {}
+
+export function remove_address(address: TAddress): void {}
+
+export function set_address_as_billing_default(address: TAddress): void {}
+
+export function set_address_as_shipping_default(address: TAddress): void {}
