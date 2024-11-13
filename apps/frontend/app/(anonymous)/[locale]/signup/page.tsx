@@ -21,12 +21,16 @@ const SignUpPage = () => {
       email: '',
       password: '',
     },
-    onSubmit: ({ email, password, full_name }, { setSubmitting }) => {
+    onSubmit: async ({ email, password, full_name }, { setSubmitting }) => {
       setSubmitting(true)
+
       authentication
         .signup({ email, password })
-        .then(({ data }) => setAuthorizationToken(data?.token!, process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY!))
-        .then(() => customer.create({ first_name: '', email, last_name: full_name }))
+        .then(token => {
+          setAuthorizationToken(token, process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY!)
+
+          return customer.create({ first_name: '', email, last_name: full_name })
+        })
         .then(() => router.replace(Routes.Home))
         .catch(console.error)
     },
@@ -69,8 +73,9 @@ const SignUpPage = () => {
               placeholder=""
               id="full_name"
               type="text"
-              {...formik.getFieldProps('full_name')}
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
+              disabled={formik.isSubmitting}
+              {...formik.getFieldProps('full_name')}
             />
           </div>
         </div>
@@ -82,6 +87,7 @@ const SignUpPage = () => {
               placeholder=""
               id="email"
               type="email"
+              disabled={formik.isSubmitting}
               {...formik.getFieldProps('email')}
             />
           </div>
@@ -94,6 +100,7 @@ const SignUpPage = () => {
               placeholder=""
               type="password"
               id="password"
+              disabled={formik.isSubmitting}
               {...formik.getFieldProps('password')}
             />
           </div>
@@ -107,7 +114,7 @@ const SignUpPage = () => {
             that I read.
           </p>
         </div>
-        <button type="submit" className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg">
+        <button disabled={formik.isSubmitting} type="submit" className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg">
           Create account
         </button>
       </form>
@@ -115,7 +122,7 @@ const SignUpPage = () => {
       {/* Sign in */}
       <div className="inline-flex flex-col items-center sm:items-start">
         <p className="text-sm sm:text-base">Already have an account ?</p>
-        <Link href="" className="font-bold text-primary-700 underline underline-offset-2">
+        <Link href={Routes.SignIn} className="font-bold text-primary-700 underline underline-offset-2">
           Sign In here
         </Link>
       </div>
