@@ -15,20 +15,14 @@ export const create = ({
   });
 };
 
-export const get_me = () => {
-  return new Promise<TCustomer>((resolve, reject) => {
-    getCustomersMe({
-      client,
-    })
-      ?.then(({ data }) => {
-        if (!data) {
-          reject();
-        } else {
-          resolve(toCustomer(data.customer));
-        }
-      })
-      .catch(reject);
-  });
+export const get_me = async () => {
+  const response = await getCustomersMe({ client });
+
+  if (!response || response.error || !response.data) {
+    throw new Error("Error while trying to get current customer");
+  }
+
+  return toCustomer(response.data.customer);
 };
 
 export function add_address(address: TAddress): void {}
@@ -38,9 +32,3 @@ export function remove_address(address: TAddress): void {}
 export function set_address_as_billing_default(address: TAddress): void {}
 
 export function set_address_as_shipping_default(address: TAddress): void {}
-
-export function set_session_id() {
-  return postSession({
-    client,
-  });
-}
