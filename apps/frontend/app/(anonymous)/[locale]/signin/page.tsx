@@ -8,11 +8,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { SigninFormSchema, TSigninFormSchema } from './forms/signin.schema'
-import { authentication, setAuthorizationToken } from '@ztf-library/api'
+import api from '@ztf-library/api'
 import { Routes } from '@/app/config/routes'
 import { withZodSchema } from 'formik-validator-zod'
-import { AuthResponse } from '@ztf-library/api/src/clients/medusa'
-import { set_session_id } from '@ztf-library/api/src/customer'
 
 const SignInPage = () => {
   const t = useTranslations('Authentication.SignIn')
@@ -26,17 +24,15 @@ const SignInPage = () => {
       email: '',
       password: '',
     },
-    onSubmit: ({ email, password }, { setSubmitting }) => {
+    onSubmit: async ({ email, password }, { setSubmitting }) => {
       setSubmitting(true)
 
-      authentication
-        .signin({ email, password })
-        .then(async data => {
-          setAuthorizationToken((data as AuthResponse).token, process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY!)
-          await set_session_id()
-          router.replace(Routes.Home)
-        })
+      api
+        .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+        .authentication.signin({ email, password })
+        .then(() => router.replace(Routes.Home))
         .catch(console.error)
+        .finally(() => setSubmitting(false))
     },
     validate: withZodSchema(SigninFormSchema),
   })
