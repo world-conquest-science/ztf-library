@@ -8,6 +8,7 @@ import {
   HeadphonesIcon,
   Cancel01Icon,
 } from 'hugeicons-react'
+import { intlFormat } from 'date-fns'
 import { getTranslations } from 'next-intl/server'
 import { IPageWithSlug } from '@/app/types'
 import { getBookBySlug } from '@/app/api/books'
@@ -40,7 +41,7 @@ export default async function BookDetailsPage({
                 <span className="relative right-[3vw] top-[5vh]">
                   <BookCover
                     key={book.slug}
-                    pictureUrl="/images/books/laziness.png"
+                    pictureUrl={book.image_url}
                     size="normal"
                   />
                 </span>
@@ -48,7 +49,7 @@ export default async function BookDetailsPage({
               <span className="sm:hidden">
                 <BookCover
                   key={book.slug}
-                  pictureUrl="/images/books/laziness.png"
+                  pictureUrl={book.image_url}
                   size="small"
                 />
               </span>
@@ -138,6 +139,7 @@ export default async function BookDetailsPage({
                 <div className="flex flex-row flex-wrap gap-4">
                   <a
                     href={book.audio_version_url}
+                    target="_blank"
                     className="inline-flex w-fit gap-1 py-2 tracking-tighter"
                   >
                     <HeadphonesIcon color="#105ba3" size={18} strokeWidth={3} />
@@ -147,6 +149,7 @@ export default async function BookDetailsPage({
                   </a>
                   <a
                     href={book.ebook_version_url}
+                    target="_blank"
                     className="inline-flex w-fit gap-1 py-2 tracking-tighter"
                   >
                     <LinkSquare02Icon
@@ -165,7 +168,7 @@ export default async function BookDetailsPage({
                   <h6 className="text-xl font-bold sm:text-3xl">
                     {gTrans('description')}
                   </h6>
-                  <p className="text-base leading-normal text-gray-700 sm:text-lg">
+                  <p className="whitespace-pre-line text-base leading-normal text-gray-700 sm:text-lg">
                     {book.description}
                   </p>
                 </div>
@@ -204,7 +207,7 @@ export default async function BookDetailsPage({
                         {gTrans('publish-date')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        {book.publish_date}
+                        {intlFormat(new Date(book.publish_date))}
                       </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
@@ -255,7 +258,7 @@ export default async function BookDetailsPage({
                   <h6 className="text-xl font-bold sm:text-3xl">
                     {gTrans('about-the-author')}
                   </h6>
-                  <p className="text-base leading-normal text-gray-700 sm:text-lg">
+                  <p className="whitespace-pre-line text-base leading-normal text-gray-700 sm:text-lg">
                     {book.author.about}
                   </p>
                 </div>

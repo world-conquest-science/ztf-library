@@ -29,13 +29,9 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   } = await query.graph({
     entity: 'product',
     fields: [
-      'book.author.about',
-      'book.author.handle',
-      'book.author.id',
-      'book.author.name',
-      'book.author.photoUrl',
-      'book.language.code',
-      'book.language.id',
+      'book.*',
+      'book.author.*',
+      'book.language.*',
       'categories.description',
       'categories.handle',
       'categories.id',
@@ -56,6 +52,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       handle: slug,
     },
   })
+
+  console.log({ product, converted: convertProductToBook(product) })
 
   res.json({
     data: convertProductToBook(product),
