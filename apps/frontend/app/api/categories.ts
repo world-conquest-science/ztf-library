@@ -11,3 +11,15 @@ export async function fetchAllCategories() {
 
   return categories
 }
+
+export async function getCategoryBySlug(slug: string) {
+  const category = await api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .category.getCategoryBySlug(slug)
+
+  if (!category) {
+    return null
+  }
+
+  return category
+}

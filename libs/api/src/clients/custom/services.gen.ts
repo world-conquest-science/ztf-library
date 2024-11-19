@@ -13,6 +13,9 @@ import type {
   GetCategoriesData,
   GetCategoriesError,
   GetCategoriesResponse,
+  GetCategoryBySlugData,
+  GetCategoryBySlugError,
+  GetCategoryBySlugResponse,
   GetBooksData,
   GetBooksError,
   GetBooksResponse,
@@ -73,6 +76,22 @@ export const getCategories = <ThrowOnError extends boolean = false>(
   >({
     ...options,
     url: "/store/categories",
+  });
+};
+
+/**
+ * Get a category by its slug
+ */
+export const getCategoryBySlug = <ThrowOnError extends boolean = false>(
+  options: Options<GetCategoryBySlugData, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetCategoryBySlugResponse,
+    GetCategoryBySlugError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/store/categories/{slug}",
   });
 };
 

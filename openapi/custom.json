@@ -407,6 +407,17 @@
 				],
 				"type": "object"
 			},
+			"TApiDataReponse_TCategory_": {
+				"properties": {
+					"data": {
+						"$ref": "#/components/schemas/TCategory"
+					}
+				},
+				"required": [
+					"data"
+				],
+				"type": "object"
+			},
 			"TApiPaginatedReponse_TBook-Array_": {
 				"properties": {
 					"offset": {
@@ -532,6 +543,38 @@
 						"required": false,
 						"schema": {
 							"type": "boolean"
+						}
+					}
+				]
+			}
+		},
+		"/store/categories/{slug}": {
+			"get": {
+				"operationId": "GetCategoryBySlug",
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TApiDataReponse_TCategory_"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No content"
+					}
+				},
+				"description": "Get a category by its slug",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "slug",
+						"required": true,
+						"schema": {
+							"type": "string"
 						}
 					}
 				]

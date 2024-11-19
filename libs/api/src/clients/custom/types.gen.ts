@@ -50,6 +50,10 @@ export type TApiDataReponse_TBook_ = {
   data: TBook;
 };
 
+export type TApiDataReponse_TCategory_ = {
+  data: TCategory;
+};
+
 export type TApiDataReponse_TCategory_Array_ = {
   data: Array<TCategory>;
 };
@@ -149,6 +153,16 @@ export type GetCategoriesData = {
 export type GetCategoriesResponse = TApiDataReponse_TCategory_Array_ | void;
 
 export type GetCategoriesError = unknown;
+
+export type GetCategoryBySlugData = {
+  path: {
+    slug: string;
+  };
+};
+
+export type GetCategoryBySlugResponse = TApiDataReponse_TCategory_ | void;
+
+export type GetCategoryBySlugError = unknown;
 
 export type GetBooksData = {
   query?: {

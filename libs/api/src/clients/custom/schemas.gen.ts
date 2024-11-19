@@ -369,6 +369,16 @@ export const TApiDataReponse_TCategory_Array_Schema = {
   type: "object",
 } as const;
 
+export const TApiDataReponse_TCategory_Schema = {
+  properties: {
+    data: {
+      $ref: "#/components/schemas/TCategory",
+    },
+  },
+  required: ["data"],
+  type: "object",
+} as const;
+
 export const TApiPaginatedReponse_TBook_Array_Schema = {
   properties: {
     offset: {
