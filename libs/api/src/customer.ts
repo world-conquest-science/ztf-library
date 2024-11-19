@@ -1,7 +1,6 @@
-import client, { postSession } from "./clients";
+import client from "./clients";
 import { getCustomersMe, postCustomers } from "./clients";
 import { TAddress, TCustomerCreationInput } from "@ztf-library/types";
-import { TCustomer } from "@ztf-library/types";
 import { toCustomer } from "./converters/customer";
 
 export const create = ({
@@ -19,7 +18,7 @@ export const get_me = async () => {
   const response = await getCustomersMe({ client });
 
   if (!response || response.error || !response.data) {
-    throw new Error("Error while trying to get current customer");
+    return null;
   }
 
   return toCustomer(response.data.customer);
