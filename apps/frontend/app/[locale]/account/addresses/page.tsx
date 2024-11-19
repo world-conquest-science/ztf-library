@@ -1,16 +1,24 @@
 import { Input, Select } from '@headlessui/react'
-import { ArrowDown01Icon, LocationAdd01Icon, RoadLocation01Icon } from 'hugeicons-react'
+import {
+  ArrowDown01Icon,
+  LocationAdd01Icon,
+  RoadLocation01Icon,
+} from 'hugeicons-react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-const YourAddressesPage = () => {
+export default async function YourAddressesPage() {
   const t = useTranslations('AccountSettings.addresses')
   const gTrans = useTranslations('Global')
 
   return (
     <div>
       <header className="my-3 flex items-center gap-2 sm:mb-10 sm:mt-5">
-        <RoadLocation01Icon size={30} className="relative top-[-2px]" strokeWidth={2} />
+        <RoadLocation01Icon
+          size={30}
+          className="relative top-[-2px]"
+          strokeWidth={2}
+        />
         <h1 className="text-2xl font-bold sm:text-3xl">{t('title')}</h1>
       </header>
       <div className="mt-6">
@@ -29,7 +37,9 @@ const YourAddressesPage = () => {
             {/* Name */}
             <div className="w-full">
               <div className="relative flex w-full flex-col">
-                <label className="text-sm sm:text-base">{gTrans('userForm.fullName.label')}</label>
+                <label className="text-sm sm:text-base">
+                  {gTrans('userForm.fullName.label')}
+                </label>
                 <Input
                   className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                   placeholder=""
@@ -41,7 +51,9 @@ const YourAddressesPage = () => {
               {/* Email address */}
               <div className="w-full">
                 <div className="relative flex w-full flex-col">
-                  <label className="text-sm sm:text-base">{gTrans('userForm.email.label')}</label>
+                  <label className="text-sm sm:text-base">
+                    {gTrans('userForm.email.label')}
+                  </label>
                   <Input
                     className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                     value=""
@@ -107,7 +119,9 @@ const YourAddressesPage = () => {
 
             {/* Country */}
             <div className="w-full">
-              <h6 className="text-sm sm:text-base">{gTrans('userForm.address.country.label')}</h6>
+              <h6 className="text-sm sm:text-base">
+                {gTrans('userForm.address.country.label')}
+              </h6>
               <div className="relative flex w-full items-center rounded-lg ring-1 ring-gray-200">
                 <Select className="block w-full appearance-none rounded-lg border-none px-3 py-2 text-base outline-none sm:py-3 sm:text-lg">
                   <option selected value="">
@@ -118,7 +132,10 @@ const YourAddressesPage = () => {
                   <option value="delayed">Ivory Coast</option>
                   <option value="canceled">Cameroun</option>
                 </Select>
-                <ArrowDown01Icon className="pointer-events-none mr-3" aria-hidden="true" />
+                <ArrowDown01Icon
+                  className="pointer-events-none mr-3"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </li>
@@ -132,5 +149,3 @@ const YourAddressesPage = () => {
     </div>
   )
 }
-
-export default YourAddressesPage

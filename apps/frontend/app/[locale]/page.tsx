@@ -10,7 +10,7 @@ import { TCategory } from '@ztf-library/types'
 import { fetchAllCategories } from '../api/categories'
 import { fetchRandomQuotes } from '../api/quotes'
 
-const HomePage = async () => {
+export default async function HomePage() {
   const categories = await fetchAllCategories()
   const quotes = await fetchRandomQuotes()
   const someCategories = getRandomItems<TCategory>(categories.slice(0), 3)
@@ -31,5 +31,3 @@ const HomePage = async () => {
     </>
   )
 }
-
-export default HomePage

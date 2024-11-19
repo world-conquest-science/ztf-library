@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const CheckoutPage = () => {
+export default async function CheckoutPage() {
   return (
     <section className="mt-6">
       <div className="container mx-auto">
@@ -29,7 +29,9 @@ const CheckoutPage = () => {
                 {/* Country */}
                 <div className="w-full border-b border-dashed border-gray-200 pb-5">
                   <div>
-                    <h6 className="text-base font-semibold">Shipping country</h6>
+                    <h6 className="text-base font-semibold">
+                      Shipping country
+                    </h6>
                     <div className="relative mt-3 flex w-full items-center rounded-lg ring-1 ring-gray-200">
                       <Select className="block w-full appearance-none rounded-lg border-none px-3 py-2 text-base outline-none sm:py-3 sm:text-lg">
                         <option selected value="">
@@ -40,7 +42,10 @@ const CheckoutPage = () => {
                         <option value="delayed">Ivory Coast</option>
                         <option value="canceled">Cameroun</option>
                       </Select>
-                      <ArrowDown01Icon className="pointer-events-none mr-3" aria-hidden="true" />
+                      <ArrowDown01Icon
+                        className="pointer-events-none mr-3"
+                        aria-hidden="true"
+                      />
                     </div>
                   </div>
                 </div>
@@ -61,7 +66,9 @@ const CheckoutPage = () => {
                   {/* Email address */}
                   <div className="w-full">
                     <div className="relative flex w-full flex-col">
-                      <label className="text-sm sm:text-base">Email address</label>
+                      <label className="text-sm sm:text-base">
+                        Email address
+                      </label>
                       <Input
                         className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                         value=""
@@ -73,7 +80,9 @@ const CheckoutPage = () => {
                   {/* Phone number */}
                   <div className="w-full">
                     <div className="relative flex w-full flex-col">
-                      <label className="text-sm sm:text-base">Phone number</label>
+                      <label className="text-sm sm:text-base">
+                        Phone number
+                      </label>
                       <Input
                         className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                         placeholder="+33 01 23 45 67 89"
@@ -85,7 +94,9 @@ const CheckoutPage = () => {
                 {/* Street name and house number */}
                 <div className="w-full">
                   <div className="relative flex w-full flex-col">
-                    <label className="text-sm">Street name and house number</label>
+                    <label className="text-sm">
+                      Street name and house number
+                    </label>
                     <Input
                       className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                       placeholder="1234 Road of Americans"
@@ -123,7 +134,11 @@ const CheckoutPage = () => {
               <div className="mt-5 flex flex-col gap-4 rounded-lg p-4 ring-1 ring-gray-200 sm:mt-0 sm:w-1/3">
                 <h6 className="font-semibold">Shipping method</h6>
 
-                <RadioGroup value={4} onChange={() => {}} className="flex flex-col gap-3">
+                <RadioGroup
+                  value={4}
+                  onChange={() => {}}
+                  className="flex flex-col gap-3"
+                >
                   <div className="flex justify-between rounded-lg p-3 ring-1 ring-gray-200">
                     <div className="inline-flex gap-2">
                       <Radio
@@ -134,7 +149,9 @@ const CheckoutPage = () => {
                       </Radio>
                       <div className="relative top-[-1px] inline-flex flex-col">
                         <span className="text-base">Free shipping</span>
-                        <span className="text-xs text-gray-400">7-30 business days</span>
+                        <span className="text-xs text-gray-400">
+                          7-30 business days
+                        </span>
                       </div>
                     </div>
                     <span className="text-base font-medium">0€</span>
@@ -149,7 +166,9 @@ const CheckoutPage = () => {
                       </Radio>
                       <div className="relative top-[-1px] inline-flex flex-col">
                         <span className="text-base">Regular shipping</span>
-                        <span className="text-xs text-gray-400">3-14 business days</span>
+                        <span className="text-xs text-gray-400">
+                          3-14 business days
+                        </span>
                       </div>
                     </div>
                     <span className="text-base font-medium">7.99€</span>
@@ -164,7 +183,9 @@ const CheckoutPage = () => {
                       </Radio>
                       <div className="relative top-[-1px] inline-flex flex-col">
                         <span className="text-base">Express shipping</span>
-                        <span className="text-xs text-gray-400">1-3 business days</span>
+                        <span className="text-xs text-gray-400">
+                          1-3 business days
+                        </span>
                       </div>
                     </div>
                     <span className="text-base font-medium">19.99€</span>
@@ -198,8 +219,12 @@ const CheckoutPage = () => {
                       />
                     </div>
                     <div className="flex flex-col px-3 py-2">
-                      <h6 className="font-medium text-black sm:text-lg">Roots and destinies</h6>
-                      <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                      <h6 className="font-medium text-black sm:text-lg">
+                        Roots and destinies
+                      </h6>
+                      <span className="text-xs text-gray-500 sm:text-sm">
+                        Paperback
+                      </span>
                       <span className="text-xs text-black sm:text-sm">x2</span>
                     </div>
                   </Link>
@@ -226,7 +251,9 @@ const CheckoutPage = () => {
                       <h6 className="font-medium text-black sm:text-lg">
                         Deliverance from the sin of laziness
                       </h6>
-                      <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                      <span className="text-xs text-gray-500 sm:text-sm">
+                        Paperback
+                      </span>
                       <span className="text-xs text-black sm:text-sm">x1</span>
                     </div>
                   </Link>
@@ -243,7 +270,9 @@ const CheckoutPage = () => {
                     <span className="text-xs font-light text-gray-500 line-through sm:text-sm">
                       29.99€
                     </span>
-                    <span className="font-bold text-black sm:text-xl">9.99€</span>
+                    <span className="font-bold text-black sm:text-xl">
+                      9.99€
+                    </span>
                   </span>
                 </li>
                 <li className="flex justify-between">
@@ -254,7 +283,9 @@ const CheckoutPage = () => {
               <li className="flex justify-between pt-3">
                 <span className="font-normal text-black">Grand total</span>
                 <span className="inline-flex items-center gap-1">
-                  <span className="text-sm font-light text-gray-500 line-through">29.99€</span>
+                  <span className="text-sm font-light text-gray-500 line-through">
+                    29.99€
+                  </span>
                   <span className="text-2xl font-bold text-black">9.99€</span>
                 </span>
               </li>
@@ -262,7 +293,9 @@ const CheckoutPage = () => {
 
             {/* Continue to payment */}
             <button className="flex items-center justify-center gap-2 rounded-lg bg-secondary-800 py-3 text-white">
-              <span className="relative top-[2px] text-lg font-bold">Continue to payment</span>
+              <span className="relative top-[2px] text-lg font-bold">
+                Continue to payment
+              </span>
               <Payment02Icon size={22} strokeWidth={2} color="#fff" />
             </button>
           </aside>
@@ -271,5 +304,3 @@ const CheckoutPage = () => {
     </section>
   )
 }
-
-export default CheckoutPage

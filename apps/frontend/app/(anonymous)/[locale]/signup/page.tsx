@@ -9,7 +9,7 @@ import { SignupFormSchema, TSignupFormSchema } from './forms/signup.schema'
 import { withZodSchema } from 'formik-validator-zod'
 import { Routes } from '@/app/config/routes'
 
-const SignUpPage = () => {
+export default async function SignUpPage() {
   const formik = useFormik<TSignupFormSchema>({
     validateOnBlur: true,
     initialValues: {
@@ -151,5 +151,3 @@ const SignUpPage = () => {
     </>
   )
 }
-
-export default SignUpPage

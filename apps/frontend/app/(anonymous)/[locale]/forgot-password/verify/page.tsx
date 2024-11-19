@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import React from 'react'
 
-const VerifyCodePage = () => {
+export default async function VerifyCodePage() {
   const t = useTranslations('Authentication.VerifyCode')
 
   return (
@@ -13,7 +13,9 @@ const VerifyCodePage = () => {
           <ArrowLeft02Icon className="mt-[2px] size-4 sm:mt-0 sm:size-5" />
           {t('back')}
         </Link>
-        <h1 className="text-2xl font-bold text-black sm:text-5xl">{t('title')}</h1>
+        <h1 className="text-2xl font-bold text-black sm:text-5xl">
+          {t('title')}
+        </h1>
         <p className="text-sm text-gray-600 sm:text-xl">{t('description')}</p>
       </header>
 
@@ -61,5 +63,3 @@ const VerifyCodePage = () => {
     </>
   )
 }
-
-export default VerifyCodePage

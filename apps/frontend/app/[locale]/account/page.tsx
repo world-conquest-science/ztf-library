@@ -23,7 +23,7 @@ type TUISetting = {
   Icon: JSX.Element
 }
 
-const SettingItem = ({ Icon, index, url }: TUISetting) => {
+export default async function SettingItem({ Icon, index, url }: TUISetting) {
   const t = useTranslations('AccountSettings')
 
   return (
@@ -38,7 +38,9 @@ const SettingItem = ({ Icon, index, url }: TUISetting) => {
             {t(`${index}.title`)}
           </span>
         </div>
-        <p className="text-sm text-gray-500 sm:text-base">{t(`${index}.description`)}</p>
+        <p className="text-sm text-gray-500 sm:text-base">
+          {t(`${index}.description`)}
+        </p>
       </Link>
     </li>
   )
@@ -90,5 +92,3 @@ const AccountPage = () => {
     </div>
   )
 }
-
-export default AccountPage

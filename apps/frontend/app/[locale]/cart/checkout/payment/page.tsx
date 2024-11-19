@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const PaymentPage = () => {
+export default async function PaymentPage() {
   return (
     <section className="mt-6">
       <div className="container mx-auto">
@@ -111,7 +111,9 @@ const PaymentPage = () => {
                   {/* Email address */}
                   <div className="w-full">
                     <div className="relative flex w-full flex-col">
-                      <label className="text-sm sm:text-base">Email address</label>
+                      <label className="text-sm sm:text-base">
+                        Email address
+                      </label>
                       <Input
                         className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                         value=""
@@ -123,7 +125,9 @@ const PaymentPage = () => {
                   {/* Phone number */}
                   <div className="w-full">
                     <div className="relative flex w-full flex-col">
-                      <label className="text-sm sm:text-base">Phone number</label>
+                      <label className="text-sm sm:text-base">
+                        Phone number
+                      </label>
                       <Input
                         className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                         placeholder="+33 01 23 45 67 89"
@@ -135,7 +139,9 @@ const PaymentPage = () => {
                 {/* Street name and house number */}
                 <div className="w-full">
                   <div className="relative flex w-full flex-col">
-                    <label className="text-sm">Street name and house number</label>
+                    <label className="text-sm">
+                      Street name and house number
+                    </label>
                     <Input
                       className="block w-full rounded-lg border-none px-3 py-2 ring-1 ring-gray-200 sm:py-3"
                       placeholder="1234 Road of Americans"
@@ -181,7 +187,10 @@ const PaymentPage = () => {
                       <option value="delayed">Ivory Coast</option>
                       <option value="canceled">Cameroun</option>
                     </Select>
-                    <ArrowDown01Icon className="pointer-events-none mr-3" aria-hidden="true" />
+                    <ArrowDown01Icon
+                      className="pointer-events-none mr-3"
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
               </div>
@@ -230,8 +239,12 @@ const PaymentPage = () => {
                       />
                     </div>
                     <div className="flex flex-col px-3 py-2">
-                      <h6 className="font-medium text-black sm:text-lg">Roots and destinies</h6>
-                      <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                      <h6 className="font-medium text-black sm:text-lg">
+                        Roots and destinies
+                      </h6>
+                      <span className="text-xs text-gray-500 sm:text-sm">
+                        Paperback
+                      </span>
                       <span className="text-xs text-black sm:text-sm">x2</span>
                     </div>
                   </Link>
@@ -258,7 +271,9 @@ const PaymentPage = () => {
                       <h6 className="font-medium text-black sm:text-lg">
                         Deliverance from the sin of laziness
                       </h6>
-                      <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                      <span className="text-xs text-gray-500 sm:text-sm">
+                        Paperback
+                      </span>
                       <span className="text-xs text-black sm:text-sm">x1</span>
                     </div>
                   </Link>
@@ -275,7 +290,9 @@ const PaymentPage = () => {
                     <span className="text-xs font-light text-gray-500 line-through sm:text-sm">
                       29.99€
                     </span>
-                    <span className="font-bold text-black sm:text-xl">9.99€</span>
+                    <span className="font-bold text-black sm:text-xl">
+                      9.99€
+                    </span>
                   </span>
                 </li>
                 <li className="flex justify-between">
@@ -286,7 +303,9 @@ const PaymentPage = () => {
               <li className="flex justify-between pt-3">
                 <span className="font-normal text-black">Grand total</span>
                 <span className="inline-flex items-center gap-1">
-                  <span className="text-sm font-light text-gray-500 line-through">29.99€</span>
+                  <span className="text-sm font-light text-gray-500 line-through">
+                    29.99€
+                  </span>
                   <span className="text-2xl font-bold text-black">9.99€</span>
                 </span>
               </li>
@@ -294,7 +313,9 @@ const PaymentPage = () => {
 
             {/* Continue to payment */}
             <button className="flex items-center justify-center gap-2 rounded-lg bg-secondary-800 py-3 text-white">
-              <span className="relative top-[2px] text-lg font-bold">Place order now</span>
+              <span className="relative top-[2px] text-lg font-bold">
+                Place order now
+              </span>
               <PackageMovingIcon size={22} strokeWidth={2} color="#fff" />
             </button>
           </aside>
@@ -303,5 +324,3 @@ const PaymentPage = () => {
     </section>
   )
 }
-
-export default PaymentPage

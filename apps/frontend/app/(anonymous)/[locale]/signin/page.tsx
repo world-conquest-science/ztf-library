@@ -10,7 +10,7 @@ import { SigninFormSchema, TSigninFormSchema } from './forms/signin.schema'
 import { withZodSchema } from 'formik-validator-zod'
 import { signin } from './actions'
 
-const SignInPage = () => {
+export default async function SignInPage() {
   const t = useTranslations('Authentication.SignIn')
   const gTrans = useTranslations('Global')
 
@@ -136,5 +136,3 @@ const SignInPage = () => {
     </>
   )
 }
-
-export default SignInPage

@@ -2,13 +2,15 @@ import { Input } from '@headlessui/react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-const ResetPasswordPage = () => {
+export default async function ResetPasswordPage() {
   const t = useTranslations('Authentication.ResetPassword')
 
   return (
     <>
       <header>
-        <h1 className="text-2xl font-bold text-black sm:text-5xl">{t('title')}</h1>
+        <h1 className="text-2xl font-bold text-black sm:text-5xl">
+          {t('title')}
+        </h1>
         <p className="text-sm text-gray-600 sm:text-xl">{t('description')}</p>
       </header>
 
@@ -16,7 +18,9 @@ const ResetPasswordPage = () => {
       <div className="my-3 flex flex-col gap-5 sm:gap-7">
         <div className="w-full">
           <div className="relative flex w-full flex-col">
-            <label className="text-sm sm:text-xl">{t('form.new-password.label')}</label>
+            <label className="text-sm sm:text-xl">
+              {t('form.new-password.label')}
+            </label>
             <Input
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
               placeholder=""
@@ -43,5 +47,3 @@ const ResetPasswordPage = () => {
     </>
   )
 }
-
-export default ResetPasswordPage

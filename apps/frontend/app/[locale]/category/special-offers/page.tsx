@@ -4,7 +4,7 @@ import { BookCover } from '@/app/components/BookCover'
 import { Tag01Icon } from 'hugeicons-react'
 import { Books } from '@/app/components/Books'
 
-const SpecialOffersPage = () => {
+export default async function SpecialOffersPage() {
   return (
     <>
       <BookshelfSection>
@@ -24,9 +24,10 @@ const SpecialOffersPage = () => {
                 <span className="relative top-[3px]">Special offers</span>
               </h3>
               <p className="opacity-75">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est tempora quo eius
-                deserunt aliquid ea. Necessitatibus corporis molestiae omnis deserunt voluptate
-                voluptatibus minima facere, cum officia vel.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
+                tempora quo eius deserunt aliquid ea. Necessitatibus corporis
+                molestiae omnis deserunt voluptate voluptatibus minima facere,
+                cum officia vel.
               </p>
             </header>
           </div>
@@ -36,5 +37,3 @@ const SpecialOffersPage = () => {
     </>
   )
 }
-
-export default SpecialOffersPage

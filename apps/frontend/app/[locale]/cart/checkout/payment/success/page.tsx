@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const PaymentSuccessPage = () => {
+export default async function PaymentSuccessPage() {
   return (
     <section className="mt-6">
       <div className="container mx-auto sm:max-w-[30vw]">
@@ -12,7 +12,8 @@ const PaymentSuccessPage = () => {
             <CheckmarkBadge01Icon size={42} strokeWidth={2} color="#16a34a" />
             <h6 className="mt-1 text-2xl font-bold">Thanks for your order!</h6>
             <p className="font-light text-gray-500">
-              The order confirmation has been sent to akakpo.jeanjacques@gmail.com
+              The order confirmation has been sent to
+              akakpo.jeanjacques@gmail.com
             </p>
           </header>
           <div className="flex flex-col border-b border-dashed border-gray-200 py-3">
@@ -23,14 +24,19 @@ const PaymentSuccessPage = () => {
           </div>
           <div className="flex flex-col border-b border-dashed border-gray-200 py-3">
             <h6 className="text-lg font-semibold">Payment method</h6>
-            <p className="text-base font-normal text-gray-500">Visa credit card ending with 2617</p>
+            <p className="text-base font-normal text-gray-500">
+              Visa credit card ending with 2617
+            </p>
           </div>
           <div className="flex flex-col border-b border-dashed border-gray-200 py-3">
             <h6 className="text-lg font-semibold">Shipping method</h6>
             <p className="text-base font-normal text-gray-500">
               Express delivery (1-3 business days)
             </p>
-            <Link href="" className="font-bold tracking-tighter underline underline-offset-2">
+            <Link
+              href=""
+              className="font-bold tracking-tighter underline underline-offset-2"
+            >
               Track order
             </Link>
           </div>
@@ -57,8 +63,12 @@ const PaymentSuccessPage = () => {
                     />
                   </div>
                   <div className="flex flex-col px-3 py-2">
-                    <h6 className="font-medium text-black sm:text-lg">Roots and destinies</h6>
-                    <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                    <h6 className="font-medium text-black sm:text-lg">
+                      Roots and destinies
+                    </h6>
+                    <span className="text-xs text-gray-500 sm:text-sm">
+                      Paperback
+                    </span>
                     <span className="text-xs text-black sm:text-sm">x2</span>
                   </div>
                 </Link>
@@ -85,7 +95,9 @@ const PaymentSuccessPage = () => {
                     <h6 className="font-medium text-black sm:text-lg">
                       Deliverance from the sin of laziness
                     </h6>
-                    <span className="text-xs text-gray-500 sm:text-sm">Paperback</span>
+                    <span className="text-xs text-gray-500 sm:text-sm">
+                      Paperback
+                    </span>
                     <span className="text-xs text-black sm:text-sm">x1</span>
                   </div>
                 </Link>
@@ -100,11 +112,15 @@ const PaymentSuccessPage = () => {
                   <span className="font-bold text-black sm:text-xl">0€</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="font-normal text-gray-500">Discount applied</span>
+                  <span className="font-normal text-gray-500">
+                    Discount applied
+                  </span>
                   <span className="font-bold text-black sm:text-xl">0€</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="font-normal text-gray-500">Shipment cost</span>
+                  <span className="font-normal text-gray-500">
+                    Shipment cost
+                  </span>
                   <span className="font-bold text-black sm:text-xl">0€</span>
                 </li>
               </ul>
@@ -116,7 +132,9 @@ const PaymentSuccessPage = () => {
 
             {/* Continue to payment */}
             <button className="flex items-center justify-center gap-2 rounded-lg bg-secondary-800 py-3 text-white">
-              <span className="relative top-[2px] text-lg font-bold">Continue shopping</span>
+              <span className="relative top-[2px] text-lg font-bold">
+                Continue shopping
+              </span>
             </button>
           </div>
         </div>
@@ -124,5 +142,3 @@ const PaymentSuccessPage = () => {
     </section>
   )
 }
-
-export default PaymentSuccessPage

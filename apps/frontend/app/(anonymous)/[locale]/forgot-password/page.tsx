@@ -2,14 +2,16 @@ import React from 'react'
 import { MailReceive01Icon, SmsCodeIcon } from 'hugeicons-react'
 import { useTranslations } from 'next-intl'
 
-const ForgotPasswordPage = () => {
+export default async function ForgotPasswordPage() {
   const t = useTranslations('Authentication.ForgotPassword')
   const gTrans = useTranslations('Global')
 
   return (
     <>
       <header>
-        <h1 className="text-2xl font-bold text-black sm:text-5xl">{t('title')}</h1>
+        <h1 className="text-2xl font-bold text-black sm:text-5xl">
+          {t('title')}
+        </h1>
         <p className="text-sm text-gray-600 sm:text-xl">{t('description')}</p>
       </header>
 
@@ -64,5 +66,3 @@ const ForgotPasswordPage = () => {
     </>
   )
 }
-
-export default ForgotPasswordPage

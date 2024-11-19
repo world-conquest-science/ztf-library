@@ -9,7 +9,12 @@ const BookItem = () => {
     <li className="overflow-hidden rounded-lg bg-background-50 p-3 sm:p-5">
       <Link href={'url'} className="">
         <div className="mb-3 overflow-hidden rounded-lg">
-          <Image src="/images/books/destinies.png" alt="Book name" width={300} height={0} />
+          <Image
+            src="/images/books/destinies.png"
+            alt="Book name"
+            width={300}
+            height={0}
+          />
         </div>
         <div className="px-1 sm:px-1">
           <h1 className="text-base font-semibold sm:text-lg">
@@ -22,7 +27,7 @@ const BookItem = () => {
   )
 }
 
-const SearchPage = () => {
+export default async function SearchPage() {
   const books = new Array(32).fill({ url: '' }).map((item, index) => ({
     ...item,
     url: index.toString(),
@@ -111,5 +116,3 @@ const SearchPage = () => {
     </section>
   )
 }
-
-export default SearchPage

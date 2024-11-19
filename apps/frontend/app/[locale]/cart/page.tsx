@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const CartPage = () => {
+export default async function CartPage() {
   return (
     <section className="mt-6">
       <div className="container mx-auto">
@@ -18,8 +18,14 @@ const CartPage = () => {
             <header className="mb-3 flex justify-between">
               <h6 className="text-2xl font-bold sm:text-3xl">Your cart</h6>
               <button className="flex items-center gap-2">
-                <span className="relative top-[2px] font-medium text-red-600">Empty cart</span>
-                <ShoppingBasketRemove01Icon size={18} strokeWidth={2} color="#dc2626" />
+                <span className="relative top-[2px] font-medium text-red-600">
+                  Empty cart
+                </span>
+                <ShoppingBasketRemove01Icon
+                  size={18}
+                  strokeWidth={2}
+                  color="#dc2626"
+                />
               </button>
             </header>
 
@@ -93,7 +99,9 @@ const CartPage = () => {
                       </td>
                       <td className="py-2 pr-6 sm:pr-0 sm:text-right sm:align-baseline">
                         <span className="inline-flex items-center gap-1 sm:text-right sm:text-base">
-                          <span className="font-bold text-black sm:text-xl">9.99€</span>
+                          <span className="font-bold text-black sm:text-xl">
+                            9.99€
+                          </span>
                         </span>
                       </td>
                     </tr>
@@ -112,7 +120,9 @@ const CartPage = () => {
                     <span className="text-xs font-light text-gray-500 line-through sm:text-sm">
                       29.99€
                     </span>
-                    <span className="font-bold text-black sm:text-xl">9.99€</span>
+                    <span className="font-bold text-black sm:text-xl">
+                      9.99€
+                    </span>
                   </span>
                 </li>
                 <li className="flex justify-between">
@@ -123,7 +133,9 @@ const CartPage = () => {
               <li className="flex justify-between pt-3">
                 <span className="font-normal text-black">Grand total</span>
                 <span className="inline-flex items-center gap-1">
-                  <span className="text-sm font-light text-gray-500 line-through">29.99€</span>
+                  <span className="text-sm font-light text-gray-500 line-through">
+                    29.99€
+                  </span>
                   <span className="text-2xl font-bold text-black">9.99€</span>
                 </span>
               </li>
@@ -131,8 +143,14 @@ const CartPage = () => {
 
             {/* Checkout */}
             <button className="flex items-center justify-center gap-2 rounded-lg bg-secondary-800 py-3 text-white">
-              <span className="relative top-[2px] text-lg font-bold">Checkout now</span>
-              <ShoppingBasketDone01Icon size={22} strokeWidth={2} color="#fff" />
+              <span className="relative top-[2px] text-lg font-bold">
+                Checkout now
+              </span>
+              <ShoppingBasketDone01Icon
+                size={22}
+                strokeWidth={2}
+                color="#fff"
+              />
             </button>
           </aside>
         </div>
@@ -140,5 +158,3 @@ const CartPage = () => {
     </section>
   )
 }
-
-export default CartPage

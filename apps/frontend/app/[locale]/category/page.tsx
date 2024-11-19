@@ -2,7 +2,7 @@ import { fetchAllCategories } from '@/app/api/categories'
 import { CategoryItem } from '@/app/components/CategoryItem'
 import React from 'react'
 
-const AllCategoriesPage = async () => {
+export default async function AllCategoriesPage() {
   const categories = await fetchAllCategories()
 
   return (
@@ -22,5 +22,3 @@ const AllCategoriesPage = async () => {
     </section>
   )
 }
-
-export default AllCategoriesPage

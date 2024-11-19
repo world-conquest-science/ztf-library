@@ -4,7 +4,7 @@ import { Books } from '@/app/components/Books'
 import { BookCover } from '@/app/components/BookCover'
 import { ChampionIcon } from 'hugeicons-react'
 
-const BestSellersPage = () => {
+export default async function BestSellersPage() {
   return (
     <>
       <BookshelfSection>
@@ -24,9 +24,10 @@ const BestSellersPage = () => {
                 <span className="relative top-[3px]">Best sellers</span>
               </h3>
               <p className="opacity-75">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est tempora quo eius
-                deserunt aliquid ea. Necessitatibus corporis molestiae omnis deserunt voluptate
-                voluptatibus minima facere, cum officia vel.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
+                tempora quo eius deserunt aliquid ea. Necessitatibus corporis
+                molestiae omnis deserunt voluptate voluptatibus minima facere,
+                cum officia vel.
               </p>
             </header>
           </div>
@@ -36,5 +37,3 @@ const BestSellersPage = () => {
     </>
   )
 }
-
-export default BestSellersPage
