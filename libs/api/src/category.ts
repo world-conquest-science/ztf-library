@@ -1,18 +1,21 @@
 import { TGetCategoriesInput } from "@ztf-library/types";
-import client, { getCategories, getProductCategories } from "./clients";
+import client, {
+  getCategories,
+  TApiDataReponse_TCategory_Array_,
+} from "./clients";
 
-export const getAllCategories = ({ includeProducts }: TGetCategoriesInput) => {
-  return getCategories({
+export async function getAllCategories({
+  includeProducts,
+}: TGetCategoriesInput) {
+  const response = await getCategories({
     client,
     query: { includeProducts },
   });
-};
 
-export const getLeadingCategories = () => {
-  return getProductCategories({
-    client,
-    query: {
-      order: "rank",
-    },
-  });
-};
+  if (response.error) {
+    return null;
+  }
+
+  const { data } = response.data as TApiDataReponse_TCategory_Array_;
+  return data;
+}

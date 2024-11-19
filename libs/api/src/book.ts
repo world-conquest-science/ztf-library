@@ -8,14 +8,21 @@ import client, {
   getBookBySlug,
   getBooks,
   getBooksByCategory as getBooksByCategoryApi,
+  TApiPaginatedReponse_TBook_Array_,
 } from "./clients";
 
-export const getAllBooks = ({ limit, offset }: TGetAllBooksInput) => {
-  return getBooks({
+export async function getAllBooks({ limit, offset }: TGetAllBooksInput) {
+  const response = await getBooks({
     client,
     query: { limit, offset },
   });
-};
+
+  if (response.error) {
+    return null;
+  }
+
+  return response.data as TApiPaginatedReponse_TBook_Array_;
+}
 
 export const getBooksByCategory = ({
   category_id,

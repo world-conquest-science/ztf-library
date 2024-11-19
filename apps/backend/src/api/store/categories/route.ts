@@ -55,6 +55,8 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   })
 
   res.json({
-    data: categories.map(convertCategory),
+    data: categories
+      .map(convertCategory)
+      .filter(category => category.books && category.books.length > 1),
   })
 }

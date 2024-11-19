@@ -4,6 +4,7 @@ import { convertProductToBook } from '../../../library/converters/product'
 import { Route, Get, Query, Response } from 'tsoa'
 import { TBook } from '@ztf-library/types'
 import { TApiPaginatedReponse } from '../../../library/types'
+import { shuffleArray } from '../../../library/helpers'
 
 @Route('/store/books')
 class OpenApiSchema {
@@ -18,8 +19,8 @@ class OpenApiSchema {
 export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
 
-  const limit = (req.query.limit || 30) as number
-  const offset = (req.query.offset || 0) as number
+  const limit = parseInt(req.query.limit as string) || 30
+  const offset = parseInt(req.query.offset as string) || 0
 
   const { data: products } = await query.graph({
     entity: 'product',
@@ -51,7 +52,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   })
 
   res.json({
-    data: products.map(convertProductToBook),
+    data: shuffleArray(products.map(convertProductToBook)),
     count: products.length,
     limit,
     offset,

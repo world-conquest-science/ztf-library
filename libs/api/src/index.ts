@@ -2,6 +2,7 @@ import * as authentication from "./authentication";
 import * as customer from "./customer";
 import * as book from "./book";
 import * as quote from "./quote";
+import * as category from "./category";
 
 import { setMedusaApiKey } from "./clients";
 
@@ -18,6 +19,7 @@ export default {
       book,
       customer,
       quote,
+      category,
     };
   },
 };

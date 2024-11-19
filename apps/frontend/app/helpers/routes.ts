@@ -1,7 +1,7 @@
 import { ProtectedSubRoutes, PublicRoutes, Routes } from '../config/routes'
 import { localesPipeSeparated } from '../i18n/routing'
 
-export const isPublicRoute = (pathname: string) => {
+export function isPublicRoute(pathname: string) {
   const isInPublicRoutes = !!PublicRoutes.find(route =>
     new RegExp(String.raw`(${localesPipeSeparated})?${route}`, 'g').test(
       pathname,
@@ -13,4 +13,12 @@ export const isPublicRoute = (pathname: string) => {
   )
 
   return (isHomeRoute || isInPublicRoutes) && isNotInProtectedSubRoutes
+}
+
+export function generateBookUrl(slug: string) {
+  return `/${slug}`
+}
+
+export function generateCategoryUrl(slug: string) {
+  return `/category/${slug}`
 }

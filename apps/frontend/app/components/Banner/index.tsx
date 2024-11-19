@@ -1,35 +1,22 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './banner.css'
 import { BookCover } from '../BookCover'
 import Link from 'next/link'
 import { ArrowRight02Icon, ShoppingBasketAdd01Icon } from 'hugeicons-react'
 import { useTranslations } from 'next-intl'
-import api from '@ztf-library/api'
 import { TQuote } from '@ztf-library/types'
+import { generateBookUrl } from '@/app/helpers/routes'
 
-const Banner = () => {
+interface IBanner {
+  quotes: TQuote[]
+}
+
+const Banner = ({ quotes }: IBanner) => {
   const gTrans = useTranslations('Global')
 
-  const [quotes, setQuotes] = useState<TQuote[]>()
   const [selectedQuoteId, setSelectedQuoteId] = useState(0)
-
-  useEffect(() => {
-    async function fetchQuotes() {
-      const quotes = await api
-        .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-        .quote.getRandomQuote()
-
-      if (!quotes) {
-        return
-      }
-
-      setQuotes(quotes)
-    }
-
-    fetchQuotes()
-  }, [])
 
   const onNextQuoteClick = () => {
     setSelectedQuoteId(id => (id === 0 ? 1 : 0))
@@ -63,7 +50,7 @@ const Banner = () => {
             {quotes ? (
               <h2 className="mt-5 text-lg sm:text-xl">
                 <Link
-                  href={quotes[selectedQuoteId].book.slug}
+                  href={generateBookUrl(quotes[selectedQuoteId].book.slug)}
                   className="font-semibold"
                 >
                   {quotes[selectedQuoteId].book.title}
@@ -74,17 +61,20 @@ const Banner = () => {
             ) : (
               <span>Loading...</span>
             )}
-            <button className="mt-8 inline-flex w-fit gap-3 rounded-full bg-accent-900 px-6 py-4 text-lg font-bold tracking-tight text-white">
+            <Link
+              href={generateBookUrl(quotes[selectedQuoteId].book.slug)}
+              className="mt-8 inline-flex w-fit gap-3 rounded-full bg-accent-900 px-6 py-4 text-lg font-bold tracking-tight text-white"
+            >
               {gTrans('order-now')}
               <ShoppingBasketAdd01Icon strokeWidth={2} />
-            </button>
+            </Link>
           </div>
 
           {/* Just one book cover on mobile view */}
           <div className="justify-left flex w-full px-6 sm:hidden">
             {quotes ? (
               <Link
-                href={quotes[selectedQuoteId].book.slug}
+                href={generateBookUrl(quotes[selectedQuoteId].book.slug)}
                 className="inline-block"
               >
                 <BookCover

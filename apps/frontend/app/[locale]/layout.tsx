@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
 import { Header } from '@/app/components/Header'
 import { Footer } from '@/app/components/Footer'
+import { ReactQueryProvider } from '../react-query-provider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,9 +27,13 @@ export default async function RootLayout({
         className={`${primary.variable} ${secondary.variable} flex flex-col overflow-x-hidden antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex flex-1 flex-col overflow-x-hidden">{children}</main>
-          <Footer />
+          <ReactQueryProvider>
+            <Header />
+            <main className="flex flex-1 flex-col overflow-x-hidden">
+              {children}
+            </main>
+            <Footer />
+          </ReactQueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>
