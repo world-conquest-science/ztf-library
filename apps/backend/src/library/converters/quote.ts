@@ -7,6 +7,7 @@ export function convertQuote(quote: any): TQuote {
     book: {
       slug: quote?.book?.product?.handle,
       title: quote?.book?.product?.title,
+      thumbnail: quote?.book?.product?.thumbnail,
     },
     author: {
       slug: quote?.author?.handle,

@@ -5,13 +5,13 @@ import { Get, Response, Route } from 'tsoa'
 import { TApiDataReponse } from '../../../../library/types'
 import { TQuote } from '@ztf-library/types'
 
-@Route('/quotes')
+@Route('/store/quotes')
 class OpenApiSchema {
   /**
-   * Get a random quote
+   * Get two random quotes
    */
   @Get('/random')
-  @Response<TApiDataReponse<TQuote>>('200')
+  @Response<TApiDataReponse<TQuote[]>>('200')
   getRandomQuote() {}
 }
 
@@ -29,6 +29,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       'book.id',
       'book.product.handle',
       'book.product.title',
+      'book.product.thumbnail',
       'content',
       'id',
     ],
@@ -37,9 +38,12 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+  const quote1 = quotes[Math.floor(Math.random() * quotes.length)]
+  const remainingQuotes = quotes.filter(q => q.id !== quote1.id)
+  const quote2 =
+    remainingQuotes[Math.floor(Math.random() * remainingQuotes.length)]
 
   res.json({
-    data: convertQuote(randomQuote),
+    data: [convertQuote(quote1), convertQuote(quote2)],
   })
 }

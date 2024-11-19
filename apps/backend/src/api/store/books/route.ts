@@ -5,7 +5,7 @@ import { Route, Get, Query, Response } from 'tsoa'
 import { TBook } from '@ztf-library/types'
 import { TApiPaginatedReponse } from '../../../library/types'
 
-@Route('/books')
+@Route('/store/books')
 class OpenApiSchema {
   /**
    * Get books, paginated using optional limit and offset

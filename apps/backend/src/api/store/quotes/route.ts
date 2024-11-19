@@ -5,7 +5,7 @@ import { Get, Response, Route } from 'tsoa'
 import { TApiDataReponse } from '../../../library/types'
 import { TQuote } from '@ztf-library/types'
 
-@Route('/quotes')
+@Route('/store/quotes')
 class OpenApiSchema {
   /**
    * Get all the quotes

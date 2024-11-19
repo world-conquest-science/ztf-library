@@ -5,7 +5,7 @@ import { Get, Path, Query, Response, Route } from 'tsoa'
 import { TBook } from '@ztf-library/types'
 import { TApiDataReponse } from '../../../../library/types'
 
-@Route('/books')
+@Route('/store/books')
 class OpenApiSchema {
   /**
    * Get a book by its slug

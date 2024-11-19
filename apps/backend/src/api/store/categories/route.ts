@@ -23,7 +23,7 @@ const productFields = [
 ]
 const baseFields = ['description', 'handle', 'id', 'name', 'rank']
 
-@Route('/categories')
+@Route('/store/categories')
 class OpenApiSchema {
   /**
    * Get all the categories
@@ -40,7 +40,9 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
 
   const { data: categories } = await query.graph({
     entity: 'product_categories',
-    fields: includeProducts ? [...baseFields, ...productFields] : [...baseFields],
+    fields: includeProducts
+      ? [...baseFields, ...productFields]
+      : [...baseFields],
     filters: {
       deleted_at: null,
     },

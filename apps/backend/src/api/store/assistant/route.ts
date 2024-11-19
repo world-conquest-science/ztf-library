@@ -1,6 +1,6 @@
 import { Get, Response, Route } from 'tsoa'
 
-@Route('/assistant')
+@Route('/store/assistant')
 class OpenApiSchema {
   /**
    * Recommend quote and book from a query
