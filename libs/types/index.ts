@@ -91,7 +91,7 @@ export type TGetRelatedBooksInput = {
 export type TQuote = {
   id: string;
   content: string;
-  book: Pick<TBook, "slug" | "title">;
+  book: Pick<TBook, "slug" | "title" | "thumbnail">;
   author: Pick<TAuthor, "name" | "photo_url" | "about" | "slug">;
 };
 

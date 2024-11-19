@@ -16,7 +16,7 @@ client.setConfig({
   },
 });
 
-export function set_authorization_token(token: string) {
+export function setAuthorizationToken(token: string) {
   client.setConfig({
     headers: {
       Authorization: `Bearer ${token}`,
@@ -24,7 +24,7 @@ export function set_authorization_token(token: string) {
   });
 }
 
-export function set_medusa_api_key(medusaApiKey: string) {
+export function setMedusaApiKey(medusaApiKey: string) {
   client.setConfig({
     headers: {
       "x-publishable-api-key": medusaApiKey,

@@ -1,7 +1,7 @@
 import client, {
   AuthResponse,
   postSession,
-  set_authorization_token,
+  setAuthorizationToken,
 } from "./clients";
 import {
   postActorTypeAuthProvider,
@@ -23,7 +23,7 @@ export async function signin({ email, password }: TCustomerSigninInput) {
 
   // With token, set auth header and create a session
   const { token } = response.data as AuthResponse;
-  set_authorization_token(token);
+  setAuthorizationToken(token);
 
   return token;
 }

@@ -4,6 +4,7 @@ const withNextIntl = createNextIntlPlugin('./app/i18n/request.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {

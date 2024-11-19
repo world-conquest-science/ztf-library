@@ -22,6 +22,8 @@ import type {
   GetBookBySlugData,
   GetBookBySlugError,
   GetBookBySlugResponse,
+  GetRecommendationError,
+  GetRecommendationResponse,
 } from "./types.gen";
 
 export const client = createClient(createConfig());
@@ -38,12 +40,12 @@ export const getQuotes = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/quotes",
+    url: "/store/quotes",
   });
 };
 
 /**
- * Get a random quote
+ * Get two random quotes
  */
 export const getRandomQuote = <ThrowOnError extends boolean = false>(
   options?: Options<unknown, ThrowOnError>,
@@ -54,7 +56,7 @@ export const getRandomQuote = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/quotes/random",
+    url: "/store/quotes/random",
   });
 };
 
@@ -70,7 +72,7 @@ export const getCategories = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/categories",
+    url: "/store/categories",
   });
 };
 
@@ -86,7 +88,7 @@ export const getBooks = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/books",
+    url: "/store/books",
   });
 };
 
@@ -102,7 +104,7 @@ export const getBooksByCategory = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/books/category/{category_id}",
+    url: "/store/books/category/{category_id}",
   });
 };
 
@@ -118,6 +120,22 @@ export const getBookBySlug = <ThrowOnError extends boolean = false>(
     ThrowOnError
   >({
     ...options,
-    url: "/books/{slug}",
+    url: "/store/books/{slug}",
+  });
+};
+
+/**
+ * Recommend quote and book from a query
+ */
+export const getRecommendation = <ThrowOnError extends boolean = false>(
+  options?: Options<unknown, ThrowOnError>,
+) => {
+  return (options?.client ?? client).get<
+    GetRecommendationResponse,
+    GetRecommendationError,
+    ThrowOnError
+  >({
+    ...options,
+    url: "/store/assistant",
   });
 };

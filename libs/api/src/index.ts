@@ -1,8 +1,9 @@
 import * as authentication from "./authentication";
 import * as customer from "./customer";
 import * as book from "./book";
+import * as quote from "./quote";
 
-import { set_medusa_api_key } from "./clients";
+import { setMedusaApiKey } from "./clients";
 
 export default {
   with: (publishable_key?: string) => {
@@ -10,12 +11,13 @@ export default {
       throw new Error("No publishable API key provided!");
     }
 
-    set_medusa_api_key(publishable_key);
+    setMedusaApiKey(publishable_key);
 
     return {
       authentication,
       book,
       customer,
+      quote,
     };
   },
 };

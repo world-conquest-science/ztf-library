@@ -1,31 +1,39 @@
-import React from 'react'
-import './banner.css'
-import { BookCover, TBookCover } from '../BookCover'
-import Link from 'next/link'
-import { ShoppingBasketAdd01Icon } from 'hugeicons-react'
-import { useTranslations } from 'next-intl'
+'use client'
 
-type TStandingBook = {
-  pictureUrl: string
-  url: string
-  coverSize: TBookCover['size']
-}
+import React, { useEffect, useState } from 'react'
+import './banner.css'
+import { BookCover } from '../BookCover'
+import Link from 'next/link'
+import { ArrowRight02Icon, ShoppingBasketAdd01Icon } from 'hugeicons-react'
+import { useTranslations } from 'next-intl'
+import api from '@ztf-library/api'
+import { TQuote } from '@ztf-library/types'
 
 const Banner = () => {
   const gTrans = useTranslations('Global')
 
-  const standingBooks: TStandingBook[] = [
-    {
-      pictureUrl: '/images/books/working-hard.png',
-      url: 'the-way-of-life',
-      coverSize: 'big',
-    },
-    {
-      pictureUrl: '/images/books/faith.png',
-      url: 'the-way-of-life',
-      coverSize: 'normal',
-    },
-  ]
+  const [quotes, setQuotes] = useState<TQuote[]>()
+  const [selectedQuoteId, setSelectedQuoteId] = useState(0)
+
+  useEffect(() => {
+    async function fetchQuotes() {
+      const quotes = await api
+        .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+        .quote.getRandomQuote()
+
+      if (!quotes) {
+        return
+      }
+
+      setQuotes(quotes)
+    }
+
+    fetchQuotes()
+  }, [])
+
+  const onNextQuoteClick = () => {
+    setSelectedQuoteId(id => (id === 0 ? 1 : 0))
+  }
 
   return (
     <section className="homepage-banner flex flex-row">
@@ -35,16 +43,37 @@ const Banner = () => {
       <div className="container mx-auto h-auto">
         <div className="flex h-full flex-col sm:flex-row sm:justify-between">
           <div className="mb-8 flex w-full flex-col self-center px-6 py-4 sm:mb-0 sm:w-1/2 sm:p-0">
-            <p className="font-secondary text-xl font-black text-foreground sm:text-3xl sm:leading-[150%]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos quam odio fuga.
-              Aspernatur autem distinctio expedita ea vero quis, earum sed corporis?
-            </p>
-            <h2 className="mt-5 text-lg sm:text-xl">
-              <Link href="" className="font-semibold">
-                The Christian Way
-              </Link>{' '}
-              {gTrans('by')} <span>Zacharias Tanee Fomum</span>
-            </h2>
+            <button
+              className="mb-3 inline-flex w-fit"
+              onClick={onNextQuoteClick}
+            >
+              <span>Next quote</span>
+              <ArrowRight02Icon
+                aria-hidden="true"
+                className="ml-1 mt-[1px] h-5 w-5"
+              />
+            </button>
+            {quotes ? (
+              <p className="font-secondary text-xl font-black text-foreground sm:text-3xl sm:leading-[150%]">
+                {quotes[selectedQuoteId].content}
+              </p>
+            ) : (
+              <span>Loading...</span>
+            )}
+            {quotes ? (
+              <h2 className="mt-5 text-lg sm:text-xl">
+                <Link
+                  href={quotes[selectedQuoteId].book.slug}
+                  className="font-semibold"
+                >
+                  {quotes[selectedQuoteId].book.title}
+                </Link>{' '}
+                {gTrans('by')}{' '}
+                <span>{quotes[selectedQuoteId].author.name}</span>
+              </h2>
+            ) : (
+              <span>Loading...</span>
+            )}
             <button className="mt-8 inline-flex w-fit gap-3 rounded-full bg-accent-900 px-6 py-4 text-lg font-bold tracking-tight text-white">
               {gTrans('order-now')}
               <ShoppingBasketAdd01Icon strokeWidth={2} />
@@ -53,22 +82,36 @@ const Banner = () => {
 
           {/* Just one book cover on mobile view */}
           <div className="justify-left flex w-full px-6 sm:hidden">
-            <Link href={standingBooks[0].url} className="inline-block">
-              <BookCover
-                key={standingBooks[0].pictureUrl}
-                pictureUrl={standingBooks[0].pictureUrl}
-                size="small"
-              />
-            </Link>
+            {quotes ? (
+              <Link
+                href={quotes[selectedQuoteId].book.slug}
+                className="inline-block"
+              >
+                <BookCover
+                  key={quotes[selectedQuoteId].book.slug}
+                  pictureUrl={quotes[selectedQuoteId].book.thumbnail}
+                  size="small"
+                />
+              </Link>
+            ) : (
+              <span>Loading...</span>
+            )}
           </div>
 
           {/* 2 books cover for larger screens */}
           <div className="hidden w-full items-baseline justify-end self-end sm:flex sm:w-2/3 sm:gap-28">
-            {standingBooks.map(({ pictureUrl, coverSize, url }) => (
-              <Link href={url} className="inline-block" key={pictureUrl}>
-                <BookCover pictureUrl={pictureUrl} size={coverSize} />
-              </Link>
-            ))}
+            {quotes ? (
+              quotes.map(({ book }, index) => (
+                <Link href={book.slug} className="inline-block" key={book.slug}>
+                  <BookCover
+                    pictureUrl={book.thumbnail}
+                    size={index === 0 ? 'big' : 'normal'}
+                  />
+                </Link>
+              ))
+            ) : (
+              <span>Loading...</span>
+            )}
           </div>
         </div>
       </div>
