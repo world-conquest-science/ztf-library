@@ -10,3 +10,9 @@ export async function fetchPaginatedBooks() {
       offset: 0,
     })
 }
+
+export async function getBookBySlug(slug: string) {
+  return api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .book.getBook({ slug })
+}

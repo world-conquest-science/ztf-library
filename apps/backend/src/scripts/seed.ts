@@ -1,6 +1,10 @@
 import { createProductsWorkflow } from '@medusajs/medusa/core-flows'
 import { ExecArgs } from '@medusajs/framework/types'
-import { ContainerRegistrationKeys, Modules, ProductStatus } from '@medusajs/framework/utils'
+import {
+  ContainerRegistrationKeys,
+  Modules,
+  ProductStatus,
+} from '@medusajs/framework/utils'
 import { BOOK_MODULE } from 'src/modules/book'
 import { LANGUAGE_MODULE } from 'src/modules/language'
 
@@ -20,7 +24,8 @@ export default async function seedDemoData({ container }: ExecArgs) {
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)
   const productModuleService = container.resolve(Modules.PRODUCT)
   const bookModuleService: BookModuleService = container.resolve(BOOK_MODULE)
-  const languageModuleService: LanguageModuleService = container.resolve(LANGUAGE_MODULE)
+  const languageModuleService: LanguageModuleService =
+    container.resolve(LANGUAGE_MODULE)
 
   const populate = async (lang: string = 'en') => {
     let data: typeof en_categories = []
@@ -36,7 +41,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
       // First of all, create the current category and get it back
       let categoryId: string = null
-      let [category] = await productModuleService.listProductCategories({ name: title })
+      let [category] = await productModuleService.listProductCategories({
+        name: title,
+      })
       if (!category) {
         const { id } = await productModuleService.createProductCategories({
           name: title,
@@ -51,7 +58,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
       for (const book of books) {
         logger.info(`> ${book.title}`)
 
-        const products = await productModuleService.listProducts({ title: book.title })
+        const products = await productModuleService.listProducts({
+          title: book.title,
+        })
         if (!products || products.length === 0) {
           // Here we are going to link created products to a new created book entity
           const links = []
@@ -70,7 +79,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
                   options: [FORMAT_OPTIONS],
                   variants: [
                     {
-                      title: `${book.title} ${DEFAULT_FORMAT}`,
+                      title: DEFAULT_FORMAT,
                       sku: `${book.title.toUpperCase()} / ${lang.toUpperCase()} / ${DEFAULT_FORMAT.toUpperCase()}`,
                       options: {
                         Format: DEFAULT_FORMAT,
@@ -129,7 +138,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
           // We arrived here because this same book belongs to more than one category
           // So we should just update existing product, adding the new category
           const product = products[0]
-          const productCategories = product.categories ? product.categories.map(c => c.id) : []
+          const productCategories = product.categories
+            ? product.categories.map(c => c.id)
+            : []
           await productModuleService.updateProducts(product.id, {
             category_ids: [...productCategories, categoryId],
           })

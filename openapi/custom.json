@@ -214,6 +214,9 @@
 					"id": {
 						"type": "string"
 					},
+					"description": {
+						"type": "string"
+					},
 					"audio_version_url": {
 						"type": "string"
 					},
@@ -261,6 +264,7 @@
 					"title",
 					"thumbnail",
 					"id",
+					"description",
 					"audio_version_url",
 					"dimensions",
 					"ebook_version_url",
@@ -365,6 +369,9 @@
 					"slug": {
 						"type": "string"
 					},
+					"description": {
+						"type": "string"
+					},
 					"title": {
 						"type": "string"
 					},
@@ -388,6 +395,7 @@
 					"dimensions",
 					"audio_version_url",
 					"slug",
+					"description",
 					"title",
 					"id"
 				],

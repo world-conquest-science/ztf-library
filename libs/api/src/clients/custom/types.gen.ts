@@ -23,6 +23,7 @@ export type Pick_TBook_Exclude_keyofTBook_formats__ = {
   title: string;
   thumbnail: string;
   id: string;
+  description: string;
   audio_version_url: string;
   dimensions: string;
   ebook_version_url: string;
@@ -93,6 +94,7 @@ export type TBook = {
   dimensions: string;
   audio_version_url: string;
   slug: string;
+  description: string;
   title: string;
   id: string;
 };

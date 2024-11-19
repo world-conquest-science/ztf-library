@@ -12,6 +12,7 @@ export function convertProductToBook(product: Product): TBook {
   return {
     id: product.id,
     title: product.title,
+    description: product.description,
     slug: product.handle,
     audio_version_url: product.book?.audioVersionUrl,
     dimensions: product.book?.dimensions,

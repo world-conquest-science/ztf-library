@@ -177,6 +177,9 @@ export const Pick_TBook_Exclude_keyofTBook_formats__Schema = {
     id: {
       type: "string",
     },
+    description: {
+      type: "string",
+    },
     audio_version_url: {
       type: "string",
     },
@@ -224,6 +227,7 @@ export const Pick_TBook_Exclude_keyofTBook_formats__Schema = {
     "title",
     "thumbnail",
     "id",
+    "description",
     "audio_version_url",
     "dimensions",
     "ebook_version_url",
@@ -327,6 +331,9 @@ export const TBookSchema = {
     slug: {
       type: "string",
     },
+    description: {
+      type: "string",
+    },
     title: {
       type: "string",
     },
@@ -350,6 +357,7 @@ export const TBookSchema = {
     "dimensions",
     "audio_version_url",
     "slug",
+    "description",
     "title",
     "id",
   ],

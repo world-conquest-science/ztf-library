@@ -1,7 +1,7 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
 import { convertProductToBook } from '../../../../library/converters/product'
-import { Get, Path, Query, Response, Route } from 'tsoa'
+import { Get, Path, Response, Route } from 'tsoa'
 import { TBook } from '@ztf-library/types'
 import { TApiDataReponse } from '../../../../library/types'
 
@@ -46,6 +46,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
       'images.url',
       'thumbnail',
       'title',
+      'description',
       'variants.prices.amount',
       'variants.prices.currency_code',
       'variants.title',

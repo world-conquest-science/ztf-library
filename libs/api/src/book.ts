@@ -6,6 +6,7 @@ import {
 } from "@ztf-library/types";
 import client, {
   getBookBySlug,
+  TApiDataReponse_TBook_,
   getBooks,
   getBooksByCategory as getBooksByCategoryApi,
   TApiPaginatedReponse_TBook_Array_,
@@ -36,12 +37,19 @@ export const getBooksByCategory = ({
   });
 };
 
-export const getBook = ({ slug }: TGetBookBySlugInput) => {
-  return getBookBySlug({
+export async function getBook({ slug }: TGetBookBySlugInput) {
+  const response = await getBookBySlug({
     client,
     path: { slug },
   });
-};
+
+  if (response.error) {
+    return null;
+  }
+
+  const { data } = response.data as TApiDataReponse_TBook_;
+  return data;
+}
 
 export const getRelatedBooks = ({ category_id }: TGetRelatedBooksInput) => {
   return getBooksByCategoryApi({

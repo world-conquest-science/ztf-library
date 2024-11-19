@@ -1,18 +1,34 @@
+import React from 'react'
 import { BookCover } from '@/app/components/BookCover'
-import { SimilarBooks } from '@/app/components/SimilarBooks'
 import {
   BookmarkAdd01Icon,
   CheckmarkBadge01Icon,
   LinkSquare02Icon,
   ShoppingBasketAdd01Icon,
   HeadphonesIcon,
+  Cancel01Icon,
 } from 'hugeicons-react'
-import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import React from 'react'
+import { getTranslations } from 'next-intl/server'
+import { IPageWithSlug } from '@/app/types'
+import { getBookBySlug } from '@/app/api/books'
+import { formatPrice } from '@/app/helpers/price'
+import { Books } from '@/app/components/Books'
+import { getCategoryBySlug } from '@/app/api/categories'
 
-export default async function BookDetailsPage() {
-  const gTrans = useTranslations('Global')
+const selectedFormatId = 0
+
+export default async function BookDetailsPage({
+  params,
+}: {
+  params: Promise<IPageWithSlug>
+}) {
+  const gTrans = await getTranslations('Global')
+
+  const { slug } = await params
+  const book = await getBookBySlug(slug)
+  const category = await getCategoryBySlug(book?.categories[0]!.slug!)
+
+  if (!book || !category) return
 
   return (
     <>
@@ -23,7 +39,7 @@ export default async function BookDetailsPage() {
               <span className="hidden sm:flex">
                 <span className="relative right-[3vw] top-[5vh]">
                   <BookCover
-                    key="/images/books/laziness.png"
+                    key={book.slug}
                     pictureUrl="/images/books/laziness.png"
                     size="normal"
                   />
@@ -31,7 +47,7 @@ export default async function BookDetailsPage() {
               </span>
               <span className="sm:hidden">
                 <BookCover
-                  key="/images/books/laziness.png"
+                  key={book.slug}
                   pictureUrl="/images/books/laziness.png"
                   size="small"
                 />
@@ -41,10 +57,10 @@ export default async function BookDetailsPage() {
               {/* Title and author */}
               <header className="mt-3 flex flex-col">
                 <h3 className="w-2/3 text-3xl font-bold text-accent-900 sm:text-5xl">
-                  Deliverance from the sin of laziness
+                  {book.title}
                 </h3>
                 <h6 className="text-base text-gray-500 sm:text-lg">
-                  Zacharias Tanee Fomum
+                  {book.author.name}
                 </h6>
               </header>
 
@@ -55,35 +71,50 @@ export default async function BookDetailsPage() {
                     {gTrans('format')}
                   </span>
                   <ul className="flex gap-4">
-                    <li className="inline-flex rounded-sm bg-background-100 ring-2 ring-background-300">
-                      <Link href="" className="inline-flex flex-col px-4 py-2">
-                        <span className="text-sm font-light">Paperback</span>
-                        <div className="inline-flex items-center gap-2">
-                          <span className="text-sm line-through">10.99€</span>
-                          <span className="text-lg font-black">1.99€</span>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="inline-flex rounded-sm bg-gray-50 ring-2 ring-gray-300">
-                      <Link href="" className="inline-flex flex-col px-4 py-2">
-                        <span className="text-sm font-light">Paperback</span>
-                        <div className="inline-flex items-center gap-2">
-                          <span className="text-sm line-through">10.99€</span>
-                          <span className="text-lg font-black">1.99€</span>
-                        </div>
-                      </Link>
-                    </li>
+                    {book.formats.map(format => (
+                      <li
+                        key={format.label}
+                        className="inline-flex rounded-sm bg-background-100 ring-2 ring-background-300"
+                      >
+                        <span className="inline-flex flex-col px-4 py-2">
+                          <span className="text-sm font-light">
+                            {format.label}
+                          </span>
+                          <div className="inline-flex items-center gap-2">
+                            {/* <span className="text-sm line-through">{format.prices[0]!.amount}</span> */}
+                            <span className="text-lg font-black">
+                              {formatPrice(format.prices[0]!.amount)}
+                            </span>
+                          </div>
+                        </span>
+                      </li>
+                    ))}
                   </ul>
 
                   <div className="inline-flex w-fit items-center gap-1">
-                    <CheckmarkBadge01Icon
-                      size={20}
-                      color="#16a34a"
-                      strokeWidth={3}
-                    />
-                    <span className="relative top-[1px] text-xs font-black uppercase text-green-600 sm:top-[2px] sm:text-base">
-                      {gTrans('available')}
-                    </span>
+                    {book.formats[selectedFormatId].is_available ? (
+                      <>
+                        <CheckmarkBadge01Icon
+                          size={20}
+                          color="#16a34a"
+                          strokeWidth={3}
+                        />
+                        <span className="relative top-[1px] text-xs font-black uppercase text-green-600 sm:top-[2px] sm:text-base">
+                          {gTrans('available')}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Cancel01Icon
+                          size={20}
+                          color="#dc2626"
+                          strokeWidth={3}
+                        />
+                        <span className="relative top-[1px] text-xs font-black uppercase text-red-600 sm:top-[2px] sm:text-base">
+                          {gTrans('unavailable')}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -105,17 +136,17 @@ export default async function BookDetailsPage() {
 
                 {/* External links */}
                 <div className="flex flex-row flex-wrap gap-4">
-                  <Link
-                    href=""
+                  <a
+                    href={book.audio_version_url}
                     className="inline-flex w-fit gap-1 py-2 tracking-tighter"
                   >
                     <HeadphonesIcon color="#105ba3" size={18} strokeWidth={3} />
                     <span className="font-bold text-primary-700">
                       {gTrans('listen-to-this-book')}
                     </span>
-                  </Link>
-                  <Link
-                    href=""
+                  </a>
+                  <a
+                    href={book.ebook_version_url}
                     className="inline-flex w-fit gap-1 py-2 tracking-tighter"
                   >
                     <LinkSquare02Icon
@@ -126,7 +157,7 @@ export default async function BookDetailsPage() {
                     <span className="font-bold text-primary-700">
                       {gTrans('get-the-ebook-version')}
                     </span>
-                  </Link>
+                  </a>
                 </div>
 
                 {/* Preface */}
@@ -135,31 +166,7 @@ export default async function BookDetailsPage() {
                     {gTrans('description')}
                   </h6>
                   <p className="text-base leading-normal text-gray-700 sm:text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Incidunt asperiores tenetur, labore voluptatem quo molestiae
-                    quae debitis velit dolore iste consequuntur illum eos.
-                    Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Incidunt asperiores tenetur, labore voluptatem quo
-                    molestiae quae debitis velit dolore iste consequuntur illum
-                    eos. Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Incidunt asperiores tenetur, labore voluptatem quo
-                    molestiae quae debitis velit dolore iste consequuntur illum
-                    eos. Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Incidunt asperiores tenetur, labore voluptatem quo
-                    molestiae quae debitis velit dolore iste consequuntur illum
-                    eos. Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Incidunt asperiores tenetur, labore voluptatem quo
-                    molestiae quae debitis velit dolore iste consequuntur illum
-                    eos. Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur? Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Incidunt asperiores tenetur, labore voluptatem quo
-                    molestiae quae debitis velit dolore iste consequuntur illum
-                    eos. Reprehenderit deleniti perferendis atque tempora nisi
-                    pariatur?
+                    {book.description}
                   </p>
                 </div>
 
@@ -174,11 +181,13 @@ export default async function BookDetailsPage() {
                         {gTrans('price')}
                       </span>
                       <div className="inline-flex items-center gap-1 text-gray-700">
-                        <span className="text-sm line-through sm:text-base">
+                        {/* <span className="text-sm line-through sm:text-base">
                           10.99€
-                        </span>
+                        </span> */}
                         <span className="text-base font-bold sm:text-lg">
-                          1.99€
+                          {formatPrice(
+                            book.formats[selectedFormatId].prices[0]!.amount,
+                          )}
                         </span>
                       </div>
                     </li>
@@ -187,7 +196,7 @@ export default async function BookDetailsPage() {
                         {gTrans('publisher')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        Thomas Nelson
+                        {book.publisher}
                       </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
@@ -195,35 +204,31 @@ export default async function BookDetailsPage() {
                         {gTrans('publish-date')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        August 07, 2018
-                      </span>
-                    </li>
-                    <li className="inline-flex gap-1 sm:text-lg">
-                      <span className="text-gray-500 underline underline-offset-2">
-                        {gTrans('cover')}
-                      </span>
-                      <span className="font-medium text-gray-700">
-                        Jacques Maré
+                        {book.publish_date}
                       </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
                       <span className="text-gray-500 underline underline-offset-2">
                         {gTrans('pages')}
                       </span>
-                      <span className="font-medium text-gray-700">218</span>
+                      <span className="font-medium text-gray-700">
+                        {book.pages_count}
+                      </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
                       <span className="text-gray-500 underline underline-offset-2">
                         {gTrans('language')}
                       </span>
-                      <span className="font-medium text-gray-700">English</span>
+                      <span className="font-medium text-gray-700">
+                        {gTrans(book.language.code)}
+                      </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
                       <span className="text-gray-500 underline underline-offset-2">
                         {gTrans('dimensions')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        5.4 x 8.3 x 0.8 inches | 0.45 pounds
+                        {book.dimensions}
                       </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
@@ -231,7 +236,7 @@ export default async function BookDetailsPage() {
                         {gTrans('types')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        Paperback
+                        {book.formats.map(format => format.label).join(', ')}
                       </span>
                     </li>
                     <li className="inline-flex gap-1 sm:text-lg">
@@ -239,7 +244,7 @@ export default async function BookDetailsPage() {
                         {gTrans('isbn')}
                       </span>
                       <span className="font-medium text-gray-700">
-                        9128U1NAZAHU1921208AH
+                        {book.isbn}
                       </span>
                     </li>
                   </ul>
@@ -251,18 +256,7 @@ export default async function BookDetailsPage() {
                     {gTrans('about-the-author')}
                   </h6>
                   <p className="text-base leading-normal text-gray-700 sm:text-lg">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Sed similique iure est neque, natus distinctio possimus
-                    corrupti excepturi accusantium laudantium ut autem cum nisi
-                    quis dolorum suscipit recusandae expedita. Pariatur! Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Non
-                    maiores voluptatibus animi dolorum libero modi assumenda
-                    ratione harum facere quidem cupiditate, odio id tenetur unde
-                    rem facilis, fugit, in est! Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Unde repellendus, veniam
-                    maxime architecto dolore nisi ut, tempore totam ipsam
-                    reiciendis sit et voluptas assumenda ea repellat porro
-                    adipisci voluptate fugit!
+                    {book.author.about}
                   </p>
                 </div>
               </div>
@@ -271,7 +265,12 @@ export default async function BookDetailsPage() {
         </div>
       </section>
 
-      <SimilarBooks />
+      <Books
+        key={category.slug}
+        category={category}
+        showHeader={false}
+        asSlider={false}
+      />
     </>
   )
 }

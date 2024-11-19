@@ -52,6 +52,7 @@ export type TFormat = {
 export type TBook = {
   id: string;
   title: string;
+  description: string;
   slug: string;
   audio_version_url: string;
   dimensions: string;
