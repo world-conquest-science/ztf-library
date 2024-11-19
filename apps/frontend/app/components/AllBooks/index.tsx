@@ -5,20 +5,8 @@ import { useTranslations } from 'next-intl'
 import { useInView } from 'react-intersection-observer'
 import { useInfiniteQuery } from '@tanstack/react-query'
 
-import api from '@ztf-library/api'
-
 import { BookItem } from '../Book'
-
-async function fetchPaginatedBooks() {
-  return api
-    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .book.getAllBooks({
-      limit: BOOKS_COUNT_PER_PAGE,
-      offset: 0,
-    })
-}
-
-const BOOKS_COUNT_PER_PAGE = 20
+import { fetchPaginatedBooks, BOOKS_COUNT_PER_PAGE } from '@/app/api/books'
 
 const AllBooks = () => {
   const gTrans = useTranslations('Global')

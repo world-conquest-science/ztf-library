@@ -2,14 +2,12 @@
 
 import { COOKIE_NAME } from '@/app/config/auth'
 import { Routes } from '@/app/config/routes'
-import api from '@ztf-library/api'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { signinUsingEmail } from '@/app/api/auth'
 
 export async function signin(email: string, password: string) {
-  const token = await api
-    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .authentication.signin({ email, password })
+  const token = await signinUsingEmail(email, password)
 
   if (!token) {
     return

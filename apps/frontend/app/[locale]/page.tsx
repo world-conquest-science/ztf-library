@@ -5,33 +5,10 @@ import { Books } from '@/app/components/Books'
 import { Quote } from '@/app/components/Quote'
 import { PopularSeries } from '@/app/components/PopularSeries'
 import { AllBooks } from '@/app/components/AllBooks'
-import api from '@ztf-library/api'
 import { getRandomItems } from '../helpers/random'
 import { TCategory } from '@ztf-library/types'
-
-async function fetchAllCategories() {
-  const categories = await api
-    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .category.getAllCategories({ includeProducts: true })
-
-  if (!categories) {
-    return []
-  }
-
-  return categories
-}
-
-async function fetchRandomQuotes() {
-  const quotes = await api
-    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .quote.getRandomQuote()
-
-  if (!quotes) {
-    return []
-  }
-
-  return quotes
-}
+import { fetchAllCategories } from '../api/categories'
+import { fetchRandomQuotes } from '../api/quotes'
 
 const HomePage = async () => {
   const categories = await fetchAllCategories()
