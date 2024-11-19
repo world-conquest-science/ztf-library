@@ -3,6 +3,7 @@ import * as customer from "./customer";
 import * as book from "./book";
 import * as quote from "./quote";
 import * as category from "./category";
+import * as cart from "./cart";
 
 import { setMedusaApiKey } from "./clients";
 
@@ -20,6 +21,7 @@ export default {
       customer,
       quote,
       category,
+      cart,
     };
   },
 };

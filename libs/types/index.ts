@@ -138,6 +138,7 @@ export type TCartItem = {
 };
 
 export type TCart = {
+  id: string;
   items: Array<TCartItem>;
   sub_total: number;
   discount_amount: number;

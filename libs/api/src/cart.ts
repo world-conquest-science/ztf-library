@@ -1,10 +1,27 @@
-import { TCart, TFormat } from "@ztf-library/types";
-import client from "./clients";
+import client, { getCartsId, postCarts, StoreCartResponse } from "./clients";
+import { toCart } from "./converters/cart";
 
-export function add(item: TFormat): TCart {}
+export async function create() {
+  const response = await postCarts({ client });
 
-export function update_quantity(item: TFormat, quantity: number): TCart {}
+  if (!response || response?.error) {
+    return null;
+  }
 
-export function remove_item(item: TFormat): TCart {}
+  const { cart } = response.data as StoreCartResponse;
+  return toCart(cart);
+}
 
-export function remove_all(): TCart {}
+export async function get(id: string) {
+  const response = await getCartsId({
+    client,
+    path: { id },
+  });
+
+  if (!response || response.error) {
+    return null;
+  }
+
+  const { cart } = response.data as StoreCartResponse;
+  return toCart(cart);
+}

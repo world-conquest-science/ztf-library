@@ -53,8 +53,6 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
-  console.log({ product, converted: convertProductToBook(product) })
-
   res.json({
     data: convertProductToBook(product),
   })
