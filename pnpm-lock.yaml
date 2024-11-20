@@ -133,7 +133,7 @@ importers:
         specifier: ^5.2.11
         version: 5.4.11(@types/node@20.17.6)
 
-  apps/frontend:
+  apps/storefront:
     dependencies:
       '@headlessui/react':
         specifier: ^2.1.8
