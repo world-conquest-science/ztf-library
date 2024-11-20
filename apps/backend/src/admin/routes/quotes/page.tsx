@@ -45,7 +45,10 @@ const QuotesPage = () => {
       return
     }
 
-    create(quote, { author_id: quote.author?.id, book_id: quote.book?.id }).then(() => {
+    create(quote, {
+      author_id: quote.author?.id,
+      book_id: quote.book?.id,
+    }).then(() => {
       onResetClick()
       refetch()
       toast.success('Success', {
@@ -60,7 +63,10 @@ const QuotesPage = () => {
       return
     }
 
-    update(quote, { author_id: quote.author?.id, book_id: quote.book?.id }).then(() => {
+    update(quote, {
+      author_id: quote.author?.id,
+      book_id: quote.book?.id,
+    }).then(() => {
       onResetClick()
       refetch()
       toast.success('Success', {
@@ -96,7 +102,10 @@ const QuotesPage = () => {
   }
 
   const onAuthorChange = (selectedAuthorId: string) => {
-    setQuote(q => ({ ...q, author: authors.find(a => a.id === selectedAuthorId) }))
+    setQuote(q => ({
+      ...q,
+      author: authors.find(a => a.id === selectedAuthorId),
+    }))
   }
 
   const onBookChange = (selectedBookId: string) => {
@@ -122,7 +131,11 @@ const QuotesPage = () => {
             <label htmlFor="author" className="text-xs">
               Author
             </label>
-            <Select value={quote?.author?.id} onValueChange={onAuthorChange} disabled={isLoading}>
+            <Select
+              value={quote?.author?.id}
+              onValueChange={onAuthorChange}
+              disabled={isLoading}
+            >
               <Select.Trigger>
                 <Select.Value placeholder="Select author" />
               </Select.Trigger>
@@ -139,7 +152,11 @@ const QuotesPage = () => {
             <label htmlFor="author" className="text-xs">
               Book
             </label>
-            <Select value={quote?.book?.id} onValueChange={onBookChange} disabled={isLoading}>
+            <Select
+              value={quote?.book?.id}
+              onValueChange={onBookChange}
+              disabled={isLoading}
+            >
               <Select.Trigger>
                 <Select.Value placeholder="Select book" />
               </Select.Trigger>
@@ -174,11 +191,18 @@ const QuotesPage = () => {
 
         <div className="flex h-full flex-col overflow-hidden !border-t-0 divide-y">
           {quotes.map(quote => (
-            <div key={quote.id} className="py-2 px-5 flex items-center justify-between">
+            <div
+              key={quote.id}
+              className="py-2 px-5 flex items-center justify-between"
+            >
               <div className="inline-flex flex-col items-start">
                 <p className="font-medium">{quote.content}</p>
-                <span className="font-light text-xs">By {quote.author?.name}</span>
-                <span className="font-light text-xs">From {quote.book?.title}</span>
+                <span className="font-light text-xs">
+                  By {quote.author?.name}
+                </span>
+                <span className="font-light text-xs">
+                  From {quote.book?.title}
+                </span>
               </div>
               <div className="inline-flex gap-5">
                 <IconButton onClick={() => onRemoveClick(quote)}>

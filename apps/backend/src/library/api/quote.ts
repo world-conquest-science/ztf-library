@@ -1,5 +1,10 @@
 import { QUOTE } from '../endpoints'
-import { TApiPaginatedReponse, TQuote, TQuoteAdditionnalData, TQuoteInput } from '../types'
+import {
+  TApiPaginatedReponse,
+  TQuote,
+  TQuoteAdditionnalData,
+  TQuoteInput,
+} from '../types'
 
 export const getQuotes = async () => {
   return (await fetch(QUOTE.GET_QUOTES, {
@@ -7,7 +12,10 @@ export const getQuotes = async () => {
   }).then(res => res.json())) as TApiPaginatedReponse<TQuote[]>
 }
 
-export const createQuote = async (data: TQuoteInput, additionnal_data: TQuoteAdditionnalData) => {
+export const createQuote = async (
+  data: TQuoteInput,
+  additionnal_data: TQuoteAdditionnalData,
+) => {
   return (await fetch(QUOTE.CREATE_QUOTES, {
     credentials: 'include',
     headers: {
@@ -18,7 +26,10 @@ export const createQuote = async (data: TQuoteInput, additionnal_data: TQuoteAdd
   }).then(res => res.json())) as TQuote
 }
 
-export const updateQuote = async (data: TQuoteInput, additionnal_data: TQuoteAdditionnalData) => {
+export const updateQuote = async (
+  data: TQuoteInput,
+  additionnal_data: TQuoteAdditionnalData,
+) => {
   return (await fetch(QUOTE.UPDATE_QUOTES, {
     credentials: 'include',
     headers: {

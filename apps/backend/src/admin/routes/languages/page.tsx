@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Container, Heading, toast, usePrompt, Input, Button, IconButton } from '@medusajs/ui'
+import {
+  Container,
+  Heading,
+  toast,
+  usePrompt,
+  Input,
+  Button,
+  IconButton,
+} from '@medusajs/ui'
 import { defineRouteConfig } from '@medusajs/admin-sdk'
 import { Pencil, GlobeEuropeSolid, Trash } from '@medusajs/icons'
 import { TLanguage, TLanguageInput } from 'src/library/types'
@@ -13,7 +21,8 @@ const emptyLanguage: TLanguageInput = {
 }
 
 const LanguagesPage = () => {
-  const { isLoading, languages, create, update, remove, refetch } = useLanguage()
+  const { isLoading, languages, create, update, remove, refetch } =
+    useLanguage()
 
   const [language, setLanguage] = useState<TLanguageInput>(emptyLanguage)
 
@@ -106,7 +115,9 @@ const LanguagesPage = () => {
                 Update
               </Button>
             )}
-            {language.id.length === 0 && <Button onClick={onAddClick}>Add</Button>}
+            {language.id.length === 0 && (
+              <Button onClick={onAddClick}>Add</Button>
+            )}
           </div>
         </div>
       </Container>
@@ -117,7 +128,10 @@ const LanguagesPage = () => {
 
         <div className="flex h-full flex-col overflow-hidden !border-t-0 divide-y">
           {languages.map(language => (
-            <div key={language.id} className="py-2 px-5 flex items-center justify-between">
+            <div
+              key={language.id}
+              className="py-2 px-5 flex items-center justify-between"
+            >
               <div className="inline-flex items-center">
                 <span className="font-medium">{language.code}</span>
               </div>

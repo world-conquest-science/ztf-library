@@ -14,7 +14,11 @@ import {
   updateStoresWorkflow,
 } from '@medusajs/medusa/core-flows'
 import { ExecArgs } from '@medusajs/framework/types'
-import { ContainerRegistrationKeys, Modules, ProductStatus } from '@medusajs/framework/utils'
+import {
+  ContainerRegistrationKeys,
+  Modules,
+  ProductStatus,
+} from '@medusajs/framework/utils'
 import { BOOK_MODULE } from 'src/modules/book'
 import { LANGUAGE_MODULE } from 'src/modules/language'
 
@@ -38,7 +42,8 @@ export default async function seedDemoData({ container }: ExecArgs) {
   const storeModuleService = container.resolve(Modules.STORE)
   const productModuleService = container.resolve(Modules.PRODUCT)
   const bookModuleService: BookModuleService = container.resolve(BOOK_MODULE)
-  const languageModuleService: LanguageModuleService = container.resolve(LANGUAGE_MODULE)
+  const languageModuleService: LanguageModuleService =
+    container.resolve(LANGUAGE_MODULE)
 
   const populate = async (lang: string = 'en') => {
     let data: typeof en_categories = []
@@ -54,7 +59,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
       // First of all, create the current category and get it back
       let categoryId: string = null
-      let [category] = await productModuleService.listProductCategories({ name: title })
+      let [category] = await productModuleService.listProductCategories({
+        name: title,
+      })
       if (!category) {
         const { id } = await productModuleService.createProductCategories({
           name: title,
@@ -69,7 +76,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
       for (const book of books) {
         logger.info(`> ${book.title}`)
 
-        const [product] = await productModuleService.listProducts({ title: book.title })
+        const [product] = await productModuleService.listProducts({
+          title: book.title,
+        })
         if (!product) {
           // Here we are going to link created products to a new created book entity
           const links = []
@@ -168,7 +177,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   if (!defaultSalesChannel.length) {
     // create the default sales channel
-    const { result: salesChannelResult } = await createSalesChannelsWorkflow(container).run({
+    const { result: salesChannelResult } = await createSalesChannelsWorkflow(
+      container,
+    ).run({
       input: {
         salesChannelsData: [
           {
@@ -221,7 +232,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
   logger.info('Finished seeding tax regions.')
 
   logger.info('Seeding stock location data...')
-  const { result: stockLocationResult } = await createStockLocationsWorkflow(container).run({
+  const { result: stockLocationResult } = await createStockLocationsWorkflow(
+    container,
+  ).run({
     input: {
       locations: [
         {
@@ -262,16 +275,17 @@ export default async function seedDemoData({ container }: ExecArgs) {
   })
 
   logger.info('Seeding fulfillment data...')
-  const { result: shippingProfileResult } = await createShippingProfilesWorkflow(container).run({
-    input: {
-      data: [
-        {
-          name: 'Default',
-          type: 'default',
-        },
-      ],
-    },
-  })
+  const { result: shippingProfileResult } =
+    await createShippingProfilesWorkflow(container).run({
+      input: {
+        data: [
+          {
+            name: 'Default',
+            type: 'default',
+          },
+        ],
+      },
+    })
   const shippingProfile = shippingProfileResult[0]
 
   const fulfillmentSet = await fulfillmentModuleService.createFulfillmentSets({
@@ -358,7 +372,9 @@ export default async function seedDemoData({ container }: ExecArgs) {
   logger.info('Finished seeding stock location data.')
 
   logger.info('Seeding publishable API key data...')
-  const { result: publishableApiKeyResult } = await createApiKeysWorkflow(container).run({
+  const { result: publishableApiKeyResult } = await createApiKeysWorkflow(
+    container,
+  ).run({
     input: {
       api_keys: [
         {

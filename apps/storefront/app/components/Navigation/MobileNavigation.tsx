@@ -67,7 +67,9 @@ const MobileNavigation = () => {
   return (
     <Menu as="div" className="absolute right-4 top-7 block sm:hidden">
       <MenuButton className="p-2">
-        {({ open }) => (open ? <Cancel01Icon size={30} /> : <Menu01Icon size={30} />)}
+        {({ open }) =>
+          open ? <Cancel01Icon size={30} /> : <Menu01Icon size={30} />
+        }
       </MenuButton>
 
       <MenuItems

@@ -139,7 +139,9 @@ const AuthorsPage = () => {
                 Update
               </Button>
             )}
-            {author.id.length === 0 && <Button onClick={onCreateClick}>Create</Button>}
+            {author.id.length === 0 && (
+              <Button onClick={onCreateClick}>Create</Button>
+            )}
           </div>
         </div>
       </Container>
@@ -150,7 +152,10 @@ const AuthorsPage = () => {
 
         <div className="flex h-full flex-col overflow-hidden !border-t-0 divide-y">
           {authors.map(author => (
-            <div key={author.id} className="py-2 px-5 flex items-center justify-between">
+            <div
+              key={author.id}
+              className="py-2 px-5 flex items-center justify-between"
+            >
               <div className="inline-flex items-center">
                 <span className="py-1 inline-flex mr-3">
                   <img

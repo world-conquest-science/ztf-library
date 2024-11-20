@@ -1,5 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getBookByProductId, createBook, updateBook, updateProduct } from '../api/book'
+import {
+  getBookByProductId,
+  createBook,
+  updateBook,
+  updateProduct,
+} from '../api/book'
 import { TAuthor, TBookInput, TLanguage } from '../types'
 
 type TBookExtensionsContext = {
@@ -41,7 +46,12 @@ const BookExtensions = ({ productId, children }: TBookExtensionsProps) => {
 
   useEffect(() => {
     getBookByProductId(productId).then(({ data }) => {
-      setData(prev => ({ ...prev, book: data, author: data?.author, language: data?.language }))
+      setData(prev => ({
+        ...prev,
+        book: data,
+        author: data?.author,
+        language: data?.language,
+      }))
     })
   }, [])
 
@@ -54,13 +64,21 @@ const BookExtensions = ({ productId, children }: TBookExtensionsProps) => {
       setData(prev => ({ ...prev, isUpdating: true }))
 
       if (data.book && data.book.id) {
-        updateBook(data.book, { author_id: data.author?.id, language_id: data.language?.id })
+        updateBook(data.book, {
+          author_id: data.author?.id,
+          language_id: data.language?.id,
+        })
           .then(resolve)
           .catch(reject)
           .finally(() => setData(prev => ({ ...prev, isUpdating: false })))
       } else {
-        createBook(data.book, { author_id: data.author?.id, language_id: data.language?.id })
-          .then(({ data: createdBook }) => updateProduct(productId, { book_id: createdBook.id }))
+        createBook(data.book, {
+          author_id: data.author?.id,
+          language_id: data.language?.id,
+        })
+          .then(({ data: createdBook }) =>
+            updateProduct(productId, { book_id: createdBook.id }),
+          )
           .then(resolve)
           .catch(reject)
           .finally(() => setData(prev => ({ ...prev, isUpdating: false })))

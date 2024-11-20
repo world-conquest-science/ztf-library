@@ -48,7 +48,12 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     fields: ['book.*', 'book.product.title', 'author.*', '*'],
   })
 
-  res.json({ data: quotes.map(q => ({ ...q, book: { ...q.book, title: q.book.product.title } })) })
+  res.json({
+    data: quotes.map(q => ({
+      ...q,
+      book: { ...q.book, title: q.book.product.title },
+    })),
+  })
 }
 
 export const DELETE = async (req: MedusaRequest, res: MedusaResponse) => {

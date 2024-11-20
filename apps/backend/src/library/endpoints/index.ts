@@ -9,7 +9,8 @@ export const BOOK = {
   CREATE_BOOK: '/admin/books',
   GET_EXTENSIONS: (id: string) => `/admin/books/${id}/extensions`,
   GET_ALL_BOOKS: '/admin/books/all',
-  GET_BOOK_BY_PRODUCT_ID: (productId: string) => `/admin/books?productId=${productId}`,
+  GET_BOOK_BY_PRODUCT_ID: (productId: string) =>
+    `/admin/books?productId=${productId}`,
   UPDATE_PRODUCT: (productId: string) => `/admin/products/${productId}`,
   UPDATE_BOOK: '/admin/books',
 }

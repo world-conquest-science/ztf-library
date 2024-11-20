@@ -22,7 +22,11 @@ const LanguageSelect = ({}: TAuthorSelectProps) => {
       <label htmlFor="language" className="text-xs">
         Language
       </label>
-      <Select value={language?.id} onValueChange={onValueChange} disabled={isLoading}>
+      <Select
+        value={language?.id}
+        onValueChange={onValueChange}
+        disabled={isLoading}
+      >
         <Select.Trigger>
           <Select.Value placeholder="Select language" />
         </Select.Trigger>

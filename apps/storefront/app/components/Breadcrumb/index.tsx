@@ -25,7 +25,9 @@ const Separator = ({ isLast }: Pick<TUIBreadcrumb, 'isLast'>) => {
 const BreadcrumbItem = ({ isLast, url, title }: TUIBreadcrumb) => {
   return (
     <>
-      <li className={`text-xs sm:text-sm ${isLast ? 'text-gray-400' : 'text-gray-700'}`}>
+      <li
+        className={`text-xs sm:text-sm ${isLast ? 'text-gray-400' : 'text-gray-700'}`}
+      >
         {isLast ? <span>{title}</span> : <Link href={`/${url}`}>{title}</Link>}
       </li>
       <Separator isLast={isLast} />

@@ -5,7 +5,11 @@ import { getMessages } from 'next-intl/server'
 import { NextIntlClientProvider } from 'next-intl'
 import { Logo } from '@/app/components/Logo'
 import Link from 'next/link'
-import { ArrowLeft02Icon, LanguageSkillIcon, QuoteDownIcon } from 'hugeicons-react'
+import {
+  ArrowLeft02Icon,
+  LanguageSkillIcon,
+  QuoteDownIcon,
+} from 'hugeicons-react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -44,7 +48,10 @@ export default async function AnonymousLayout({
                         Back to shopping
                       </span>
                     </Link>
-                    <button type="button" className="inline-flex gap-2 tracking-normal">
+                    <button
+                      type="button"
+                      className="inline-flex gap-2 tracking-normal"
+                    >
                       <LanguageSkillIcon className="size-4 sm:size-5" />
                       <span className="relative top-[1px] text-xs sm:text-base">
                         Switch to English
@@ -56,20 +63,23 @@ export default async function AnonymousLayout({
                   Find here the right christian book for your spiritual growth.
                 </h1>
                 <p className="text-base font-light opacity-65 sm:mt-3 sm:w-2/3 sm:text-2xl sm:leading-relaxed sm:opacity-100">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima expedita ex
-                  delectus.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Minima expedita ex delectus.
                 </p>
               </div>
               <div className="relative overflow-hidden rounded-lg bg-primary-900 p-5 text-white sm:w-2/3 sm:p-8">
                 <p className="font-secondary text-sm font-normal sm:text-2xl sm:font-light sm:leading-normal">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aliquam ipsam ad
-                  corporis distinctio delectus consectetur id commodi sunt numquam nesciunt expedita
-                  vel quos molestias, repudiandae dolore quaerat maiores magni!
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+                  aliquam ipsam ad corporis distinctio delectus consectetur id
+                  commodi sunt numquam nesciunt expedita vel quos molestias,
+                  repudiandae dolore quaerat maiores magni!
                 </p>
                 <h6 className="mt-6 text-sm font-bold sm:text-xl">
                   <Link href="">From The way of life</Link>
                 </h6>
-                <h5 className="text-sm font-light sm:text-xl">By Zacharias Tanee Fomum</h5>
+                <h5 className="text-sm font-light sm:text-xl">
+                  By Zacharias Tanee Fomum
+                </h5>
                 <QuoteDownIcon
                   size={100}
                   color="#fff"

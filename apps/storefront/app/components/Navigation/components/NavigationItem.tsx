@@ -8,7 +8,12 @@ export type TNavigationItem = {
   Icon?: JSX.Element
 }
 
-export const NavigationItem = ({ current, href, label, Icon }: TNavigationItem) => {
+export const NavigationItem = ({
+  current,
+  href,
+  label,
+  Icon,
+}: TNavigationItem) => {
   return (
     <li>
       <Link

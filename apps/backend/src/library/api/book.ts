@@ -30,10 +30,15 @@ export const getAllBooks = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(res => res.json())) as TApiDataReponse<Partial<TBook & { title: string }>>
+  }).then(res => res.json())) as TApiDataReponse<
+    Partial<TBook & { title: string }>
+  >
 }
 
-export const createBook = async (data: TBookInput, additionnal_data: TBookAdditionnalData) => {
+export const createBook = async (
+  data: TBookInput,
+  additionnal_data: TBookAdditionnalData,
+) => {
   return (await fetch(BOOK.CREATE_BOOK, {
     credentials: 'include',
     headers: {
@@ -44,7 +49,10 @@ export const createBook = async (data: TBookInput, additionnal_data: TBookAdditi
   }).then(res => res.json())) as TApiDataReponse<TBook>
 }
 
-export const updateBook = async (data: TBookInput, additionnal_data: TBookAdditionnalData) => {
+export const updateBook = async (
+  data: TBookInput,
+  additionnal_data: TBookAdditionnalData,
+) => {
   return (await fetch(BOOK.UPDATE_BOOK, {
     credentials: 'include',
     headers: {
@@ -55,7 +63,10 @@ export const updateBook = async (data: TBookInput, additionnal_data: TBookAdditi
   }).then(res => res.json())) as void
 }
 
-export const updateProduct = async (productId: string, additional_data: { book_id: string }) => {
+export const updateProduct = async (
+  productId: string,
+  additional_data: { book_id: string },
+) => {
   return (await fetch(BOOK.UPDATE_PRODUCT(productId), {
     credentials: 'include',
     headers: {

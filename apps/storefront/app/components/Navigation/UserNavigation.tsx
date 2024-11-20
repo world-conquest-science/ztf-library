@@ -2,7 +2,11 @@ import React from 'react'
 import { Routes } from '@/app/config/routes'
 import { NavigationItem } from '@/app/components/Navigation/components/NavigationItem'
 import { UserDropdown } from '../UserDropdown'
-import { PackageMovingIcon, ShoppingBasket01Icon, Bookmark01Icon } from 'hugeicons-react'
+import {
+  PackageMovingIcon,
+  ShoppingBasket01Icon,
+  Bookmark01Icon,
+} from 'hugeicons-react'
 import { useTranslations } from 'next-intl'
 import { MobileNavigation } from './MobileNavigation'
 

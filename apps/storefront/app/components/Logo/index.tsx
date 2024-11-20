@@ -13,7 +13,12 @@ interface TLogo {
   height?: number
 }
 
-export const Logo = ({ variant = 'full', theme = 'colored', width, height }: TLogo) => {
+export const Logo = ({
+  variant = 'full',
+  theme = 'colored',
+  width,
+  height,
+}: TLogo) => {
   let src = coloredLogo
 
   switch (theme) {
@@ -40,5 +45,13 @@ export const Logo = ({ variant = 'full', theme = 'colored', width, height }: TLo
       break
   }
 
-  return <Image src={src} alt="ZTF Library logo" priority width={width} height={height} />
+  return (
+    <Image
+      src={src}
+      alt="ZTF Library logo"
+      priority
+      width={width}
+      height={height}
+    />
+  )
 }

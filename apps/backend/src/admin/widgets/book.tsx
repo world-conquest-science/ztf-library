@@ -1,10 +1,20 @@
 import { defineWidgetConfig } from '@medusajs/admin-sdk'
 import { DetailWidgetProps, AdminProduct } from '@medusajs/framework/types'
-import { Button, Container, DatePicker, Heading, Input, toast } from '@medusajs/ui'
+import {
+  Button,
+  Container,
+  DatePicker,
+  Heading,
+  Input,
+  toast,
+} from '@medusajs/ui'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AuthorSelect } from '../../library/components/AuthorSelect'
 import { LanguageSelect } from '../../library/components/LanguageSelect'
-import { BookExtensions, useBookExtensions } from '../../library/hooks/book-extensions'
+import {
+  BookExtensions,
+  useBookExtensions,
+} from '../../library/hooks/book-extensions'
 
 const queryClient = new QueryClient()
 
@@ -47,7 +57,10 @@ const BookExtensionsWidget = () => {
   const onPublishDateChange = (value: Date | null) => {
     setData(prev => ({
       ...prev,
-      book: { ...prev.book, publishDate: value ? value.getTime() : new Date().getTime() },
+      book: {
+        ...prev.book,
+        publishDate: value ? value.getTime() : new Date().getTime(),
+      },
     }))
   }
 
@@ -167,7 +180,9 @@ const BookExtensionsWidget = () => {
               aria-label="Publish date"
               className="bg-white"
               defaultValue={new Date()}
-              value={book?.publishDate ? new Date(book?.publishDate) : new Date()}
+              value={
+                book?.publishDate ? new Date(book?.publishDate) : new Date()
+              }
               onChange={onPublishDateChange}
             />
           </div>
@@ -177,7 +192,9 @@ const BookExtensionsWidget = () => {
   )
 }
 
-const BookExtensionsWidgetWrapper = ({ data }: DetailWidgetProps<AdminProduct>) => (
+const BookExtensionsWidgetWrapper = ({
+  data,
+}: DetailWidgetProps<AdminProduct>) => (
   <QueryClientProvider client={queryClient}>
     <BookExtensions productId={data.id}>
       <BookExtensionsWidget />

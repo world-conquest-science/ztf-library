@@ -14,10 +14,15 @@ import { RemoteLink } from '@medusajs/framework/modules-sdk'
 const ZTF_AUTHOR_ID = '01JBVMR2MGMDGT7KGRNX0XHCYF'
 
 export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
-  const remoteLink: RemoteLink = req.scope.resolve(ContainerRegistrationKeys.REMOTE_LINK)
-  const productModuleService: IProductModuleService = req.scope.resolve(Modules.PRODUCT)
+  const remoteLink: RemoteLink = req.scope.resolve(
+    ContainerRegistrationKeys.REMOTE_LINK,
+  )
+  const productModuleService: IProductModuleService = req.scope.resolve(
+    Modules.PRODUCT,
+  )
   const bookModuleService: BookModuleService = req.scope.resolve(BOOK_MODULE)
-  const languageModuleService: LanguageModuleService = req.scope.resolve(LANGUAGE_MODULE)
+  const languageModuleService: LanguageModuleService =
+    req.scope.resolve(LANGUAGE_MODULE)
 
   const populate = async (lang: string = 'en') => {
     let data: typeof en_categories = []
@@ -33,7 +38,9 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
 
       // First of all, create the current category and get it back
       let categoryId: string = null
-      let [category] = await productModuleService.listProductCategories({ name: title })
+      let [category] = await productModuleService.listProductCategories({
+        name: title,
+      })
       if (!category) {
         const { id } = await productModuleService.createProductCategories({
           name: title,
@@ -48,7 +55,9 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
       for (const book of books) {
         console.log(`> ${book.title}`)
 
-        const [product] = await productModuleService.listProducts({ title: book.title })
+        const [product] = await productModuleService.listProducts({
+          title: book.title,
+        })
         if (!product) {
           // Here we are going to link created products to a new created book entity
           const links = []
@@ -58,7 +67,13 @@ export const POST = async (req: MedusaRequest, res: MedusaResponse) => {
             category_ids: [categoryId],
             status: 'published',
             options: [{ title: 'Format', values: ['Paperback'] }],
-            variants: [{ title: 'Paperback', manage_inventory: true, options: { Format: 'Paperback' } }],
+            variants: [
+              {
+                title: 'Paperback',
+                manage_inventory: true,
+                options: { Format: 'Paperback' },
+              },
+            ],
           })
 
           // Create empty book

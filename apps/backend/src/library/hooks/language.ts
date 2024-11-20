@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 
-import { createLanguage, deleteLanguage, getLanguages, updateLanguage } from '../api/language'
+import {
+  createLanguage,
+  deleteLanguage,
+  getLanguages,
+  updateLanguage,
+} from '../api/language'
 import { TLanguage } from '../types'
 
 const useLanguage = () => {

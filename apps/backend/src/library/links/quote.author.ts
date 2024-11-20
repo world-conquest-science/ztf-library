@@ -3,7 +3,10 @@ import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
 import { AUTHOR_MODULE } from '../../modules/author'
 import { QUOTE_MODULE } from '../../modules/quote'
 
-export const removeQuoteAllAuthors = async (container: MedusaContainer, quoteId: any) => {
+export const removeQuoteAllAuthors = async (
+  container: MedusaContainer,
+  quoteId: any,
+) => {
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
 

@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 
-import { createAuthor, deleteAuthor, getAuthors, updateAuthor } from '../api/author'
+import {
+  createAuthor,
+  deleteAuthor,
+  getAuthors,
+  updateAuthor,
+} from '../api/author'
 import { TAuthor } from '../types'
 
 const useAuthor = () => {

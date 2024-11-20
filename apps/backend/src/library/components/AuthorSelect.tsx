@@ -22,7 +22,11 @@ const AuthorSelect = ({}: TAuthorSelectProps) => {
       <label htmlFor="author" className="text-xs">
         Author
       </label>
-      <Select value={author?.id} onValueChange={onValueChange} disabled={isLoading}>
+      <Select
+        value={author?.id}
+        onValueChange={onValueChange}
+        disabled={isLoading}
+      >
         <Select.Trigger>
           <Select.Value placeholder="Select author" />
         </Select.Trigger>

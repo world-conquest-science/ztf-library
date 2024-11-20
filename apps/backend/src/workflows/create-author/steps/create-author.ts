@@ -7,7 +7,8 @@ import { AUTHOR_MODULE } from '../../../modules/author'
 export const createAuthorStep = createStep(
   'create-author-step',
   async (input: TAuthorInput, { container }) => {
-    const authorModuleService: AuthorModuleService = container.resolve(AUTHOR_MODULE)
+    const authorModuleService: AuthorModuleService =
+      container.resolve(AUTHOR_MODULE)
 
     const author = await authorModuleService.createAuthors({
       ...input,
@@ -17,7 +18,8 @@ export const createAuthorStep = createStep(
     return new StepResponse(author, author.id)
   },
   async (id: string, { container }) => {
-    const authorModuleService: AuthorModuleService = container.resolve(AUTHOR_MODULE)
+    const authorModuleService: AuthorModuleService =
+      container.resolve(AUTHOR_MODULE)
 
     await authorModuleService.deleteAuthors(id)
   },
