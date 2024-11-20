@@ -1,13 +1,15 @@
+'use server'
+
 import { cookies } from 'next/headers'
 
 import { COOKIE_NAME } from '@/app/config/cart'
 import { createCart, getCart } from '../api/cart'
 
 export async function retrieveCart() {
-  const cartId = cookies().get(COOKIE_NAME)
+  if (cookies().has(COOKIE_NAME)) {
+    const cartId = cookies().get(COOKIE_NAME)
 
-  if (cartId) {
-    return await getCart(cartId.value)
+    return await getCart(cartId!.value)
   }
 
   const cart = await createCart()
@@ -15,7 +17,7 @@ export async function retrieveCart() {
 
   if (!cart) return
 
-  cookies().set(COOKIE_NAME, cart.id, { expires, httpOnly: true })
+  // cookies().set(COOKIE_NAME, cart.id, { expires, httpOnly: true })
 
   return cart
 }

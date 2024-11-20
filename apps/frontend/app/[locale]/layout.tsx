@@ -6,7 +6,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { Header } from '@/app/components/Header'
 import { Footer } from '@/app/components/Footer'
 import { ReactQueryProvider } from '../react-query-provider'
-import { retrieveCart } from './actions'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +20,6 @@ export default async function RootLayout({
   params: { locale: string }
 }>) {
   const messages = await getMessages()
-  await retrieveCart()
 
   return (
     <html lang={locale}>
