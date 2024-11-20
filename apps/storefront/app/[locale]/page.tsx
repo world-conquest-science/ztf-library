@@ -9,11 +9,8 @@ import { getRandomItems } from '../helpers/random'
 import { TCategory } from '@ztf-library/types'
 import { fetchAllCategories } from '../api/categories'
 import { fetchRandomQuotes } from '../api/quotes'
-import { retrieveCart } from './actions'
 
 export default async function HomePage() {
-  await retrieveCart()
-
   const categories = await fetchAllCategories()
   const quotes = await fetchRandomQuotes()
   const someCategories = getRandomItems<TCategory>(categories.slice(0), 3)

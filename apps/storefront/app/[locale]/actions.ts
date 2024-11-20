@@ -17,7 +17,7 @@ export async function retrieveCart() {
 
   if (!cart) return
 
-  // cookies().set(COOKIE_NAME, cart.id, { expires, httpOnly: true })
+  cookies().set(COOKIE_NAME, cart.id, { expires, httpOnly: true })
 
   return cart
 }
