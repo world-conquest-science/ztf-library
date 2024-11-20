@@ -22,12 +22,8 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "tsoa": [
-        "node_modules/tsoa/dist"
-      ],
-      "tsoa/": [
-        "node_modules/tsoa/dist/"
-      ]
+      "tsoa": ["node_modules/tsoa/dist"],
+      "tsoa/": ["node_modules/tsoa/dist/"]
     }
   }
 }

@@ -22,14 +22,19 @@
   "license": "ISC",
   "devDependencies": {
     "@hey-api/openapi-ts": "^0.54.3",
+    "@nx/react": "20.1.2",
     "@types/express": "^5.0.0",
     "express": "^4.21.1",
-    "tsoa": "^6.5.1",
-    "nx": "20.1.2"
+    "nx": "20.1.2",
+    "tsoa": "^6.5.1"
   },
   "packageManager": "pnpm@9.12.3",
   "workspaces": [
     "libs/*",
     "apps/*"
-  ]
+  ],
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
 }
