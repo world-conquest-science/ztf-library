@@ -23,3 +23,43 @@ export async function getCart(id: string) {
 
   return cart
 }
+
+export async function addToCart(cartId: string, variantId: string) {
+  const cart = await api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .cart.addToCart(cartId, variantId)
+
+  if (!cart) {
+    return
+  }
+
+  return cart
+}
+
+export async function updateInCart(
+  cartId: string,
+  variantId: string,
+  quantity: number,
+) {
+  const cart = await api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .cart.updateQuantityInCart(cartId, variantId, quantity)
+
+  if (!cart) {
+    return
+  }
+
+  return cart
+}
+
+export async function removeFromCart(cartId: string, variantId: string) {
+  const cart = await api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .cart.removeFromCart(cartId, variantId)
+
+  if (!cart) {
+    return
+  }
+
+  return cart
+}

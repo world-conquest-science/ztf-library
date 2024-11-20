@@ -116,6 +116,7 @@ export type TFormat = {
   prices: Array<TPrice>;
   is_available: boolean;
   label: string;
+  variant_id: string;
 };
 
 export type TLanguage = {

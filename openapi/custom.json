@@ -304,13 +304,17 @@
 					},
 					"label": {
 						"type": "string"
+					},
+					"variant_id": {
+						"type": "string"
 					}
 				},
 				"required": [
 					"book_id",
 					"prices",
 					"is_available",
-					"label"
+					"label",
+					"variant_id"
 				],
 				"type": "object"
 			},

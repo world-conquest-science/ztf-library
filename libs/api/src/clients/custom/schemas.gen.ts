@@ -271,8 +271,11 @@ export const TFormatSchema = {
     label: {
       type: "string",
     },
+    variant_id: {
+      type: "string",
+    },
   },
-  required: ["book_id", "prices", "is_available", "label"],
+  required: ["book_id", "prices", "is_available", "label", "variant_id"],
   type: "object",
 } as const;
 

@@ -7,7 +7,7 @@ const Searchbar = () => {
   const t = useTranslations('Header.SearchBar')
 
   return (
-    <div className="flex h-12 w-full items-center gap-3 overflow-hidden rounded-full border border-gray-200 bg-white px-4 sm:min-w-[650px]">
+    <div className="flex h-12 w-full items-center gap-3 overflow-hidden rounded-full border border-gray-200 bg-white px-4 sm:min-w-[450px]">
       <Search01Icon size={20} opacity={0.3} />
       <Input
         type="search"

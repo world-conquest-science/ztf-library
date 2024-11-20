@@ -34,6 +34,8 @@ export function convertProductToBook(product: Product): TBook {
       code: product.book?.language?.code,
     },
     formats: product.variants.map(variant => ({
+      variant_id: variant.id,
+      book_id: product.id,
       label: variant.title,
       is_available: true,
       prices: variant.prices?.map(price => ({

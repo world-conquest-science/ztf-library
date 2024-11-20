@@ -42,6 +42,7 @@ export type TPrice = {
 };
 
 export type TFormat = {
+  variant_id: string;
   label: string;
   is_available: boolean;
   prices: TPrice[];
@@ -138,9 +139,9 @@ export type TCartItem = {
 };
 
 export type TCart = {
-  id: string;
+  id?: string;
   items: Array<TCartItem>;
-  sub_total: number;
-  discount_amount: number;
-  grand_total: number;
+  sub_total?: number;
+  discount_amount?: number;
+  grand_total?: number;
 };

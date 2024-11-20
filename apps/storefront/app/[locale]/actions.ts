@@ -15,7 +15,7 @@ export async function retrieveCart() {
   const cart = await createCart()
   const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days
 
-  if (!cart) return
+  if (!cart || !cart.id) return
 
   cookies().set(COOKIE_NAME, cart.id, { expires, httpOnly: true })
 

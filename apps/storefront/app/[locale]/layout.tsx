@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { Header } from '@/app/components/Header'
 import { Footer } from '@/app/components/Footer'
 import { ReactQueryProvider } from '../react-query-provider'
+import CartProvider from '../hooks/cart'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,11 +29,13 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
-            <Header />
-            <main className="flex flex-1 flex-col overflow-x-hidden">
-              {children}
-            </main>
-            <Footer />
+            <CartProvider>
+              <Header />
+              <main className="flex flex-1 flex-col overflow-x-hidden">
+                {children}
+              </main>
+              <Footer />
+            </CartProvider>
           </ReactQueryProvider>
         </NextIntlClientProvider>
       </body>
