@@ -11,3 +11,19 @@ export async function signinUsingEmail(email: string, password: string) {
 
   return token
 }
+
+export async function signupUsingEmail(
+  email: string,
+  password: string,
+  name: string,
+) {
+  const token = await api
+    .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
+    .authentication.signup({ email, password, first_name: name })
+
+  if (!token) {
+    return
+  }
+
+  return token
+}

@@ -28,12 +28,16 @@ export async function signin({ email, password }: TCustomerSigninInput) {
   return token;
 }
 
-export const signup = ({ email, password }: TCustomerSignupInput) => {
+export const signup = ({
+  email,
+  password,
+  first_name,
+}: TCustomerSignupInput) => {
   return new Promise<string>(async (resolve, reject) => {
     const response = await postActorTypeAuthProviderRegister({
       client,
       path: { auth_provider: "emailpass" },
-      body: { email, password },
+      body: { email, password, first_name },
     });
 
     if (response.error) {

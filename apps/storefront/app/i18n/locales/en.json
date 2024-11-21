@@ -224,7 +224,7 @@
       "description": "Sign up now and get some amazing books!",
       "register-using": "Register using",
       "continue-using-email-password": "or continue with email and password",
-      "terms-conditions-acceptance": "By clicking on &quot;Create account&quot; I aggree to the <a href='' className='text-primary-600 underline'>terms and conditions</a> that I read.",
+      "terms-conditions-acceptance": "By clicking on \"Create account\", I aggree to the <terms>terms and conditions</terms> that I read.",
       "cta": "Create account",
       "existing-account-prefix": "Already have an account?",
       "existing-account-signin": "Sign In here"

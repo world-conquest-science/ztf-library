@@ -8,8 +8,13 @@ import { useFormik } from 'formik'
 import { SignupFormSchema, TSignupFormSchema } from './forms/signup.schema'
 import { withZodSchema } from 'formik-validator-zod'
 import { Routes } from '@/app/config/routes'
+import { useTranslations } from 'next-intl'
+import { useMutation } from '@tanstack/react-query'
 
 export default async function SignUpPage() {
+  const trans = useTranslations('Authentication')
+  const gTrans = useTranslations('Global')
+
   const formik = useFormik<TSignupFormSchema>({
     validateOnBlur: true,
     initialValues: {
@@ -17,9 +22,7 @@ export default async function SignUpPage() {
       email: '',
       password: '',
     },
-    onSubmit: async ({ email, password, full_name }, { setSubmitting }) => {
-      setSubmitting(true)
-    },
+    onSubmit: async ({ email, password, full_name }, { setSubmitting }) => {},
     validate: withZodSchema(SignupFormSchema),
   })
 
@@ -27,16 +30,18 @@ export default async function SignUpPage() {
     <>
       <header>
         <h1 className="text-2xl font-bold text-black sm:text-5xl">
-          Create your account
+          {trans('SignUp.title')}
         </h1>
         <p className="text-sm text-gray-600 sm:text-xl">
-          Sign up now and get some amazing books!
+          {trans('SignUp.description')}
         </p>
       </header>
 
       {/* Auth providers */}
       <div>
-        <p className="text-sm text-gray-600 sm:text-xl">Register using</p>
+        <p className="text-sm text-gray-600 sm:text-xl">
+          {trans('SignUp.register-using')}
+        </p>
         <div className="mt-3 flex gap-5 sm:gap-7">
           <div className="w-full">
             <Link
@@ -79,11 +84,13 @@ export default async function SignUpPage() {
         onSubmit={formik.handleSubmit}
       >
         <p className="text-sm text-gray-600 sm:text-xl">
-          or continue with email and password
+          {trans('SignUp.continue-using-email-password')}
         </p>
         <div className="w-full">
           <div className="relative flex w-full flex-col">
-            <label className="text-sm sm:text-xl">Full name</label>
+            <label className="text-sm sm:text-xl">
+              {gTrans('userForm.fullName.label')}
+            </label>
             <Input
               placeholder=""
               id="full_name"
@@ -96,7 +103,9 @@ export default async function SignUpPage() {
         </div>
         <div className="w-full">
           <div className="relative flex w-full flex-col">
-            <label className="text-sm sm:text-xl">Email</label>
+            <label className="text-sm sm:text-xl">
+              {gTrans('userForm.email.label')}
+            </label>
             <Input
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
               placeholder=""
@@ -109,7 +118,9 @@ export default async function SignUpPage() {
         </div>
         <div className="w-full">
           <div className="relative flex w-full flex-col">
-            <label className="text-sm sm:text-xl">Password</label>
+            <label className="text-sm sm:text-xl">
+              {gTrans('userForm.password.label')}
+            </label>
             <Input
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
               placeholder=""
@@ -122,11 +133,13 @@ export default async function SignUpPage() {
         </div>
         <div className="w-full">
           <p className="text-sm">
-            By clicking on &quot;Create account&quot; I aggree to the{' '}
-            <a href="" className="text-primary-600 underline">
-              terms and conditions
-            </a>{' '}
-            that I read.
+            {trans.rich('SignUp.terms-conditions-acceptance', {
+              terms: chunks => (
+                <a href="" className="text-primary-600 underline">
+                  {chunks}
+                </a>
+              ),
+            })}
           </p>
         </div>
         <button
@@ -134,18 +147,20 @@ export default async function SignUpPage() {
           type="submit"
           className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg"
         >
-          Create account
+          {trans('SignUp.cta')}
         </button>
       </form>
 
       {/* Sign in */}
       <div className="inline-flex flex-col items-center sm:items-start">
-        <p className="text-sm sm:text-base">Already have an account ?</p>
+        <p className="text-sm sm:text-base">
+          {trans('SignUp.existing-account-prefix')}
+        </p>
         <Link
           href={Routes.SignIn}
           className="font-bold text-primary-700 underline underline-offset-2"
         >
-          Sign In here
+          {trans('SignUp.existing-account-signin')}
         </Link>
       </div>
     </>

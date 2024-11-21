@@ -126,7 +126,10 @@ export type TCustomer = {
 };
 
 export type TCustomerSigninInput = Pick<TCustomer, "email" | "password">;
-export type TCustomerSignupInput = Pick<TCustomer, "email" | "password">;
+export type TCustomerSignupInput = Pick<
+  TCustomer,
+  "email" | "password" | "first_name"
+>;
 export type TCustomerCreationInput = Pick<
   TCustomer,
   "first_name" | "last_name" | "email"
