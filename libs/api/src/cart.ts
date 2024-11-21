@@ -7,7 +7,7 @@ import client, {
   postCartsIdLineItemsLineId,
   StoreCartResponse,
 } from "./clients";
-import { toCart } from "./converters/cart";
+import { convertCart } from "./converters/cart";
 
 export async function create() {
   const response = await postCarts({ client });
@@ -17,7 +17,7 @@ export async function create() {
   }
 
   const { cart } = response.data as StoreCartResponse;
-  return toCart(cart);
+  return convertCart(cart);
 }
 
 export async function get(id: string) {
@@ -31,7 +31,7 @@ export async function get(id: string) {
   }
 
   const { cart } = response.data as StoreCartResponse;
-  return toCart(cart);
+  return convertCart(cart);
 }
 
 export async function addToCart(cartId: string, variantId: string) {
@@ -49,7 +49,7 @@ export async function addToCart(cartId: string, variantId: string) {
   }
 
   const { cart } = response.data as StoreCartResponse;
-  return toCart(cart);
+  return convertCart(cart);
 }
 
 export async function updateQuantityInCart(
@@ -68,7 +68,7 @@ export async function updateQuantityInCart(
   }
 
   const { cart } = response.data as StoreCartResponse;
-  return toCart(cart);
+  return convertCart(cart);
 }
 
 export async function removeFromCart(cartId: string, variantId: string) {
@@ -88,5 +88,5 @@ export async function removeFromCart(cartId: string, variantId: string) {
     return null;
   }
 
-  return toCart(parent!);
+  return convertCart(parent!);
 }

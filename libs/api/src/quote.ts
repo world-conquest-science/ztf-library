@@ -1,15 +1,9 @@
 import {} from "@ztf-library/types";
 import client, {
-  getQuotes,
   getRandomQuote as getRandomQuoteApi,
-  TApiDataReponse_TQuote_Array_,
+  TApiDataReponse_Quote_Array_,
 } from "./clients";
-
-export function getAllQuotes() {
-  return getQuotes({
-    client,
-  });
-}
+import { convertQuote } from "./converters/quote";
 
 export async function getRandomQuote() {
   const response = await getRandomQuoteApi({
@@ -20,6 +14,6 @@ export async function getRandomQuote() {
     return null;
   }
 
-  const { data } = response.data as TApiDataReponse_TQuote_Array_;
-  return data;
+  const { data } = response.data as TApiDataReponse_Quote_Array_;
+  return data.map(convertQuote);
 }

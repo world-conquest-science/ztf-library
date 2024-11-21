@@ -1,16 +1,11 @@
-import {
-  TGetAllBooksInput,
-  TGetBooksByCategoryInput,
-  TGetBookBySlugInput,
-  TGetRelatedBooksInput,
-} from "@ztf-library/types";
+import { TGetAllBooksInput, TGetBookBySlugInput } from "@ztf-library/types";
 import client, {
   getBookBySlug,
-  TApiDataReponse_TBook_,
+  TApiDataReponse_Product_,
   getBooks,
-  getBooksByCategory as getBooksByCategoryApi,
-  TApiPaginatedReponse_TBook_Array_,
+  TApiPaginatedReponse_Product_Array_,
 } from "./clients";
+import { convertProductToBook } from "./converters/product";
 
 export async function getAllBooks({ limit, offset }: TGetAllBooksInput) {
   const response = await getBooks({
@@ -22,20 +17,12 @@ export async function getAllBooks({ limit, offset }: TGetAllBooksInput) {
     return null;
   }
 
-  return response.data as TApiPaginatedReponse_TBook_Array_;
+  const paginatedData = response.data as TApiPaginatedReponse_Product_Array_;
+  return {
+    ...paginatedData,
+    data: paginatedData.data.map(convertProductToBook),
+  };
 }
-
-export const getBooksByCategory = ({
-  category_id,
-  limit,
-  offset,
-}: TGetBooksByCategoryInput) => {
-  return getBooksByCategoryApi({
-    client,
-    path: { category_id },
-    query: { limit, offset },
-  });
-};
 
 export async function getBook({ slug }: TGetBookBySlugInput) {
   const response = await getBookBySlug({
@@ -47,14 +34,6 @@ export async function getBook({ slug }: TGetBookBySlugInput) {
     return null;
   }
 
-  const { data } = response.data as TApiDataReponse_TBook_;
-  return data;
+  const { data } = response.data as TApiDataReponse_Product_;
+  return convertProductToBook(data);
 }
-
-export const getRelatedBooks = ({ category_id }: TGetRelatedBooksInput) => {
-  return getBooksByCategoryApi({
-    client,
-    path: { category_id },
-    query: { limit: 20, offset: 0 },
-  });
-};

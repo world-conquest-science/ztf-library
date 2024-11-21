@@ -1,7 +1,7 @@
 import client from "./clients";
 import { getCustomersMe, postCustomers } from "./clients";
 import { TAddress, TCustomerCreationInput } from "@ztf-library/types";
-import { toCustomer } from "./converters/customer";
+import { convertCustomer } from "./converters/customer";
 
 export const create = ({
   first_name,
@@ -21,7 +21,7 @@ export const get_me = async () => {
     return null;
   }
 
-  return toCustomer(response.data.customer);
+  return convertCustomer(response.data.customer);
 };
 
 export function add_address(address: TAddress): void {}

@@ -1,0 +1,10 @@
+{
+  "name": "@ztf-library/medusa-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "types/remote-query-entry-points.d.ts",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

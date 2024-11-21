@@ -1,10 +1,9 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertProductToBook } from '../../../library/converters/product'
 import { Route, Get, Query, Response } from 'tsoa'
-import { TBook } from '@ztf-library/types'
 import { TApiPaginatedReponse } from '../../../library/types'
 import { shuffleArray } from '../../../library/helpers'
+import { Product } from '../../../../.medusa/types/remote-query-entry-points'
 
 @Route('/store/books')
 class OpenApiSchema {
@@ -12,7 +11,7 @@ class OpenApiSchema {
    * Get books, paginated using optional limit and offset
    */
   @Get('/')
-  @Response<TApiPaginatedReponse<TBook[]>>('200')
+  @Response<TApiPaginatedReponse<Product[]>>('200')
   getBooks(@Query() limit?: number, @Query() offset?: number) {}
 }
 
@@ -52,7 +51,7 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
   })
 
   res.json({
-    data: shuffleArray(products.map(convertProductToBook)),
+    data: shuffleArray(products),
     count: products.length,
     limit,
     offset,

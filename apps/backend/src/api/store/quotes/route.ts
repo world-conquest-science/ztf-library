@@ -1,9 +1,8 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertQuote } from '../../../library/converters/quote'
 import { Get, Response, Route } from 'tsoa'
 import { TApiDataReponse } from '../../../library/types'
-import { TQuote } from '@ztf-library/types'
+import { Quote } from '../../../../.medusa/types/remote-query-entry-points'
 
 @Route('/store/quotes')
 class OpenApiSchema {
@@ -11,7 +10,7 @@ class OpenApiSchema {
    * Get all the quotes
    */
   @Get('/')
-  @Response<TApiDataReponse<TQuote[]>>('200')
+  @Response<TApiDataReponse<Quote[]>>('200')
   getQuotes() {}
 }
 
@@ -37,7 +36,5 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
-  res.json({
-    data: quotes.map(convertQuote),
-  })
+  res.json({ data: quotes })
 }

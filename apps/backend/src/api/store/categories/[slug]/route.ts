@@ -1,9 +1,8 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertCategory } from '../../../../library/converters/category'
 import { Get, Path, Response, Route } from 'tsoa'
-import { TCategory } from '@ztf-library/types'
 import { TApiDataReponse } from '../../../../library/types'
+import { ProductCategory } from '../../../../../.medusa/types/remote-query-entry-points'
 
 @Route('/store/categories')
 class OpenApiSchema {
@@ -11,7 +10,7 @@ class OpenApiSchema {
    * Get a category by its slug
    */
   @Get('/{slug}')
-  @Response<TApiDataReponse<TCategory>>('200')
+  @Response<TApiDataReponse<ProductCategory>>('200')
   getCategoryBySlug(@Path() slug: string) {}
 }
 
@@ -49,7 +48,5 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
-  res.json({
-    data: convertCategory(category),
-  })
+  res.json({ data: category })
 }

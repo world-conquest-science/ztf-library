@@ -1,9 +1,8 @@
 import { MedusaRequest, MedusaResponse } from '@medusajs/framework'
 import { ContainerRegistrationKeys } from '@medusajs/framework/utils'
-import { convertCategory } from '../../../library/converters/category'
 import { Get, Query, Response, Route } from 'tsoa'
 import { TApiDataReponse } from '../../../library/types'
-import { TCategory } from '@ztf-library/types'
+import { ProductCategory } from '../../../../.medusa/types/remote-query-entry-points'
 
 const productFields = [
   'products.book.*',
@@ -29,7 +28,7 @@ class OpenApiSchema {
    * Get all the categories
    */
   @Get('/')
-  @Response<TApiDataReponse<TCategory[]>>('200')
+  @Response<TApiDataReponse<ProductCategory[]>>('200')
   getCategories(@Query() includeProducts?: boolean) {}
 }
 
@@ -54,9 +53,5 @@ export const GET = async (req: MedusaRequest, res: MedusaResponse) => {
     },
   })
 
-  res.json({
-    data: categories
-      .map(convertCategory)
-      .filter(category => category.books && category.books.length),
-  })
+  res.json({ data: categories })
 }

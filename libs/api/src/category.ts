@@ -1,10 +1,11 @@
 import { TGetCategoriesInput } from "@ztf-library/types";
 import client, {
   getCategories,
+  TApiDataReponse_ProductCategory_Array_,
   getCategoryBySlug as getCategoryBySlugFromApi,
-  TApiDataReponse_TCategory_,
-  TApiDataReponse_TCategory_Array_,
+  TApiDataReponse_ProductCategory_,
 } from "./clients";
+import { convertCategory } from "./converters/category";
 
 export async function getAllCategories({
   includeProducts,
@@ -18,8 +19,8 @@ export async function getAllCategories({
     return null;
   }
 
-  const { data } = response.data as TApiDataReponse_TCategory_Array_;
-  return data;
+  const { data } = response.data as TApiDataReponse_ProductCategory_Array_;
+  return data.map(convertCategory);
 }
 
 export async function getCategoryBySlug(slug: string) {
@@ -32,6 +33,6 @@ export async function getCategoryBySlug(slug: string) {
     return null;
   }
 
-  const { data } = response.data as TApiDataReponse_TCategory_;
-  return data;
+  const { data } = response.data as TApiDataReponse_ProductCategory_;
+  return convertCategory(data);
 }

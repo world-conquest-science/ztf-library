@@ -1,7 +1,6 @@
-import { StoreCustomer } from "../clients";
 import { TCustomer } from "@ztf-library/types";
 
-export const toCustomer = (c: StoreCustomer): TCustomer => {
+export const convertCustomer = (c: any): TCustomer => {
   return {
     id: c.id,
     first_name: c.first_name,

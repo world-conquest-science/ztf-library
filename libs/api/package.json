@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@hey-api/client-fetch": "^0.4.2",
-    "@ztf-library/types": "workspace:^"
+    "@ztf-library/types": "workspace:^",
+    "@ztf-library/medusa-types": "workspace:^"
   }
 }

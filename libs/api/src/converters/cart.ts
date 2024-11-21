@@ -1,7 +1,7 @@
 import { StoreCart } from "../clients";
 import { TCart } from "@ztf-library/types";
 
-export const toCart = (c: StoreCart): TCart => {
+export const convertCart = (c: StoreCart): TCart => {
   return {
     id: c.id,
     items: [],
