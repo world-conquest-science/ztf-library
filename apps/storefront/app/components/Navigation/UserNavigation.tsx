@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Routes } from '@/app/config/routes'
 import { NavigationItem } from '@/app/components/Navigation/components/NavigationItem'
@@ -9,9 +11,12 @@ import {
 } from 'hugeicons-react'
 import { useTranslations } from 'next-intl'
 import { MobileNavigation } from './MobileNavigation'
+import { useCart } from '@/app/hooks/cart'
 
 export const UserNavigation = () => {
   const t = useTranslations('Header.UserNavigation')
+
+  const [cart] = useCart()
 
   const routes = [
     {
@@ -26,7 +31,7 @@ export const UserNavigation = () => {
     },
     {
       href: Routes.Cart,
-      label: t('cart'),
+      label: `${t('cart')} (${cart?.items?.length})`,
       Icon: <ShoppingBasket01Icon size={18} />,
     },
   ]

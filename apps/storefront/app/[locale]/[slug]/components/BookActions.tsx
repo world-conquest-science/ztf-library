@@ -32,13 +32,12 @@ export const BookActions = ({ book }: IBookActions) => {
       return
     }
 
-    console.log({ cart })
     setCart(cart)
     setIsAdding(false)
   }
 
-  const isInCart = cart.items.find(
-    product => product.item.variant_id === selectedFormat?.variant_id,
+  const isInCart = cart?.items?.find(
+    line => line.variant_id === selectedFormat?.variant_id,
   )
 
   return (

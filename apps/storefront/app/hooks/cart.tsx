@@ -1,13 +1,9 @@
 'use client'
 
-import { TCart } from '@ztf-library/types'
+import { StoreCart } from '@ztf-library/api/src/clients'
 import React, { createContext, useState } from 'react'
 
-const initialCartState: TCart = {
-  items: [],
-}
-
-const useCartState = () => useState<TCart>(initialCartState)
+const useCartState = () => useState<StoreCart>()
 
 export const CartContext = createContext<ReturnType<
   typeof useCartState

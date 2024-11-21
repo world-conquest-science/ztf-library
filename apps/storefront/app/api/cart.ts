@@ -38,12 +38,12 @@ export async function addToCart(cartId: string, variantId: string) {
 
 export async function updateInCart(
   cartId: string,
-  variantId: string,
+  cartLineId: string,
   quantity: number,
 ) {
   const cart = await api
     .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .cart.updateQuantityInCart(cartId, variantId, quantity)
+    .cart.updateQuantityInCart(cartId, cartLineId, quantity)
 
   if (!cart) {
     return
@@ -52,10 +52,10 @@ export async function updateInCart(
   return cart
 }
 
-export async function removeFromCart(cartId: string, variantId: string) {
+export async function removeFromCart(cartId: string, cartLineId: string) {
   const cart = await api
     .with(process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY)
-    .cart.removeFromCart(cartId, variantId)
+    .cart.removeFromCart(cartId, cartLineId)
 
   if (!cart) {
     return
