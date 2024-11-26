@@ -11,7 +11,7 @@ import { Routes } from '@/app/config/routes'
 import { useTranslations } from 'next-intl'
 import { useMutation } from '@tanstack/react-query'
 
-export default async function SignUpPage() {
+export default function SignUpPage() {
   const trans = useTranslations('Authentication')
   const gTrans = useTranslations('Global')
 

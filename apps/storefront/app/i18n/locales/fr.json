@@ -1,5 +1,7 @@
 {
   "Global": {
+    "en": "English",
+    "fr": "French",
     "order-now": "Order this book",
     "by": "by",
     "from": "from",
@@ -170,6 +172,7 @@
     "back-to-homepage": "Back to shopping",
     "headline": "Find here the right christian book for your spiritual growth.",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima expedita ex delectus.",
+    "switch-language": "Switch to French",
     "ResetPassword": {
       "title": "Set new password",
       "description": "Create a strong new password to protect your account.",
@@ -222,7 +225,7 @@
       "description": "Sign up now and get some amazing books!",
       "register-using": "Register using",
       "continue-using-email-password": "or continue with email and password",
-      "terms-conditions-acceptance": "By clicking on &quot;Create account&quot; I aggree to the <a href='' className='text-primary-600 underline'>terms and conditions</a> that I read.",
+      "terms-conditions-acceptance": "By clicking on \"Create account\", I aggree to the <terms>terms and conditions</terms> that I read.",
       "cta": "Create account",
       "existing-account-prefix": "Already have an account?",
       "existing-account-signin": "Sign In here"
