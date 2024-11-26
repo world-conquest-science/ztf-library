@@ -1,0 +1,16 @@
+StoreRoutes
+    - Books (custom) ✅
+    - Categories (custom) ✅
+    - Quotes (custom) ✅
+    - Authors (custom) ✅
+    - Language (custom) ✅
+    - Book Formats (custom) ✅
+    - Cart (Medusa) ✅
+    - Customer (Medusa) ✅
+    - Authentication (Medusa) ✅
+    - Currencies (Medusa) ✅
+    - Regions (Medusa) ✅
+    - Orders (Medusa)
+    - Shipping (Medusa)
+    - Payment Providers (Medusa)
+    - Payment Collection (Medusa)
