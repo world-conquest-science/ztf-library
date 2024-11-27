@@ -44,7 +44,11 @@ export const signup = ({
       reject(response.error);
     }
 
-    resolve(response.data?.token!);
+    // With token, set auth header and create a session
+    const { token } = response.data as AuthResponse;
+    setAuthorizationToken(token);
+
+    resolve(token);
   });
 };
 
