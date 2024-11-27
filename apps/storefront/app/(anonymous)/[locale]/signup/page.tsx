@@ -9,22 +9,35 @@ import { SignupFormSchema, TSignupFormSchema } from './forms/signup.schema'
 import { withZodSchema } from 'formik-validator-zod'
 import { Routes } from '@/app/config/routes'
 import { useTranslations } from 'next-intl'
-import { useMutation } from '@tanstack/react-query'
+import { signup } from './actions'
 
 export default function SignUpPage() {
   const trans = useTranslations('Authentication')
   const gTrans = useTranslations('Global')
 
-  const formik = useFormik<TSignupFormSchema>({
-    validateOnBlur: true,
-    initialValues: {
-      full_name: '',
-      email: '',
-      password: '',
-    },
-    onSubmit: async ({ email, password, full_name }, { setSubmitting }) => {},
-    validate: withZodSchema(SignupFormSchema),
-  })
+  const { isSubmitting, handleSubmit, getFieldProps, errors } =
+    useFormik<TSignupFormSchema>({
+      validateOnBlur: true,
+      initialValues: {
+        full_name: '',
+        email: '',
+        password: '',
+      },
+      onSubmit: async (
+        { email, password, full_name },
+        { setSubmitting, setErrors },
+      ) => {
+        setSubmitting(true)
+        const { error } = await signup(email, password, full_name)
+
+        if (error) {
+          setErrors({ email: error.message })
+        }
+
+        setSubmitting(false)
+      },
+      validate: withZodSchema(SignupFormSchema),
+    })
 
   return (
     <>
@@ -81,7 +94,7 @@ export default function SignUpPage() {
       {/* Email and password */}
       <form
         className="my-3 flex flex-col gap-5 sm:gap-7"
-        onSubmit={formik.handleSubmit}
+        onSubmit={handleSubmit}
       >
         <p className="text-sm text-gray-600 sm:text-xl">
           {trans('SignUp.continue-using-email-password')}
@@ -96,9 +109,12 @@ export default function SignUpPage() {
               id="full_name"
               type="text"
               className="block w-full rounded-lg border-none p-3 text-base outline-none ring-1 ring-gray-200 sm:p-4 sm:text-lg"
-              disabled={formik.isSubmitting}
-              {...formik.getFieldProps('full_name')}
+              disabled={isSubmitting}
+              {...getFieldProps('full_name')}
             />
+            {errors.full_name && (
+              <p className="py-1 text-sm text-red-600">{errors.full_name}</p>
+            )}
           </div>
         </div>
         <div className="w-full">
@@ -111,9 +127,12 @@ export default function SignUpPage() {
               placeholder=""
               id="email"
               type="email"
-              disabled={formik.isSubmitting}
-              {...formik.getFieldProps('email')}
+              disabled={isSubmitting}
+              {...getFieldProps('email')}
             />
+            {errors.email && (
+              <p className="py-1 text-sm text-red-600">{errors.email}</p>
+            )}
           </div>
         </div>
         <div className="w-full">
@@ -126,9 +145,12 @@ export default function SignUpPage() {
               placeholder=""
               type="password"
               id="password"
-              disabled={formik.isSubmitting}
-              {...formik.getFieldProps('password')}
+              disabled={isSubmitting}
+              {...getFieldProps('password')}
             />
+            {errors.password && (
+              <p className="py-1 text-sm text-red-600">{errors.password}</p>
+            )}
           </div>
         </div>
         <div className="w-full">
@@ -143,7 +165,7 @@ export default function SignUpPage() {
           </p>
         </div>
         <button
-          disabled={formik.isSubmitting}
+          disabled={isSubmitting}
           type="submit"
           className="mt-2 flex w-full justify-center rounded-full bg-primary-700 py-3 text-base font-bold text-white sm:py-5 sm:text-lg"
         >

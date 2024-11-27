@@ -1,18 +1,26 @@
-import client from "./clients";
+import client, { StoreCustomerResponse } from "./clients";
 import { getCustomersMe, postCustomers } from "./clients";
 import { TAddress, TCustomerCreationInput } from "@ztf-library/types";
 import { convertCustomer } from "./converters/customer";
+import CustomerAdapter from "./adapters/customer";
 
-export const create = ({
+export async function create({
   first_name,
   last_name,
   email,
-}: TCustomerCreationInput) => {
-  return postCustomers({
+}: TCustomerCreationInput) {
+  const response = await postCustomers({
     client,
     body: { email, first_name, last_name },
   });
-};
+
+  if (!response || response.error) {
+    return null;
+  }
+
+  const { customer } = response.data as StoreCustomerResponse;
+  return new CustomerAdapter(customer);
+}
 
 export const get_me = async () => {
   const response = await getCustomersMe({ client });
